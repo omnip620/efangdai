@@ -1,0 +1,153 @@
+﻿@{
+    ViewBag.Title = "添加问题";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+@section headCss{
+
+    <link href="/Content/admin/ueditor/themes/default/css/ueditor.css" rel="stylesheet" />
+    <link href="/Content/admin/ueditor/third-party/codemirror/codemirror.css" rel="stylesheet" />
+    <script type="text/javascript" charset="utf-8">
+        window.UEDITOR_HOME_URL = "/content/admin/ueditor/";
+    </script>
+}
+
+@section pageTitle
+{
+    问题管理				<small>添加问题</small>
+}
+
+@section breadNav
+{
+    <li>
+        <i class="fa fa-home"></i>
+        <a href="index">首页</a>
+        <i class="fa fa-angle-right"></i>
+    </li>
+    <li>
+        <a href="/admin/news">问题列表</a>
+        <i class="fa fa-angle-right"></i>
+    </li>
+    <li><a href="#">添加问题</a></li>
+}
+<div class="row">
+    <div class="col-md-12">
+        <div class="portlet">
+            <div class="portlet-title">
+                <div class="caption"><i class="fa fa-reorder"></i>添加问题</div>
+                <div class="tools">
+                    <a href="javascript:;" class="collapse"></a>
+
+                    <a href="javascript:;" class="reload"></a>
+                    <a href="javascript:;" class="remove"></a>
+                </div>
+            </div>
+
+            <div class="portlet-body form">
+                <form role="form" action="/admin/Editq" method="post" id="form_sample_1">
+                    <div class="form-body ">
+                        <div class="row">
+                            <div class="col-md-9">
+                                <div class="form-group">
+                                    <label for="inputTitle">问题标题 </label>
+                                    <input type="text" class="form-control" id="inputTitle" name="inputTitle" placeholder="输入标题" value="" />
+                                </div>
+                                <div class="form-group">
+                                    <label>内容</label>
+                                    <textarea name="newsContent" id="myEditor"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn blue">提交</button>
+                        <button type="button" class="btn default">取消</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+@section footerJS
+{<script src="/Content/admin/ueditor/ueditor.config.js"></script>
+    <script src="/Content/admin/ueditor/ueditor.all.js"></script>
+    <script src="/Content/admin/js/app.js"></script>
+    <script src="/Content/admin/js/jquery.validate.min.js"></script>
+    <script type="text/javascript">
+        jQuery(document).ready(function () {
+            App.init();
+
+            // for more info visit the official plugin documentation: 
+            // http://docs.jquery.com/Plugins/Validation
+
+            var form1 = $('#form_sample_1');
+            //var error1 = $('.alert-danger', form1);
+            //var success1 = $('.alert-success', form1);
+
+            form1.validate({
+                errorElement: 'span', //default input error message container
+                errorClass: 'help-block', // default input error message class
+                focusInvalid: false, // do not focus the last invalid input
+                ignore: "",
+                rules: {
+                    inputTitle: {
+                        minlength: 2,
+                        required: true
+                    },
+                    newsContent: {
+                        required: true
+
+                    }
+                },
+                messages: {
+
+                    inputTitle: {
+                        required: "请输入新闻标题",
+
+                    },
+                    newsContent: {
+                        required: "请输入文章内容",
+
+                    }
+                },
+
+
+                invalidHandler: function (event, validator) { //display error alert on form submit              
+                    success1.hide();
+                    error1.show();
+                    App.scrollTo(error1, -200);
+                },
+
+                highlight: function (element) { // hightlight error inputs
+                    $(element)
+                        .closest('.form-group').addClass('has-error'); // set error class to the control group
+                },
+
+                unhighlight: function (element) { // revert the change done by hightlight
+                    $(element)
+                        .closest('.form-group').removeClass('has-error'); // set error class to the control group
+                },
+
+                success: function (label) {
+                    label
+                        .closest('.form-group').removeClass('has-error'); // set success class to the control group
+                }
+
+                //submitHandler: function (form) {
+                //    success1.show();
+                //    error1.hide();
+                //}
+            });
+
+
+
+
+
+
+
+        });
+        UE.getEditor("myEditor", { initialFrameHeight: 320, initialFrameWidth: "100%" });
+    </script>
+}

@@ -1,0 +1,34 @@
+﻿@{
+	Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+	<title>GetNewsList</title>
+	<script src="/Content/admin/js/jquery-1.10.1.min.js"></script>
+</head>
+<body>
+	<script type="text/javascript">
+	    function getData() {
+	        $("#data").val("");
+	        jQuery.post('/TestJson.html', {}, function (data) {//data为后台传输过来的数据 
+	            alert("11");
+	            var obj = JSON.parse(data); //将后传输的数据转换为Json格式 
+	            $("#data").html("");
+	            $.each(obj.Tables, function (index, table) {//遍历数据集表格，输出数据集的内容 
+	                //根据不同的表名，显示不同的字段。得到特定表，table = obj.Tables[0] 
+	                var tableName = table.Name;
+	                $.each(table.Rows, function (index, row) {//遍历数据集表格中的行 
+	                    $("#data").html($("#data").html() + row.SID + row.SName + row.SAge + row.SClass + row.SSex + row.SGrade + "</br>"); //每行的每一个列的内容 在这里我们用row.colname来获取每一行每一列的内容 
+	                });
+	            });
+	        })
+	    }
+</script> 
+	
+</body>
+	
+		 
+</html>

@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<siteMap>
+  <siteMapNode url="/" title="首页"  description="首页">        
+  </siteMapNode>
+  
+  <siteMapNode url="/jikedai.html" title="我要贷款"  description="我要贷款">
+  </siteMapNode>
+  
+  <siteMapNode url="/zhiyingbao.html" title="我要理财"  description="我要理财">
+  </siteMapNode>
+  
+  <siteMapNode url="/safe.html" title="安全保障"  description="安全保障">
+  </siteMapNode>
+  
+  <siteMapNode url="/news.html" title="易房咨询"  description="易房咨询">
+    <siteMapNode url="/news_list/行业资讯_1.html" title="行业资讯"  description="行业资讯">      
+    </siteMapNode>
+    <siteMapNode url="/news_list/易房动态_1.html" title="易房动态"  description="易房动态">
+    </siteMapNode>
+    <siteMapNode url="/news_list/宏观经济解读_1.html" title="宏观经济解读"  description="宏观经济解读">
+    </siteMapNode>
+    <siteMapNode url="/news_list/管理新视野_1.html" title="管理新视野"  description="管理新视野">
+    </siteMapNode>
+  </siteMapNode>
+
+  <siteMapNode url="/partner.html" title="机构合作"  description="机构合作">
+  </siteMapNode>
+
+  <siteMapNode url="/aboutus.html" title="关于我们"  description="关于我们">
+  </siteMapNode>
+  
+  <siteMapNode url="/helps.html" title="帮助中心"  description="帮助中心">
+    <siteMapNode url="/questions.html" title="问题列表"  description="问题列表">
+    </siteMapNode>
+  </siteMapNode>
+
+  <siteMapNode url="/feedback.html" title="在线留言"  description="在线留言">
+  </siteMapNode>
+</siteMap>

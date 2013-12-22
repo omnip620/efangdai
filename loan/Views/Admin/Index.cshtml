@@ -1,0 +1,83 @@
+﻿@{
+	ViewBag.Title = "Index";
+	Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+@section headCss{
+
+	<link href="/Content/admin/pages/index.css" rel="stylesheet" />
+}
+@section pageTitle
+{
+	总览					<small>统计信息及其他</small>
+}
+@section breadNav
+{
+	<li>
+		<i class="fa fa-home"></i>
+		<a href="index.html">首页</a>
+		<i class="fa fa-angle-right"></i>
+	</li>
+	<li><a href="/">总览</a></li>
+}
+
+
+<div class="row">
+	<div class="col-md-12">
+		<h1>你好,世界（管理员）,欢迎来到管理中心.</h1>
+	</div>
+	<span class="text-info col-md-4">本次登陆IP：</span>
+	<span class="text-info col-md-4">上次登陆IP：</span>
+	<span class="text-info col-md-4">上次登陆时间：</span>
+</div>
+<div class="row">
+	<div class="col-md-12">
+		<div class="portlet box blue">
+			<div class="portlet-title">
+				<div class="caption">
+					<i class="fa fa-reorder"></i>
+					站点信息
+				</div>
+				<div class="tools">
+					<a href="javascript:;" class="collapse"></a><a href="javascript:;" class="reload"></a><a href="javascript:;" class="remove"></a>
+
+
+				</div>
+
+			</div>
+			<div class="portlet-body">
+				<div class="row site-info">
+					<span class="col-md-4">站点名称: </span>
+					<span class="col-md-4">公司名称: </span>
+					<span class="col-md-4">网站域名: </span>
+
+					<span class="col-md-4">网站管理目录: </span>
+					<span class="col-md-4">服务器名称: </span>
+					<span class="col-md-4">服务器IP: </span>
+
+					<span class="col-md-4">.NET框架版本: </span>
+					<span class="col-md-4">操作系统: </span>
+					<span class="col-md-4">IIS环境: </span>
+
+					<span class="col-md-4">服务器端口: </span>
+					<span class="col-md-4">系统版本: </span>
+					<span class="col-md-4">物理路径: </span>
+				</div>
+			</div>
+		</div>
+
+	</div>
+</div>
+
+
+
+@section footerJS
+{
+	<script src="/Content/admin/js/app.js"></script>
+	<script src="/Content/admin/js/index.js"></script>
+	<script type="text/javascript">
+		$(function () {
+			App.init();
+			Index.init();
+		})
+	</script>
+}

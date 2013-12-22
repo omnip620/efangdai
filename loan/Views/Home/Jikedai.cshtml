@@ -1,0 +1,146 @@
+﻿@{
+
+}
+@section Head{
+
+
+	<script src="/Scripts/cgvalidator.js" type="text/javascript"></script>
+}
+
+<link href="/Content/onejikedai.css" rel="stylesheet" />
+<div id="wrapper">
+
+	<div id="banner" class="slidebox">
+
+		<img src="/Content/images/banner1.jpg" alt="即刻贷-房贷抵押贷款，月综合费低至1.67%" />
+	</div>
+    <div class="bread_crumbs"  style=" display:none;"><a href="http://www.efdai.com">易房贷</a>><a href="http://www.efdai.com">主页</a>><a href="http://www.efdai.com/jikedai.html">我要贷款</a></div>
+	<div id="info">
+		<img src="/Content/images/intro.jpg" alt="上海房产抵押贷款利息低，审批快，放款快" />
+	</div>
+	<div id="main">
+		<div class="left fl">
+			
+			<div class="rows rows1">
+				<h2 class="onetitle">申请条件</h2>
+				<div class="procc">
+					<img src="/Content/images/main_pic.jpg" alt="上海抵押贷款申请条件门槛低" /></div>
+			</div>
+			<div class="rows rows2">
+				<h2 class="onetitle">办理流程</h2>
+				<div class="procc">
+					<img src="/Content/images/main_pic1.jpg" alt="房屋抵押贷款办理电话400 8855 836" /></div>
+			</div>
+            <div class="rows rows1">
+				<h2 class="onetitle">平台原理</h2>
+				<div class="procc">
+					<img src="/Content/images/yunli.png" alt="上海抵押贷款申请条件门槛低" /></div>
+			</div>
+		</div>
+		<div class="right fr">
+			<div class="form_wrap">
+				<div id="gt1"></div>
+				<div class="f_top"></div>
+				<div class="f_main">
+					<form id="cgstateform" action="/CreditApply.html" method="post">
+						<input type="hidden" name="action" value="jikedai">
+						<ul>
+							<li>
+								<label>您的称谓：<em>*</em></label>
+								<div class="input">
+									<input class="textbox" type="text" name="chengwei" required="required" validtype="chinese" data-message="请填写您的称谓(汉字)!" id="chengwei">
+								</div>
+							</li>
+							<li>
+								<label>&nbsp;</label>
+								<div class="input">
+									<input type="radio" name="gender" checked="checked" value="先生"><span>先生</span>&nbsp;&nbsp;&nbsp;
+								  <input type="radio" name="gender" value="女士"><span>女士</span>
+								</div>
+							</li>
+							<li>
+								<label>手机号码：<em>*</em></label>
+								<div class="input">
+									<input class="textbox" type="text" name="shouji" validtype="mobile" required="required" data-message="请正确填写手机号码!" id="shouji"></div>
+							</li>
+							<li>
+								<label>贷款金额：<em>*</em></label>
+								<div class="input textinbox">
+									<input class="textbox" type="text" name="amount" id="amount" required="required" datatype="Range" min="1" max="10000"><span class="info"> &nbsp;万元</span></div>
+							</li>
+							<li>
+								<label>贷款期限：<em>*</em></label>
+								<div class="input">
+									<select name="qixian" id="qixian" class="textbox" required="required" data-message="请填写期限!">
+										<option selected="selected" value="">请选择</option>
+										<option value="3个月">1个月</option>
+										<option value="3个月">2个月</option>
+										<option value="3个月">3个月</option>
+										<option value="6个月">6个月</option>
+										<option value="12个月">12个月</option>
+										<option value="12个月">12个月以上</option>
+									</select>
+								</div>
+							</li>
+							<li>
+								<label>抵 押 物：<em>*</em></label>
+								<div class="input radio" style="padding-top: 5px;">
+									<input type="radio" name="diyawu" value="住宅" required="required" data-message="请选择抵押物!"><span>住宅</span>
+									<input type="radio" name="diyawu" value="汽车" required="required" data-message="请选择抵押物!"><span>汽车</span><br />
+									<input type="radio" name="diyawu" value="商铺" required="required" data-message="请选择抵押物!"><span>商铺</span>
+									<input type="radio" name="diyawu" value="办公楼" required="required" data-message="请选择抵押物!"><span>办公楼</span>
+								</div>
+							</li>
+							<li>
+								<div class="input radio" style="margin-left: 50px; padding: 5px 0;">
+									<input name="accept" type="checkbox" class="checkbox" id="accept" value="1" checked="checked" required="true"><a href="javascript:void(0)" rel="#overlay_term">我已接受隐私条款 </a></div>
+							</li>
+							<li>
+								<div class="input" style="margin-left: 50px;">
+									<input type="hidden" name="fromsite" value="即刻贷单页">
+
+									<button type="submit" id="submit_btn" class="form_btn">提交</button>
+								</div>
+							</li>
+						</ul>
+					</form>
+				</div>
+				<div class="f_foot"></div>
+			</div>
+			<div class="helps">
+				<h3>常见问题</h3>
+				<ul>
+  @{System.Data.DataTable dt1 = ((System.Data.DataTable)ViewData["questions"]);
+							
+							
+							 
+							  
+							}
+
+							@if (dt1.Rows.Count < 1)
+							{
+								<li>无数据</li>
+							}
+							else
+							{
+								for (int i = 0; i < dt1.Rows.Count; i++)
+								{ 
+								<li>
+									@{
+									string t1 = dt1.Rows[i][1].ToString();
+									if (t1.Length > 17)
+									{
+										t1 = t1.Substring(0, 17)+"...";
+									}
+									}
+									<a href="/questions.html#@dt1.Rows[i][0]" title="@t1"> @t1</a>
+								</li>
+
+								}
+							}
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- #wrapper -->

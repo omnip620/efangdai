@@ -1,0 +1,72 @@
+﻿@{
+    ViewBag.Title = "SiteSet";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+
+@section headCss{
+    <link href="/Content/admin/select2_metro.css" rel="stylesheet" />
+    <link href="/Content/admin/DT_bootstrap.css" rel="stylesheet" />
+}
+@section pageTitle
+{
+    设置		<small>站点设置</small>
+}
+@section breadNav
+{
+    <li>
+        <i class="fa fa-home"></i>
+       <a href="index">首页</a>
+        <i class="fa fa-angle-right"></i>
+    </li>
+    <li><a href="#">站点设置</a></li>
+}
+<div class="row">
+    <div class="col-md-12">
+        <div class="portlet">
+            <div class="portlet-title">
+                <div class="caption"><i class="fa fa-reorder"></i>站点设置</div>
+                <div class="tools">
+                    <a href="javascript:;" class="collapse"></a>
+
+                    <a href="javascript:;" class="reload"></a>
+                    <a href="javascript:;" class="remove"></a>
+                </div>
+            </div>
+            <div class="portlet-body form">
+                <form role="form">
+                    <div class="form-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="inputSiteName">网站名称</label>
+                                    <input type="text" class="form-control" id="inputSiteName" placeholder="输入网站名称" />
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="inputICP">ICP备案号</label>
+                                    <input type="text" class="form-control" id="inputICP" placeholder="输入ICP备案号" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                     <div class="form-actions">
+                        <button type="submit" class="btn blue">Submit</button>
+                        <button type="button" class="btn default">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</div>
+@section footerJS
+{
+
+    <script src="/Content/admin/js/app.js"></script>
+    <script type="text/javascript">
+        jQuery(document).ready(function () {
+            App.init();
+        });
+    </script>
+}

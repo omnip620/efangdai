@@ -1,0 +1,137 @@
+﻿
+@section head{
+	<link href="/Content/bootstrap.min.css" rel="stylesheet" />
+	@{Html.RenderPartial("../shared/_css&js");}
+
+
+	<script src="/Scripts/bootstrap.min.js"></script>
+}
+
+<style type="text/css">
+	#footer .weichat { width: 397px; }
+</style>
+<div id="wrapper">
+    <div class="bread_crumbs"  style=" display:none;"><a href="http://www.efdai.com">易房贷</a>><a href="http://www.efdai.com">主页</a>><a href="http://www.efdai.com/helps.html">帮助中心</a></div>
+	<div id="container" class="cgstate">
+		<div id="content">
+			<div id="helps">
+				@{Html.RenderPartial("../shared/_helpleft");}
+				<div class="right">
+					<div class="right_item">
+						<div class="item_top"></div>
+						<div class="h_icon1"></div>
+						<div class="item_box">
+							<h2 class="help_title">热门问题</h2>
+							<ul class="hot_list">
+								@{System.Data.DataTable dt1 = ((System.Data.DataTable)ViewData["question"]);
+								  string h = ".html";
+							
+							 
+							  
+								}
+
+								@if (dt1.Rows.Count < 1)
+								{
+									<li>无数据</li>
+								}
+								else
+								{
+									for (int i = 0; i < dt1.Rows.Count; i++)
+									{ 
+									<li>
+										@{
+										string t1 = dt1.Rows[i][1].ToString();
+										if (t1.Length > 15)
+										{
+											t1 = t1.Substring(0, 15) + "...";
+										}
+										}
+										<a href="/questions.html#@dt1.Rows[i][0]" title="@t1">•@t1</a>
+									</li>
+
+									}
+								}
+							</ul>
+						</div>
+						<div class="item_bottom"></div>
+					</div>
+					<!-- # hot_list -->
+
+					@*<div class="right_item mt20">
+						<div class="item_top"></div>
+						<div class="h_icon2"></div>
+						<div class="item_box">
+							<h2 class="help_title">常见问题</h2>							
+							<ul class="hot_nav">
+												
+									  <li><a href="helpslist.php?cid=1" title="了解易房">了解易房</a></li>
+													
+									  <li><a href="helpslist.php?cid=2" title="我要借款">我要借款</a></li>
+													
+									  <li><a href="helpslist.php?cid=9" title="我要投资">我要投资</a></li>
+													
+									  <li><a href="helpslist.php?cid=17" title=" 名词解释"> 名词解释</a></li>
+													
+									  <li><a href="helpslist.php?cid=18" title="法律常识">法律常识</a></li>
+																	<li><a href="helps_feedback.php">投诉建议</a></li>
+							</ul>
+						</div>
+						<div class="item_bottom"></div>					
+					</div><!-- # hot_nav -->*@
+
+					<div class="right_item mt20">
+						<div class="item_top"></div>
+						<div class="h_icon3"></div>
+						<div class="item_box">
+							<h2 class="help_title">快速引导</h2>
+							<ul class="hot_guide">
+								<li><span>我是借款人：</span>
+									<a href="/jikedai.html" title="申请相关">我要贷款</a>
+									@*| 									  <a href="helpslist.php?cid=2&sid=4" title="办理流程相关">办理流程相关</a>
+									 | 									  <a href="helpslist.php?cid=2&sid=5" title="利率费用相关">利率费用相关</a>
+									 | 									  <a href="helpslist.php?cid=2&sid=6" title="时间相关">时间相关</a>
+									 | 									  <a href="helpslist.php?cid=2&sid=7" title="安全相关">安全相关</a>
+									 | 									  <a href="helpslist.php?cid=2&sid=8" title="法律手续相关">法律手续相关</a>*@
+								</li>
+								<li><span>我是投资人： </span>
+									<a href="/zhiyingbao.html" title="申请相关">我要理财</a>
+									@*| 									  <a href="helpslist.php?cid=9&sid=11" title="办理流程相关">办理流程相关</a>
+									 | 									  <a href="helpslist.php?cid=9&sid=12" title="投资收益相关">投资收益相关</a>
+									 | 									  <a href="helpslist.php?cid=9&sid=13" title=" 时间相关"> 时间相关</a>
+									 | 									  <a href="helpslist.php?cid=9&sid=14" title="安全相关">安全相关</a>
+									 | 									  <a href="helpslist.php?cid=9&sid=15" title="法律手续相关">法律手续相关</a>*@
+								</li>
+								<li><span>法律常识：</span> <a href="/safe.html?seltab=1">保障手续 </a>| <a href="/safe.html?seltab=2">政策法规 </a>| <a href="/safe.html?seltab=3">隐私条款</a></li>
+								<li class="popo"><span>名词解释：</span> <a href="javascript:(0)" data-content="经公证的以给付为内容并载明债务人愿意接受强制执行承诺的债权文书，债务人不履行或者履行不适当的，债权人可以依法向有管辖权的人民法院申请执行。">强制执行公证 </a>| 
+								<a href="javascript:(0)" data-content="是房屋所有人将其房屋以不转移占有的方式抵押给银行或其他人，在办理抵押登记时由登记机构出具的抵押权人享有该抵押房屋抵押权的证明。">抵押权证 </a>| 
+								<a href="javascript:(0)" data-content="余值抵押又称余额抵押，是指抵押人在抵押物的价值大于所担保的债权的情况下就其价值余额部分再设定另一抵押权，即余值再抵，又称为再次抵押或复合抵押。余额抵押与重复抵押为同一物上抵押权竞合的一般表现。">余值抵押 </a>| <a href="javascript:(0)" data-content="指借款人没有在银行的规定时间内还款造成逾期；月还款部分的逾期，银行将以日为单位计算利息">罚息 </a></li>
+
+
+
+							</ul>
+							<script type="text/javascript">
+								$(function () {
+									$('.popo a').popover({
+
+										placement: "top",
+
+
+									});
+
+								})
+
+
+							</script>
+						</div>
+						<div class="item_bottom"></div>
+					</div>
+					<!-- # hot_guide -->
+				</div>
+			</div>
+			<!-- #helps -->
+		</div>
+		<!--#content -->
+	</div>
+	<!-- #container -->
+</div>
+<!--wrapper-->

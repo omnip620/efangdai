@@ -1,0 +1,184 @@
+﻿@{
+   
+}
+@section head{
+
+    @{Html.RenderPartial("../shared/_css&js");}
+}
+<!-- sub banner -->
+<div class="sub_shadow"></div>
+<div id="wrapper">
+     <div class="bread_crumbs" style=" display:none;"><a href="http://www.efdai.com">易房贷</a>><a href="http://www.efdai.com">主页</a>><a href="http://www.efdai.com/news.html">易房咨询</a></div>
+    <!-- #header -->
+    <div id="container" class="cgstate">
+        <div id="sub_header_nav">
+            <h2 class="fl">易房资讯</h2>
+            <ul class="fr">
+                <li><a href="/news_list/行业资讯_1.html" title="行业资讯">行业资讯 </a></li>
+                <li><a href="/news_list/易房动态_1.html" title="易房动态">易房动态 </a></li>
+                <li><a href="/news_list/宏观经济解读_1.html" title="宏观经济解读">宏观经济解读 </a></li>
+                <li><a href="/news_list/管理新视野_1.html" title="管理新视野">管理新视野 </a></li>
+            </ul>
+        </div>
+        <!--#sub_header_nav -->
+        <div id="content">
+            <div id="news_box">
+
+                <div class="column radius_box mr20">
+                    <div class="news_list fl">
+                        <h2>行业资讯</h2>
+                        <ul>
+                            @{System.Data.DataTable dt1 = ((System.Data.DataTable)ViewData["hyzx"]);
+                              string h = ".html";
+                            
+                             
+                              
+                            }
+
+                            @if (dt1.Rows.Count < 1)
+                            {
+                                <li>无数据</li>
+                            }
+                            else
+                            {
+                                for (int i = 0; i < dt1.Rows.Count; i++)
+                                { 
+                                <li>
+                                    @{
+                                    string t1 = dt1.Rows[i][1].ToString();
+                                    if (t1.Length > 20)
+                                    {
+                                        t1 = t1.Substring(0, 20);
+                                    }
+                                    }
+                                    <a href="/news/@dt1.Rows[i][0].ToString()@h" title="@t1">@t1</a>
+                                </li>
+
+                                }
+                            }
+
+
+                        </ul>
+                    </div>
+                    <div class="news_pic fr">
+                        <p>
+                            <img src="/Content/images/news_1.jpg" alt="易房专注于房产抵押贷款" />
+                        </p>
+                        <p class="mt30"><a href="/news_list/行业资讯_1.html" class="news_more" title="行业资讯">查看更多</a></p>
+                    </div>
+                </div>
+                <div class="column radius_box">
+                    <div class="news_list fl">
+                        <h2>易房动态</h2>
+                        <ul>
+                            @{System.Data.DataTable dt2 = ((System.Data.DataTable)ViewData["yfdt"]);}
+
+                            @if (dt2.Rows.Count < 1)
+                            {
+                                <li>无数据</li>
+                            }
+                            else
+                            {
+                                for (int i = 0; i < dt2.Rows.Count; i++)
+                                { 
+                                <li>@{
+                                    string t2 = dt2.Rows[i][1].ToString();
+                                    if (t2.Length > 20)
+                                    {
+                                        t2 = t2.Substring(0, 20);
+                                    }
+                                }
+
+                                    <a href="/news/@dt2.Rows[i][0].ToString()@h" title="@t2">@t2</a>
+                                </li>
+
+                                }
+                            }
+                        </ul>
+                    </div>
+                    <div class="news_pic fr">
+                        <p>
+                            <img src="/Content/images/news_2.jpg" alt="易房提供保本投资理财服务" />
+                        </p>
+                        <p class="mt30"><a href="/news_list/易房动态_1.html" class="news_more" title="易房动态">查看更多</a></p>
+                    </div>
+                </div>
+                <div class="column radius_box mr20">
+                    <div class="news_list fl">
+                        <h2>宏观经济解读</h2>
+                        <ul>
+                            @{System.Data.DataTable dt3 = ((System.Data.DataTable)ViewData["hgjd"]);}
+
+                            @if (dt3.Rows.Count < 1)
+                            {
+                                <li>无数据</li>
+                            }
+                            else
+                            {
+                                for (int i = 0; i < dt3.Rows.Count; i++)
+                                { 
+                                <li>
+                                    @{
+                                    string t3 = dt3.Rows[i][1].ToString();
+                                    if (t3.Length > 20)
+                                    {
+                                        t3 = t3.Substring(0, 20);
+                                    }
+                                    }
+                                    <a href="/news/@dt3.Rows[i][0].ToString()@h" title="@t3">@t3</a>
+                                </li>
+
+                                }
+                            }
+                        </ul>
+                    </div>
+                    <div class="news_pic fr">
+                        <p>
+                            <img src="/Content/images/news_3.jpg" alt="易房提供上海个人小额贷款" />
+                        </p>
+                        <p class="mt30"><a href="/news_list/宏观经济解读_1.html" class="news_more" title="宏观经济解读">查看更多</a></p>
+                    </div>
+                </div>
+                <div class="column radius_box">
+                    <div class="news_list fl">
+                        <h2>管理新视野</h2>
+                        <ul>
+                            @{System.Data.DataTable dt4 = ((System.Data.DataTable)ViewData["glsy"]);}
+
+                            @if (dt4.Rows.Count < 1)
+                            {
+                                <li>无数据</li>
+                            }
+                            else
+                            {
+                                for (int i = 0; i < dt4.Rows.Count; i++)
+                                { 
+                                <li>@{
+                                    string t4 = dt4.Rows[i][1].ToString();
+                                    if (t4.Length > 20)
+                                    {
+                                        t4 = t4.Substring(0, 20);
+                                    }
+                                }
+                                    <a href="/news/@dt4.Rows[i][0].ToString()@h" title="@t4">@t4</a>
+                                </li>
+
+                                }
+                            }
+                        </ul>
+                    </div>
+                    <div class="news_pic fr">
+                        <p>
+                            <img src="/Content/images/news_4.jpg" alt="易房提供中小企业融资服务" />
+                        </p>
+                        <p class="mt30"><a href="/news_list/宏观经济解读_1.html" class="news_more" title="管理新视野">查看更多</a></p>
+                    </div>
+                </div>
+            </div>
+            <!-- #news_box -->
+        </div>
+        <!--#content -->
+    </div>
+    <!-- #container -->
+</div>
+<!-- #wrapper -->

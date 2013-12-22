@@ -1,0 +1,145 @@
+﻿@{
+	
+}
+
+
+@section head{
+
+	<link href="/Content/partner.css" rel="stylesheet" />
+	<script src="/Scripts/jquery.tools.min.js" type="text/javascript"></script>
+	
+}
+@*<div id="subbanner">
+	<div class="cgstate">
+		<div class="fl title">
+			<h1>机构合作</h1>
+			<p>BECOME PARTNER</p>
+		</div>
+		<div class="fr">
+			<img src="/Content/images/partner_banner.jpg" alt="" />
+		</div>
+	</div><!-- w980 -->
+</div>*@<!-- sub banner -->
+<div class="sub_shadow"></div>
+ <div class="bread_crumbs"  style=" display:none;"><a href="http://www.efdai.com">易房贷</a>><a href="http://www.efdai.com">主页</a>><a href="http://www.efdai.com/partner.html">合作机构</a></div>
+<div id="wrapper">
+	<div id="container" class="cgstate">
+		<div id="partner">
+			<div class="main fl">
+				<div class="p_row1">
+					<dl>
+						<dt class="partner_title">携手易房 共赢未来</dt>
+						<dd class="l_line">创新的合作及服务模式</dd>
+						<dd class="l_line">多元化的增值支持体系</dd>
+						<dd class="l_line">灵活、立体、高效的推广渠道</dd>						
+					</dl>
+					<p>作为立足并始终服务于互联网金融领域的优势品牌，易房始终关注中小企业日益增长的融资需求。通过携手更多同产业链的合作伙伴，我们希望成为专注服务于中小企业及其个人的整合性服务平台，共同为推动中国互联网金融行业的发展和进步而努力。</p>
+				</div>
+				<div class="p_row2">
+					<div class="partner_box"><h2 class="partner_title">加盟对象</h2></div>				
+					<dl>
+						<dt class="l_line">金融及准金融机构</dt>
+						<dd><em>&bull;</em> 银行</dd>
+						<dd><em>&bull;</em> 小额贷款公司</dd>
+						<dd><em>&bull;</em> 信托公司</dd>
+						<dd><em>&bull;</em> 典当公司</dd>
+						<dd><em>&bull;</em> 融资租赁公司</dd>
+						<dd><em>&bull;</em> 金融租赁公司</dd>
+						<dd><em>&bull;</em> 保险公司</dd>
+						<dd><em>&bull;</em> 担保公司</dd>
+						<dd><em>&bull;</em> 证券公司</dd>
+						<dd><em>&bull;</em> 期货公司</dd>
+						<dd><em>&bull;</em> 基金管理公司</dd>
+						<dd><em>&bull;</em> 资产管理公司</dd>
+						<dd><em>&bull;</em> 其他</dd>
+					</dl>
+					<dl>
+						<dt class="l_line">投资机构</dt>
+						<dd><em>&bull;</em> 天使投资</dd>
+						<dd><em>&bull;</em> VC投资</dd>
+						<dd><em>&bull;</em> PE投资</dd>
+						<dd><em>&bull;</em> 投资公司</dd>
+						<dd><em>&bull;</em> 基金</dd>
+						<dd><em>&bull;</em> 其他</dd>					
+					</dl>		
+					<dl style="border:0 none;">
+						<dt class="l_line">服务机构</dt>
+						<dd><em>&bull;</em> 律师事务所</dd>
+						<dd><em>&bull;</em> 会计/审计事务所</dd>
+						<dd><em>&bull;</em> 资产评估机构</dd>
+						<dd><em>&bull;</em> 财务咨询公司</dd>
+						<dd><em>&bull;</em> 认证机构</dd>
+						<dd><em>&bull;</em> 咨询/顾问</dd>
+						<dd><em>&bull;</em> 其他</dd>					
+					</dl>					
+				</div>
+				<div class="p_row3">
+					<div class="partner_box"><h2 class="partner_title">加盟条件</h2></div>
+					<ul>
+						<li class="l_line">提供企业营业执照复印件、经营许可证复印件</li>
+						<li class="l_line">融资产品的特色与优势</li>
+						<li class="l_line">审核通过，加盟商与易房签署相关协议</li>
+					</ul>					
+				</div>
+			</div>
+			<div class="side fr">
+				<div class="form_wrap">
+					<h3>机构加盟申请</h3>
+					<form id="cgstateform" action="/AffiliApply.html" method="post">
+					 <input type="hidden" name="action" value="partner">
+					<ul>
+						<li>
+							<label>企业类型：<em>*</em></label>
+							<span class="inbox">
+								<select name="txt_type" id="txt_type" required="required" data-message="请填写您的企业类型!">
+									<option selected="selected" value="">请选择</option>
+									<option value="银行">银行</option>
+									<option value="小额贷款">小额贷款</option>
+									<option value="融资性担保">融资性担保</option>
+									<option value="金融租赁">金融租赁</option>
+									<option value="信托">信托</option>
+									<option value="典当">典当</option>
+									<option value="证券">证券</option>
+									<option value="股权投资">股权投资</option>
+									<option value="其他">其他</option>
+								</select>
+							</span>
+						</li>
+						<li>
+							<label>企业名称：<em>*</em></label>
+							<span class="inbox"><input name="txt_corp" type="text" id="txt_corp" class="input" required="required" data-message="请填写您的企业名称!"></span>
+						</li>
+						<li>
+							<label>联系人：<em>*</em></label>
+							<span class="inbox"><input name="txt_name" type="text" id="txt_name" class="input" required="required" data-message="请填写您的联系人!"></span>
+						</li>
+						<li>
+							<label>联系人职务：<em>*</em></label>
+							<span class="inbox"><input name="txt_office" type="text" id="txt_office" class="input" required="required" data-message="请填写您的联系人职务!"></span>
+						</li>
+						<li>
+							<label>手机号码：<em>*</em></label>
+							<span class="inbox"><input name="txt_mobi" type="text" id="txt_mobi" class="input"  validType="mobile" required="required" data-message="请正确填写手机号码!"></span>
+						</li>
+						<li>
+						<input type="hidden" name="fromsite" value="机构合作官网">
+						<button type="submit" id="submit_btn" class="form_btn">提交申请</button></li>
+					</ul>
+					</form>
+				</div>
+				<div class="joins">
+					<dl>
+						<dt class="partner_title">加盟易房给您带来</dt>
+						<dd class="r_cirle">业务拓展机遇</dd>
+						<dd class="r_cirle">标准服务模式</dd>
+						<dd class="r_cirle">减少业务成本</dd>
+						<dd class="r_cirle">提高业务效率</dd>
+						<dd class="r_cirle">提升业务能力</dd>
+						<dd class="r_cirle">强化品牌认知度</dd>
+						<dd class="r_cirle">市场资源投放支持</dd>
+					</dl>
+				</div>
+			</div>
+		</div><!-- #partner -->        
+	</div><!-- #container -->
+</div><!-- #wrapper -->

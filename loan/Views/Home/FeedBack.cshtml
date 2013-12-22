@@ -1,0 +1,63 @@
+﻿@{
+	
+}
+@section head{
+	@{Html.RenderPartial("../shared/_css&js");}
+	}
+
+<div id="wrapper">
+	<div id="container" class="cgstate">
+		<div id="content">
+			<div id="helps">
+			@{Html.RenderPartial("../shared/_helpleft");}
+				<div class="right">
+					<div class="sbanner"><img src="/content/images/help_sbanner_feedback.jpg" alt="" /></div>
+					<div class="right_item mt5">
+						<div class="item_top"></div>
+						<div class="h_icon5"></div>
+						<div class="item_box">
+							<h2 class="help_title">您有什么意见和建议，请在以下区域留言！</h2>
+							<div class="form_wrap feedback">
+								<p>（以下*号标记为必填项）</p>
+								<form id="cgstateform" action="/FBApply.html" method="post">
+								<input type="hidden" name="action" value="jianyi">
+								<ul>
+									<li>
+										<label><em>*</em> 称   谓：</label>
+										<div class="input">
+											<input id="chengwei" name="chengwei" class="textbox w200" type="text" value="" required="required" data-message="请填写您的姓名!">
+											<span class="radio">
+												<input type="radio" name="gender" checked="checked" value="先生"><span>先生</span>
+												<input type="radio" name="gender" value="女士"><span>女士</span>
+											</span>
+										</div>
+									</li>
+									<li>
+										<label><em>*</em>手   机：</label>
+										<div class="input"><input id="shouji" name="shouji" class="textbox w300" type="text" value="" validType="mobile" required="required" data-message="请填写您的手机号码!"></div>
+									</li>
+									<li>
+										<label><em>*</em>留言内容：</label>
+										<div class="input">
+										  <textarea id="liuyan" name="liuyan" rows="8" class="textbox w300"></textarea>
+										</div>
+									</li>
+									<li>
+										<label>&nbsp;</label>
+										 <div class="input"><button id="submit_btn" type="submit" class="form_btn">提交</button></div>
+									</li>
+								</ul>
+								</form>
+								
+							</div>
+						</div>
+						<div class="item_bottom"></div>					
+					</div><!-- # fq_list -->
+				</div>
+			</div>
+			<!-- #helps -->
+		</div>
+		<!--#content -->
+	</div>
+	<!-- #container -->
+</div>

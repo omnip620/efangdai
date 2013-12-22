@@ -1,0 +1,133 @@
+﻿@{
+    ViewBag.Title = "SEOSet";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+@section headCss
+{
+    <link href="/Content/admin/select2_metro.css" rel="stylesheet" />
+    <link href="/Content/admin/DT_bootstrap.css" rel="stylesheet" />
+}
+
+@section pageTitle
+{
+    设置				<small>页面列表</small>
+}
+@section breadNav
+{
+    <li>
+        <i class="fa fa-home"></i>
+        <a href="index">首页</a>
+        <i class="fa fa-angle-right"></i>
+    </li>
+    <li>
+        <a href="#">设置</a>
+        <i class="fa fa-angle-right"></i>
+    </li>
+    <li><a href="#">页面列表</a></li>
+}
+<div class="row">
+    <div class="col-md-12">
+        <div class="portlet">
+            <div class="portlet-title">
+                <div class="caption"><i class="fa fa-reorder"></i>页面列表</div>
+                <div class="tools">
+                    <a href="javascript:;" class="collapse"></a>
+                    <a href="javascript:;" class="reload"></a>
+                    <a href="javascript:;" class="remove"></a>
+                </div>
+            </div>
+            <div class="portlet-body">
+                <table class="table table-striped table-bordered table-hover" id="sample_1">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>栏目名称</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+@section footerJS
+{
+    <script src="/Content/admin/js/select2.min.js"></script>
+    <script src="/Content/admin/js/jquery.dataTables.js" charset="utf-8"></script>
+    <script src="/Content/admin/js/DT_bootstrap.js" charset="utf-8"></script>
+    <script src="/Content/admin/js/app.js"></script>
+    <script src="/Content/admin/js/table-pageset.js"></script>
+
+    <script type="text/javascript">
+        jQuery(document).ready(function () {
+            App.init();
+
+            if (!jQuery().dataTable) {
+                return;
+            }
+
+            // begin first table
+            $('#sample_1').dataTable({
+                "aoColumns": [
+                  { "bSortable": true },
+
+                  {
+                      'bSortable': true, "fnRender": function (obj) {
+                          return '<a href="/admin/pagesetmodel/' + obj.aData[0] + '">' + obj.aData[1] + '</a>';
+                      },
+                  },
+
+                ],
+                "aLengthMenu": [
+                    [5, 15, 20, -1],
+                    [5, 15, 20, "所有"] // change per page values here
+                ],
+                // set the initial value
+                "iDisplayLength": 10,
+                "sPaginationType": "bootstrap",
+                "sAjaxSource": "/admin/GetPageSet",
+                "oLanguage": {
+                    "sInfo": "共 _TOTAL_ 条 当前第 _START_ 到 _END_ 条 ",
+                    "sLengthMenu": "展示 _MENU_ 条信息",
+                    "sSearch": "搜 索 ",
+                    "oPaginate": {
+                        "sPrevious": "Prev",
+                        "sNext": "Next"
+                    }
+                },
+                "aoColumnDefs": [{
+                    'bSortable': false,
+                    'aTargets': [0]
+                }
+                ]
+            });
+
+            jQuery('#sample_1 .group-checkable').change(function () {
+                var set = jQuery(this).attr("data-set");
+                var checked = jQuery(this).is(":checked");
+                jQuery(set).each(function () {
+                    if (checked) {
+                        $(this).attr("checked", true);
+                    } else {
+                        $(this).attr("checked", false);
+                    }
+                    $(this).parents('tr').toggleClass("active");
+                });
+                jQuery.uniform.update(set);
+
+            });
+
+            jQuery('#sample_1 tbody tr .checkboxes').change(function () {
+                $(this).parents('tr').toggleClass("active");
+            });
+
+            jQuery('#sample_1_wrapper .dataTables_filter input').addClass("form-control input-medium"); // modify table search input
+            jQuery('#sample_1_wrapper .dataTables_length select').addClass("form-control input-xsmall"); // modify table per page dropdown
+            jQuery('#sample_1_wrapper .dataTables_length select').select2(); // initialize select2 dropdown
+        });
+
+    </script>
+
+
+}

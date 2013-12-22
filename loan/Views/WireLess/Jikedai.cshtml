@@ -1,0 +1,48 @@
+﻿@{
+	ViewBag.Title = "Jikedai";
+	Layout = "~/Views/Shared/_LayoutWireLessPage.cshtml";
+}
+
+<div id="sub_banner">
+		<div class="pic_banner"><img src="/Content/WireLess/images/jkd_banner.jpg" alt="" /></div>
+		<div class="pic_banner_info"><img src="/Content/WireLess/images/jkd_banner_info.png" alt="" /></div>
+	</div>
+	<section id="sub_info">
+		<img src="/Content/WireLess/images/jkd_service.png" alt="" />
+	</section>
+	<section id="public_form">		
+		<div class="form_wrap">	
+			<h2>在线申请</h2>
+			<form id="mobileform" action="mobile_save.php" method="post">
+			<input type="hidden" name="action" value="jikedai">
+				<ul>
+					<li><label>您的称谓:</label><input type="text" class="form_input" name="chengwei" required="required"><em class="star_red">*</em></li>
+					<li><label>手机号码:</label><input type="text" class="form_input" name="shouji" required="required"><em class="star_red">*</em></li>
+					<li><label>贷款金额:</label><input type="text" class="form_input" name="amount" required="required"><span>万元</span><em class="star_red">*</em></li>
+					<li><label>贷款期限:</label><select name="qixian" id="qixian" class="sel_input">
+											<option selected="selected" value="">请选择</option>
+											<option value="3个月">3个月</option>
+											<option value="6个月">6个月</option>
+											<option value="12个月">12个月</option>
+											<option value="12个月">12个月以上</option>	
+										</select></li>
+					<li><label>抵&nbsp; 押&nbsp; 物:</label>
+					<select name="diyawu" id="diyawu" class="sel_input">
+											<option selected="selected" value="">请选择</option>
+											<option value="住宅">住宅</option>
+											<option value="商铺">商铺</option>
+											<option value="办公楼">办公楼</option>											
+										</select>								
+					</li>
+				</ul>
+				<div class="form_btnbox">
+				<input type="hidden" name="fromsite" value="手机即刻贷">
+				<button type="submit" class="orange form_btn"><b>立  即  申  请</b></button></div>
+			</form>
+		</div>
+	</section>
+	<section id="jkd_apply">
+		<h3>申请条件</h3>
+		<div class="jkd_apply"><img src="/Content/WireLess/images/jkd_apply.png" alt="" /></div>
+	</section>
+

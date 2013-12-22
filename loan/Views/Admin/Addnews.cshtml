@@ -1,0 +1,214 @@
+﻿
+@{
+    ViewBag.Title = "Newsview";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+@section headCss{
+
+    <link href="/Content/admin/ueditor/themes/default/css/ueditor.css" rel="stylesheet" />
+    <link href="/Content/admin/ueditor/third-party/codemirror/codemirror.css" rel="stylesheet" />
+    <script type="text/javascript" charset="utf-8">
+        window.UEDITOR_HOME_URL = "/content/admin/ueditor/";
+    </script>
+}
+
+@section pageTitle
+{
+    新闻管理				<small>添加新闻</small>
+}
+
+@section breadNav
+{
+    <li>
+        <i class="fa fa-home"></i>
+       <a href="index">首页</a>
+        <i class="fa fa-angle-right"></i>
+    </li>
+    <li>
+        <a href="/admin/news">新闻列表</a>
+        <i class="fa fa-angle-right"></i>
+    </li>
+    <li><a href="#">添加新闻</a></li>
+}
+<div class="row">
+    <div class="col-md-12">
+        <div class="portlet">
+            <div class="portlet-title">
+                <div class="caption"><i class="fa fa-reorder"></i>添加新闻</div>
+                <div class="tools">
+                    <a href="javascript:;" class="collapse"></a>
+
+                    <a href="javascript:;" class="reload"></a>
+                    <a href="javascript:;" class="remove"></a>
+                </div>
+            </div>
+
+            <div class="portlet-body form">
+                <form role="form" action="/admin/editnews" method="post" id="form_sample_1">
+                    <div class="form-body ">
+                        <div class="row">
+                            <div class="col-md-9">
+                                <div class="form-group">
+                                    <label for="title">文章标题 </label>
+                                    <input type="text" class="form-control" id="title"  name="title" placeholder="输入标题" value="" />
+                                   
+
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="summary">摘要 </label>
+                                    <input type="text" class="form-control" id="summary"  name="summary" placeholder="输入摘要" value="" />
+
+
+                                </div>
+                                <div class="form-group">
+                                    <label>内容</label>
+                                    <textarea name="content" id="myEditor"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label>HTML头部的Meta关键字</label>
+                                    <input type="text" value="" class="form-control" id="keywords" name="keywords" placeholder="keywords内容" />
+                                    <span class="help-block">META标签的<span class="text-info">keywords</span>内容,关键字之间使用 "," 分隔.</span>
+                                </div>
+                                <div class="form-group">
+                                    <label>HTML头部的Meta站点描述信息</label>
+                                    <input type="text" value="" class="form-control" id="description" name="description" placeholder="description内容" />
+                                    <span class="help-block">META标签的<span class="text-info">description</span>内容</span>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label>作者</label>
+                                    <input id="author" name="author" class="form-control"
+                                        placeholder="输入作者" type="text" value="" />
+                                </div>
+                                <div class="form-group">
+                                    <label>类型</label>
+                                    <select name="type" class="form-control">
+                                        <option value="行业资讯">行业资讯</option>
+                                        <option value="易房动态">易房动态</option>
+                                        <option value="宏观经济解读">宏观经济解读</option>
+                                        <option value="管理新视野">管理新视野</option>
+
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>来源</label>
+                                    <input id="source" name="source" class="form-control"
+                                        placeholder="来源信息" type="text" value="" />
+                                </div>
+                                <div class="form-group">
+                                    <label>浏览量</label>
+                                    <input id="views" name="views"  value="" class="form-control" placeholder="" type="text" />
+                                </div>
+
+                                <div class="form-group">
+                                    <label>发布日期</label>
+                                    <input id="time" name="time" class="form-control" placeholder="" type="text" value="@DateTime.Now" />
+                                </div>
+
+                                <div class="form-group">
+                                    <label>状态</label>
+                                    <div class="checkbox-list">
+                                       <input type="checkbox" class="skip" id="ckTop" name="ckTop" />置顶
+                                       <input type="checkbox" class="skip" id="ckReco" name="ckReco" />推荐
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn blue">提交</button>
+                        <button type="button" class="btn default">取消</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section footerJS
+{<script src="/Content/admin/ueditor/ueditor.config.js"></script>
+    <script src="/Content/admin/ueditor/ueditor.all.js"></script>
+    <script src="/Content/admin/js/app.js"></script>
+    <script src="/Content/admin/js/jquery.validate.min.js"></script>
+    <script type="text/javascript">
+        jQuery(document).ready(function () {
+            App.init();
+
+            // for more info visit the official plugin documentation: 
+            // http://docs.jquery.com/Plugins/Validation
+
+            var form1 = $('#form_sample_1');
+            //var error1 = $('.alert-danger', form1);
+            //var success1 = $('.alert-success', form1);
+
+            form1.validate({
+                errorElement: 'span', //default input error message container
+                errorClass: 'help-block', // default input error message class
+                focusInvalid: false, // do not focus the last invalid input
+                ignore: "",
+                rules: {
+                    inputTitle: {
+                        minlength: 2,
+                        required: true
+                    },
+                    newsContent: {
+                        required: true
+
+                    }
+                },
+                messages: {
+
+                    inputTitle: {
+                        required: "请输入新闻标题",
+
+                    },
+                    newsContent: {
+                        required: "请输入文章内容",
+
+                    }
+                },
+
+
+                invalidHandler: function (event, validator) { //display error alert on form submit              
+                    success1.hide();
+                    error1.show();
+                    App.scrollTo(error1, -200);
+                },
+
+                highlight: function (element) { // hightlight error inputs
+                    $(element)
+                        .closest('.form-group').addClass('has-error'); // set error class to the control group
+                },
+
+                unhighlight: function (element) { // revert the change done by hightlight
+                    $(element)
+                        .closest('.form-group').removeClass('has-error'); // set error class to the control group
+                },
+
+                success: function (label) {
+                    label
+                        .closest('.form-group').removeClass('has-error'); // set success class to the control group
+                }
+
+                //submitHandler: function (form) {
+                //    success1.show();
+                //    error1.hide();
+                //}
+            });
+
+
+
+
+
+
+
+        });
+        UE.getEditor("myEditor", { initialFrameHeight: 320, initialFrameWidth: "100%" });
+    </script>
+}

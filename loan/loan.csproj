@@ -1,0 +1,737 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D00C7E5F-2FA1-4F01-9193-F3E3EBF6ACA6}</ProjectGuid>
+    <ProjectTypeGuids>{E53F8FEA-EAE0-44A6-8774-FFD645390401};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>loan</RootNamespace>
+    <AssemblyName>loan</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel.DomainServices.Hosting, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.ServiceModel.DomainServices.Server, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.1.0.20105.408\lib\net40\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.3.0.20105.1\lib\net40\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Providers">
+      <HintPath>..\packages\Microsoft.AspNet.Providers.Core.1.1\lib\net40\System.Web.Providers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.1.0.20105.408\lib\net40\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.1.0.20105.408\lib\net40\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.1.0.20105.408\lib\net40\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.1.0.20105.408\lib\net40\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ActionFilter\AdminActionFilter.cs" />
+    <Compile Include="Common\DataTableTo.cs" />
+    <Compile Include="Common\ValidateCode.cs" />
+    <Compile Include="Content\admin\ueditor\net\Uploader.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\WireLessController.cs" />
+    <Compile Include="DataHelper\BLLHelper.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BLL\account.cs" />
+    <Compile Include="Models\BLL\Affiliate.cs" />
+    <Compile Include="Models\BLL\Credit.cs" />
+    <Compile Include="Models\BLL\Feedback.cs" />
+    <Compile Include="Models\BLL\FooterSEO.cs" />
+    <Compile Include="Models\BLL\Investment.cs" />
+    <Compile Include="Models\BLL\News.cs" />
+    <Compile Include="Models\BLL\PageSet.cs" />
+    <Compile Include="Models\BLL\Questions.cs" />
+    <Compile Include="Models\common\Class1.cs" />
+    <Compile Include="Models\common\CommandInfo.cs" />
+    <Compile Include="Models\common\ConfigHelper.cs" />
+    <Compile Include="Models\common\DataCache.cs" />
+    <Compile Include="Models\common\MailSender.cs" />
+    <Compile Include="Models\common\PagerExtensions.cs" />
+    <Compile Include="Models\DAL\account.cs" />
+    <Compile Include="Models\DAL\Affiliate.cs" />
+    <Compile Include="Models\DAL\Credit.cs" />
+    <Compile Include="Models\DAL\Feedback.cs" />
+    <Compile Include="Models\DAL\FooterSEO.cs" />
+    <Compile Include="Models\DAL\Investment.cs" />
+    <Compile Include="Models\DAL\News.cs" />
+    <Compile Include="Models\DAL\PageSet.cs" />
+    <Compile Include="Models\DAL\Questions.cs" />
+    <Compile Include="Models\Model\account.cs" />
+    <Compile Include="Models\Model\Affiliate.cs" />
+    <Compile Include="Models\Model\Credit.cs" />
+    <Compile Include="Models\Model\Feedback.cs" />
+    <Compile Include="Models\Model\FooterSEO.cs" />
+    <Compile Include="Models\Model\Investment.cs" />
+    <Compile Include="Models\Model\News.cs" />
+    <Compile Include="Models\common\DbHelperSQL.cs" />
+    <Compile Include="Models\Model\PageSet.cs" />
+    <Compile Include="Models\Model\Questions.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\admin\bootstrap.min.css" />
+    <Content Include="Content\admin\font-awesome.min.css" />
+    <Content Include="Content\admin\images\ajax-loading.gif" />
+    <Content Include="Content\admin\images\avatar1_small.jpg" />
+    <Content Include="Content\admin\images\logo-big.png" />
+    <Content Include="Content\admin\images\logo.png" />
+    <Content Include="Content\admin\images\menu-toggler.png" />
+    <Content Include="Content\admin\images\portlet-collapse-icon-white.png" />
+    <Content Include="Content\admin\images\portlet-collapse-icon.png" />
+    <Content Include="Content\admin\images\portlet-config-icon-white.png" />
+    <Content Include="Content\admin\images\portlet-config-icon.png" />
+    <Content Include="Content\admin\images\portlet-expand-icon-white.png" />
+    <Content Include="Content\admin\images\portlet-expand-icon.png" />
+    <Content Include="Content\admin\images\portlet-reload-icon-white.png" />
+    <Content Include="Content\admin\images\portlet-reload-icon.png" />
+    <Content Include="Content\admin\images\portlet-remove-icon-white.png" />
+    <Content Include="Content\admin\images\portlet-remove-icon.png" />
+    <Content Include="Content\admin\images\select2.png" />
+    <Content Include="Content\admin\images\sort_asc.png" />
+    <Content Include="Content\admin\images\sort_both.png" />
+    <Content Include="Content\admin\images\sort_desc.png" />
+    <Content Include="Content\admin\images\sprite.png" />
+    <Content Include="Content\admin\images\syncfusion-icons-white.png" />
+    <Content Include="Content\admin\images\syncfusion-icons.png" />
+    <Content Include="Content\admin\js\app.js" />
+    <Content Include="Content\admin\js\bootstrap.min.js" />
+    <Content Include="Content\admin\js\DT_bootstrap.js" />
+    <Content Include="Content\admin\js\index.js" />
+    <Content Include="Content\admin\js\jquery-1.10.1.min.js" />
+    <Content Include="Content\admin\js\jquery-migrate-1.2.1.min.js" />
+    <Content Include="Content\admin\js\jquery-ui-1.10.3.custom.min.js" />
+    <Content Include="Content\admin\js\jquery.blockui.min.js" />
+    <Content Include="Content\admin\js\jquery.cookie.min.js" />
+    <Content Include="Content\admin\js\jquery.slimscroll.min.js" />
+    <Content Include="Content\admin\js\jquery.uniform.min.js" />
+    <Content Include="Content\admin\js\jquery.validate.min.js" />
+    <Content Include="Content\admin\js\login.js" />
+    <Content Include="Content\admin\js\select2.min.js" />
+    <Content Include="Content\admin\js\table-feedback.js" />
+    <Content Include="Content\admin\js\table-managed.js" />
+    <Content Include="Content\admin\js\table-pageset.js" />
+    <Content Include="Content\admin\js\Tools.js" />
+    <Content Include="Content\admin\js\twitter-bootstrap-hover-dropdown.min.js" />
+    <Content Include="Content\admin\plugins.css" />
+    <Content Include="Content\admin\select2_metro.css" />
+    <Content Include="Content\admin\style-metronic.css" />
+    <Content Include="Content\admin\style-responsive.css" />
+    <Content Include="Content\admin\style.css" />
+    <Content Include="Content\admin\tasks.css" />
+    <Content Include="Content\admin\themes\default.css" />
+    <Content Include="Content\admin\ueditor\dialogs\anchor\anchor.html" />
+    <Content Include="Content\admin\ueditor\dialogs\background\background.css" />
+    <Content Include="Content\admin\ueditor\dialogs\background\background.html" />
+    <Content Include="Content\admin\ueditor\dialogs\background\background.js" />
+    <Content Include="Content\admin\ueditor\dialogs\help\help.css" />
+    <Content Include="Content\admin\ueditor\dialogs\help\help.html" />
+    <Content Include="Content\admin\ueditor\dialogs\help\help.js" />
+    <Content Include="Content\admin\ueditor\dialogs\image\image.css" />
+    <Content Include="Content\admin\ueditor\dialogs\image\image.html" />
+    <Content Include="Content\admin\ueditor\dialogs\image\image.js" />
+    <Content Include="Content\admin\ueditor\dialogs\image\images\center_focus.jpg" />
+    <Content Include="Content\admin\ueditor\dialogs\image\images\left_focus.jpg" />
+    <Content Include="Content\admin\ueditor\dialogs\image\images\none_focus.jpg" />
+    <Content Include="Content\admin\ueditor\dialogs\image\images\right_focus.jpg" />
+    <Content Include="Content\admin\ueditor\dialogs\image\imageUploader.swf" />
+    <Content Include="Content\admin\ueditor\dialogs\internal.js" />
+    <Content Include="Content\admin\ueditor\dialogs\link\link.html" />
+    <Content Include="Content\admin\ueditor\dialogs\map\map.html" />
+    <Content Include="Content\admin\ueditor\dialogs\searchreplace\searchreplace.html" />
+    <Content Include="Content\admin\ueditor\dialogs\searchreplace\searchreplace.js" />
+    <Content Include="Content\admin\ueditor\dialogs\snapscreen\snapscreen.html" />
+    <Content Include="Content\admin\ueditor\dialogs\table\dragicon.png" />
+    <Content Include="Content\admin\ueditor\dialogs\table\edittable.css" />
+    <Content Include="Content\admin\ueditor\dialogs\table\edittable.html" />
+    <Content Include="Content\admin\ueditor\dialogs\table\edittable.js" />
+    <Content Include="Content\admin\ueditor\dialogs\table\edittd.html" />
+    <Content Include="Content\admin\ueditor\dialogs\table\edittip.html" />
+    <Content Include="Content\admin\ueditor\dialogs\tangram.js" />
+    <Content Include="Content\admin\ueditor\dialogs\wordimage\fClipboard_ueditor.swf" />
+    <Content Include="Content\admin\ueditor\dialogs\wordimage\imageUploader.swf" />
+    <Content Include="Content\admin\ueditor\dialogs\wordimage\wordimage.html" />
+    <Content Include="Content\admin\ueditor\dialogs\wordimage\wordimage.js" />
+    <Content Include="Content\admin\ueditor\lang\zh-cn\images\copy.png" />
+    <Content Include="Content\admin\ueditor\lang\zh-cn\images\imglabel.png" />
+    <Content Include="Content\admin\ueditor\lang\zh-cn\images\localimage.png" />
+    <Content Include="Content\admin\ueditor\lang\zh-cn\images\music.png" />
+    <Content Include="Content\admin\ueditor\lang\zh-cn\images\upload.png" />
+    <Content Include="Content\admin\ueditor\lang\zh-cn\zh-cn.js" />
+    <Content Include="Content\admin\ueditor\themes\default\css\ueditor.css" />
+    <Content Include="Content\admin\ueditor\themes\default\dialogbase.css" />
+    <Content Include="Content\admin\ueditor\themes\default\images\anchor.gif" />
+    <Content Include="Content\admin\ueditor\themes\default\images\arrow.png" />
+    <Content Include="Content\admin\ueditor\themes\default\images\arrow_down.png" />
+    <Content Include="Content\admin\ueditor\themes\default\images\arrow_up.png" />
+    <Content Include="Content\admin\ueditor\themes\default\images\button-bg.gif" />
+    <Content Include="Content\admin\ueditor\themes\default\images\cancelbutton.gif" />
+    <Content Include="Content\admin\ueditor\themes\default\images\cursor_h.gif" />
+    <Content Include="Content\admin\ueditor\themes\default\images\cursor_h.png" />
+    <Content Include="Content\admin\ueditor\themes\default\images\cursor_v.gif" />
+    <Content Include="Content\admin\ueditor\themes\default\images\cursor_v.png" />
+    <Content Include="Content\admin\ueditor\themes\default\images\dialog-title-bg.png" />
+    <Content Include="Content\admin\ueditor\themes\default\images\filescan.png" />
+    <Content Include="Content\admin\ueditor\themes\default\images\highlighted.gif" />
+    <Content Include="Content\admin\ueditor\themes\default\images\icons-all.gif" />
+    <Content Include="Content\admin\ueditor\themes\default\images\icons.gif" />
+    <Content Include="Content\admin\ueditor\themes\default\images\icons.png" />
+    <Content Include="Content\admin\ueditor\themes\default\images\lock.gif" />
+    <Content Include="Content\admin\ueditor\themes\default\images\neweditor-tab-bg.png" />
+    <Content Include="Content\admin\ueditor\themes\default\images\pagebreak.gif" />
+    <Content Include="Content\admin\ueditor\themes\default\images\scale.png" />
+    <Content Include="Content\admin\ueditor\themes\default\images\spacer.gif" />
+    <Content Include="Content\admin\ueditor\themes\default\images\sparator_v.png" />
+    <Content Include="Content\admin\ueditor\themes\default\images\table-cell-align.png" />
+    <Content Include="Content\admin\ueditor\themes\default\images\tangram-colorpicker.png" />
+    <Content Include="Content\admin\ueditor\themes\default\images\toolbar_bg.png" />
+    <Content Include="Content\admin\ueditor\themes\default\images\unhighlighted.gif" />
+    <Content Include="Content\admin\ueditor\themes\default\images\upload.png" />
+    <Content Include="Content\admin\ueditor\themes\default\images\videologo.gif" />
+    <Content Include="Content\admin\ueditor\themes\default\images\word.gif" />
+    <Content Include="Content\admin\ueditor\themes\default\images\wordpaste.png" />
+    <Content Include="Content\admin\ueditor\themes\iframe.css" />
+    <Content Include="Content\admin\ueditor\third-party\codemirror\codemirror.css" />
+    <Content Include="Content\admin\ueditor\third-party\codemirror\codemirror.js" />
+    <Content Include="Content\admin\ueditor\third-party\snapscreen\UEditorSnapscreen.exe" />
+    <Content Include="Content\admin\ueditor\third-party\SyntaxHighlighter\shCore.js" />
+    <Content Include="Content\admin\ueditor\third-party\SyntaxHighlighter\shCoreDefault.css" />
+    <Content Include="Content\admin\ueditor\ueditor.all.js" />
+    <Content Include="Content\admin\ueditor\ueditor.config.js" />
+    <Content Include="Content\admin\uniform.default.css" />
+    <Content Include="Content\base.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\images\about_4_1.jpg" />
+    <Content Include="Content\images\banner1.jpg" />
+    <Content Include="Content\images\cg_icon.png" />
+    <Content Include="Content\images\cg_title.png" />
+    <Content Include="Content\images\fk.jpg" />
+    <Content Include="Content\images\form_bg.png" />
+    <Content Include="Content\images\form_btn.png" />
+    <Content Include="Content\images\form_btns.png" />
+    <Content Include="Content\images\header_title_bg.gif" />
+    <Content Include="Content\images\help_sbanner_feedback.jpg" />
+    <Content Include="Content\images\intro.jpg" />
+    <Content Include="Content\images\jobs_intro_icon.png" />
+    <Content Include="Content\images\favicon.ico" />
+    <Content Include="Content\images\main_pic.jpg" />
+    <Content Include="Content\images\main_pic1.jpg" />
+    <Content Include="Content\images\news_more.png" />
+    <Content Include="Content\images\partner_form_bg.jpg" />
+    <Content Include="Content\images\partner_form_btn.png" />
+    <Content Include="Content\images\partner_icon.png" />
+    <Content Include="Content\images\pro_intro.png" />
+    <Content Include="Content\images\shadow_line.png" />
+    <Content Include="Content\images\title_bg.jpg" />
+    <Content Include="Content\images\yunli.png" />
+    <Content Include="Content\images\zyb_banner1.jpg" />
+    <Content Include="Content\images\zyb_pic1.png" />
+    <Content Include="Content\images\zyb_pic2.png" />
+    <Content Include="Content\images\01-02.png" />
+    <Content Include="Content\siteMap.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Content\cgstate.css" />
+    <Content Include="Content\admin\DT_bootstrap.css" />
+    <Content Include="Content\flash\safe_flash.swf" />
+    <Content Include="Content\home.css" />
+    <Content Include="Content\images\help_left_pic1.jpg" />
+    <Content Include="Content\images\QR_Code.png" />
+    <Content Include="Content\images\speedv2_banner4.jpg" />
+    <Content Include="Content\images\speedv2_banner5.jpg" />
+    <Content Include="Content\images\topbanner.jpg" />
+    <Content Include="Content\images\01-03.png" />
+    <Content Include="Content\images\01-04.jpg" />
+    <Content Include="Content\images\3.png" />
+    <Content Include="Content\images\aboutus_banner.jpg" />
+    <Content Include="Content\images\about_1_2.jpg" />
+    <Content Include="Content\images\about_1_3.jpg" />
+    <Content Include="Content\images\about_1_3_bg.png" />
+    <Content Include="Content\images\about_1_4.jpg" />
+    <Content Include="Content\images\about_1_4_bg.png" />
+    <Content Include="Content\images\about_logo.gif" />
+    <Content Include="Content\images\banner.jpg" />
+    <Content Include="Content\images\banner1%281%29.jpg" />
+    <Content Include="Content\images\header_shadow.png" />
+    <Content Include="Content\images\index_info.jpg" />
+    <Content Include="Content\images\jobs_intro_icon%281%29.png" />
+    <Content Include="Content\images\jobs_logo.png" />
+    <Content Include="Content\images\jobs_pic3.jpg" />
+    <Content Include="Content\images\jobs_pic4.png" />
+    <Content Include="Content\images\jobs_shadow.png" />
+    <Content Include="Content\images\new_logo.png" />
+    <Content Include="Content\images\partner_form_btn%281%29.png" />
+    <Content Include="Content\images\speedv2_banner.jpg" />
+    <Content Include="Content\images\speedv2_banner2.jpg" />
+    <Content Include="Content\images\speedv2_banner3.jpg" />
+    <Content Include="Content\images\speedv2_b_s.jpg" />
+    <Content Include="Content\images\speedv2_b_s2.jpg" />
+    <Content Include="Content\images\speedv2_b_s3.jpg" />
+    <Content Include="Content\images\speedv2_b_s4.jpg" />
+    <Content Include="Content\images\speedv2_b_s5.jpg" />
+    <Content Include="Content\images\sub_shadow.png" />
+    <Content Include="Content\images\zyb_banner1%281%29.jpg" />
+    <Content Include="Content\images\banner2.jpg" />
+    <Content Include="Content\images\banner2_s.jpg" />
+    <Content Include="Content\images\banner3.jpg" />
+    <Content Include="Content\images\banner3_s.jpg" />
+    <Content Include="Content\images\banner4.jpg" />
+    <Content Include="Content\images\banner4_s.jpg" />
+    <Content Include="Content\images\banner_hot%281%29.png" />
+    <Content Include="Content\images\banner_s.jpg" />
+    <Content Include="Content\images\cg_icon2.png" />
+    <Content Include="Content\images\cg_server.jpg" />
+    <Content Include="Content\images\cg_server_ads.jpg" />
+    <Content Include="Content\images\cg_server_bg.png" />
+    <Content Include="Content\images\cg_title1.png" />
+    <Content Include="Content\images\close.png" />
+    <Content Include="Content\images\close_arr.gif" />
+    <Content Include="Content\images\dot_icon.png" />
+    <Content Include="Content\images\error_pic.png" />
+    <Content Include="Content\images\form_bg%281%29.png" />
+    <Content Include="Content\images\form_bottoms.png" />
+    <Content Include="Content\images\form_box_bottom.jpg" />
+    <Content Include="Content\images\form_box_mid.jpg" />
+    <Content Include="Content\images\form_box_top.jpg" />
+    <Content Include="Content\images\form_btns%281%29.png" />
+    <Content Include="Content\images\form_top.png" />
+    <Content Include="Content\images\header_title_bg%281%29.gif" />
+    <Content Include="Content\images\help_h_box_bottom.png" />
+    <Content Include="Content\images\help_h_box_icon.png" />
+    <Content Include="Content\images\help_h_box_top.png" />
+    <Content Include="Content\images\help_left_pic.jpg" />
+    <Content Include="Content\images\help_line.png" />
+    <Content Include="Content\images\help_nav_bg.png" />
+    <Content Include="Content\images\help_sbanner1.jpg" />
+    <Content Include="Content\images\intro%281%29.jpg" />
+    <Content Include="Content\images\lightbox-btn-close.gif" />
+    <Content Include="Content\images\lightbox-ico-loading.gif" />
+    <Content Include="Content\images\logo.png" />
+    <Content Include="Content\images\main_pic%281%29.jpg" />
+    <Content Include="Content\images\main_pic1%281%29.jpg" />
+    <Content Include="Content\images\media_pic.jpg" />
+    <Content Include="Content\images\news_1.jpg" />
+    <Content Include="Content\images\news_2.jpg" />
+    <Content Include="Content\images\news_3.jpg" />
+    <Content Include="Content\images\news_4.jpg" />
+    <Content Include="Content\images\news_banner.jpg" />
+    <Content Include="Content\images\news_more%281%29.png" />
+    <Content Include="Content\images\online_wrap_bg.png" />
+    <Content Include="Content\images\other_ads_img.jpg" />
+    <Content Include="Content\images\partner_banner.jpg" />
+    <Content Include="Content\images\partner_form_bg%281%29.jpg" />
+    <Content Include="Content\images\partner_icon%281%29.png" />
+    <Content Include="Content\images\pro_intro%281%29.png" />
+    <Content Include="Content\images\rich_movie_bigbg.png" />
+    <Content Include="Content\images\safe_11.jpg" />
+    <Content Include="Content\images\safe_12.jpg" />
+    <Content Include="Content\images\safe_13.jpg" />
+    <Content Include="Content\images\safe_banner.jpg" />
+    <Content Include="Content\images\safe_col3_pic.png" />
+    <Content Include="Content\images\safe_col3_pic2.png" />
+    <Content Include="Content\images\safe_col3_pic2_big.jpg" />
+    <Content Include="Content\images\safe_col3_pic3.png" />
+    <Content Include="Content\images\safe_col3_pic3_big.jpg" />
+    <Content Include="Content\images\safe_col3_pic_big.jpg" />
+    <Content Include="Content\images\safe_col4_pic.png" />
+    <Content Include="Content\images\safe_col4_pic2.png" />
+    <Content Include="Content\images\safe_col4_pic2_big.jpg" />
+    <Content Include="Content\images\safe_col4_pic_big.jpg" />
+    <Content Include="Content\images\safe_col5_pic.png" />
+    <Content Include="Content\images\safe_col5_pic_big.jpg" />
+    <Content Include="Content\images\safe_col_pic.png" />
+    <Content Include="Content\images\shadow_line%281%29.png" />
+    <Content Include="Content\images\tels.png" />
+    <Content Include="Content\images\yunli%281%29.png" />
+    <Content Include="Content\images\zyb_pic1%281%29.png" />
+    <Content Include="Content\images\zyb_pic2%281%29.png" />
+    <Content Include="Content\jobs.css" />
+    <Content Include="Content\images\jobs_banner.jpg" />
+    <Content Include="Content\images\jobs_pic2.jpg" />
+    <Content Include="Content\images\jobs_pic5.png" />
+    <Content Include="Content\admin\js\jquery.dataTables.js" />
+    <Content Include="Content\lightbox.css" />
+    <Content Include="Content\onejikedai.css" />
+    <Content Include="Content\onezhiyingbao.css" />
+    <Content Include="Content\admin\pages\index.css" />
+    <Content Include="Content\admin\pages\login.css" />
+    <Content Include="Content\partner.css" />
+    <Content Include="Content\select2_metro.css" />
+    <Content Include="Content\admin\js\table-editable.js" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\jquery-ui.css" />
+    <Content Include="Content\themes\base\jquery.ui.accordion.css" />
+    <Content Include="Content\themes\base\jquery.ui.all.css" />
+    <Content Include="Content\themes\base\jquery.ui.autocomplete.css" />
+    <Content Include="Content\themes\base\jquery.ui.base.css" />
+    <Content Include="Content\themes\base\jquery.ui.button.css" />
+    <Content Include="Content\themes\base\jquery.ui.core.css" />
+    <Content Include="Content\themes\base\jquery.ui.datepicker.css" />
+    <Content Include="Content\themes\base\jquery.ui.dialog.css" />
+    <Content Include="Content\themes\base\jquery.ui.progressbar.css" />
+    <Content Include="Content\themes\base\jquery.ui.resizable.css" />
+    <Content Include="Content\themes\base\jquery.ui.selectable.css" />
+    <Content Include="Content\themes\base\jquery.ui.slider.css" />
+    <Content Include="Content\themes\base\jquery.ui.tabs.css" />
+    <Content Include="Content\themes\base\jquery.ui.theme.css" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\minified\jquery-ui.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.accordion.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.autocomplete.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.button.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.core.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.datepicker.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.dialog.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.progressbar.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.resizable.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.selectable.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.slider.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.tabs.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
+    <Content Include="Content\images\footer_icon.png" />
+    <Content Include="Content\upload\images\1378711452.jpg" />
+    <Content Include="Content\upload\images\1378712715.jpg" />
+    <Content Include="Content\upload\images\1378713865.jpg" />
+    <Content Include="Content\upload\images\1378714764.jpg" />
+    <Content Include="Content\upload\images\1378716366.jpg" />
+    <Content Include="Content\upload\images\1378716926.jpg" />
+    <Content Include="Content\upload\images\1382677653.jpg" />
+    <Content Include="Content\upload\images\1383016734.jpg" />
+    <Content Include="Content\upload\images\1383129457.jpg" />
+    <Content Include="Content\upload\images\1383620858.jpg" />
+    <Content Include="Content\WireLess\CSS\m_cgstate.css" />
+    <Content Include="Content\WireLess\images\about_banner.jpg" />
+    <Content Include="Content\WireLess\images\about_banner_info.png" />
+    <Content Include="Content\WireLess\images\aq_banner.jpg" />
+    <Content Include="Content\WireLess\images\aq_banner_info.png" />
+    <Content Include="Content\WireLess\images\aq_service.png" />
+    <Content Include="Content\WireLess\images\banner_01.jpg" />
+    <Content Include="Content\WireLess\images\banner_02.jpg" />
+    <Content Include="Content\WireLess\images\footer_nav_icon1.png" />
+    <Content Include="Content\WireLess\images\footer_nav_icon2.png" />
+    <Content Include="Content\WireLess\images\footer_nav_icon3.png" />
+    <Content Include="Content\WireLess\images\home_nav_icon1.png" />
+    <Content Include="Content\WireLess\images\home_nav_icon2.png" />
+    <Content Include="Content\WireLess\images\home_nav_icon3.png" />
+    <Content Include="Content\WireLess\images\home_nav_icon4.png" />
+    <Content Include="Content\WireLess\images\huzuo_arr.png" />
+    <Content Include="Content\WireLess\images\hz_banner.jpg" />
+    <Content Include="Content\WireLess\images\hz_banner_info.png" />
+    <Content Include="Content\WireLess\images\hz_service.png" />
+    <Content Include="Content\WireLess\images\jkd_apply.png" />
+    <Content Include="Content\WireLess\images\jkd_banner.jpg" />
+    <Content Include="Content\WireLess\images\jkd_banner_info.png" />
+    <Content Include="Content\WireLess\images\jkd_service.png" />
+    <Content Include="Content\WireLess\images\logo.png" />
+    <Content Include="Content\WireLess\images\zyb_apply.png" />
+    <Content Include="Content\WireLess\images\zyb_banner.jpg" />
+    <Content Include="Content\WireLess\images\zyb_banner_info.png" />
+    <Content Include="Content\WireLess\images\zyb_service.png" />
+    <Content Include="Content\WireLess\JS\swipe.min.js" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Scripts\cgvalidator.js" />
+    <Content Include="Scripts\getafn.js" />
+    <Content Include="Scripts\getfilename.js" />
+    <Content Include="Scripts\jquery.easing.js" />
+    <Content Include="Scripts\jquery.superslide.js" />
+    <Content Include="Scripts\jquery.js" />
+    <Content Include="Scripts\jquery.lightbox.min.js" />
+    <Content Include="Scripts\jquery.tools.min.js" />
+    <Content Include="Scripts\jquery_sidescript.js" />
+    <Content Include="Scripts\swfobject.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\Safe.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\News.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\News_list.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\NewsDetails.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\Partner.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\AboutUs.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\About_Media.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\about_sub_nav.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\about_subbanner.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\About_Notice.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ClassDiagram1.cd" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\Helps.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\helps_subbanner.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\helps_sub_nav.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\About_Contactus.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\HelpsList.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\_css&amp;js.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\Jikedai.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\Zhiyingbao.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\_footer.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\_LayoutJobPage.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\_LayoutAdmin.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\admin\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\admin\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\admin\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\admin\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\admin\fonts\FontAwesome.otf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Admin\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Admin\Login.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Admin\News.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Admin\NewsView.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\admin\ueditor\net\fileUp.ashx" />
+    <Content Include="Content\admin\ueditor\net\getContent.ashx" />
+    <Content Include="Content\admin\ueditor\net\getMovie.ashx" />
+    <Content Include="Content\admin\ueditor\net\getRemoteImage.ashx" />
+    <Content Include="Content\admin\ueditor\net\imageManager.ashx" />
+    <Content Include="Content\admin\ueditor\net\imageUp.ashx" />
+    <Content Include="Content\admin\ueditor\net\scrawlUp.ashx" />
+    <Content Include="Content\admin\ueditor\net\Web.config" />
+    <None Include="Properties\PublishProfiles\yifangdai.pubxml" />
+    <None Include="Properties\PublishProfiles\配置文件1.pubxml" />
+    <Content Include="Views\Admin\SiteSet.cshtml" />
+    <Content Include="Views\Admin\PageSet.cshtml" />
+    <Content Include="Views\Shared\_LayoutWireLessPage.cshtml" />
+    <Content Include="Views\WireLess\Index.cshtml" />
+    <Content Include="Views\WireLess\Jikedai.cshtml" />
+    <Content Include="Views\WireLess\hezuo.cshtml" />
+    <Content Include="Views\WireLess\zhiyingbao.cshtml" />
+    <Content Include="Views\WireLess\safe.cshtml" />
+    <Content Include="Views\WireLess\aboutus.cshtml" />
+    <Content Include="Views\Home\Jobs.cshtml" />
+    <Content Include="Scripts\bootstrap.min.js.map">
+      <DependentUpon>bootstrap.js</DependentUpon>
+    </Content>
+    <Content Include="Views\Home\FeedBack.cshtml" />
+    <Content Include="Views\Shared\_helpleft.cshtml" />
+    <Content Include="Views\Home\Questions.cshtml" />
+    <Content Include="Views\Admin\Credit.cshtml" />
+    <Content Include="Views\Admin\Investment.cshtml" />
+    <Content Include="Views\Admin\Affiliate.cshtml" />
+    <Content Include="Views\Admin\Feedback.cshtml" />
+    <Content Include="Views\Admin\_Tools.cshtml" />
+    <Content Include="Views\Admin\Addnews.cshtml" />
+    <Content Include="Views\Home\GetNewsList.cshtml" />
+    <Content Include="Views\Home\Nav.cshtml" />
+    <Content Include="Views\Admin\PageSetModel.cshtml" />
+    <Content Include="Views\Admin\ql.cshtml" />
+    <Content Include="Views\Admin\addq.cshtml" />
+    <Content Include="Views\Admin\QView.cshtml" />
+    <Content Include="Views\Home\error.cshtml" />
+    <Content Include="Views\Admin\FooterSEO.cshtml" />
+    <Content Include="Views\Admin\addFooterSEO.cshtml" />
+    <Content Include="Web.sitemap" />
+    <Content Include="Views\Home\siteMap.cshtml" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>favicon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>2091</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:6454/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

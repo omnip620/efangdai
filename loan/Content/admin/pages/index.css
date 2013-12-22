@@ -1,0 +1,14 @@
+﻿.text-info {
+ font-size:16px;
+ line-height:70px;
+ height:80px;
+}
+h1 {
+ border-left:5px solid;
+ border-color:black;
+ padding-left:5px;
+}
+.site-info span {
+ font-size:14px;
+ margin:5px auto;
+}

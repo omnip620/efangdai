@@ -1,0 +1,39 @@
+﻿@{
+    ViewBag.Title = "网站地图";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section head{
+
+	@{Html.RenderPartial("../shared/_css&js");}
+	@*<script src="/Scripts/getafn.js" type="text/javascript"></script>*@
+}
+
+
+@{Html.RenderPartial("../shared/about_subbanner");}
+<link href="/Content/onejikedai.css" rel="stylesheet" />
+<link href="/Content/siteMap.css" rel="stylesheet" />
+<div class="bread_crumbs"  style=" display:none;"><a href="http://www.efdai.com">易房贷</a>><a href="http://www.efdai.com">主页</a>><a href="http://www.efdai.com/siteMap.html">网站地图</a></div>
+<div id="wrapper">
+    
+	<div id="container" class="cgstate">
+        <div id="map">
+            <h3>网站地图</h3>
+            <p><a target="_self" href="/">网站首页</a></p>
+            <p><a  target="_self" href="/jikedai.html">我要贷款</a></p>
+            <p><a target="_self" href="/zhiyingbao.html">我要理财</a></p>
+            <p><a target="_self" href="/safe.html">安全保障</a></p>
+            <p><a target="_self" href="/news.html">易房咨询</a>
+                <p class="p40"><a target="_self" href="/news_list/行业资讯_1.html">行业资讯</a></p>
+                <p class="p40"><a target="_self" href="/news_list/易房动态_1.html">易房动态</a></p>
+                <p class="p40"><a target="_self" href="/news_list/宏观经济解读_1.html">宏观经济解读</a></p>
+                <p class="p40"><a target="_self" href="/news_list/宏观经济解读_1.html">管理新视野</a></p>
+            </p>
+            <p><a target="_self" href="/partner.html">机构合作</a></p>
+            <p><a target="_self" href="/aboutus.html">关于我们</a></p>
+            <p><a target="_self" href="/helps.html">帮助中心</a>
+                <p class="p40"><a target="_self"  href="/questions.html">问题列表</a></p>
+            </p>            
+            <p><a  target="_self" href="/feedback.html">在线留言</a></p>
+        </div>
+    </div>
+</div>

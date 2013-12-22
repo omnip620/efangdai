@@ -1,0 +1,266 @@
+﻿@charset "utf-8";
+/* 
+	@name: cgstate
+	@anther: reake (reake.com@gmail.com)
+	@website: http://www.reake.com
+	@function: main layout 
+*/
+body {
+	background: #f2f2f2;
+}
+
+/* jobs */
+#header {
+	height: 81px;
+}
+#header .logo{
+  background: url(images/jobs_logo.png) no-repeat;
+  width: 294px;
+  height: 81px;
+  display: block;
+  text-indent: -9999px;
+}
+#header .nav ul li {
+  float: left;
+  margin:0 1px;
+
+}
+#header .nav ul li a {
+  font-size: 14px;
+  color:#333333;
+  font-family: "microsoft yahei",Arial,sans-serif;
+  padding: 5px 18px;
+  display: block;
+   padding-bottom: 12px;
+}
+#header .nav ul li a:hover,
+#header .nav ul li a.current {
+  background: #b97d00;  
+  color: #fff;
+  text-decoration: none;
+  padding-bottom: 12px;
+}
+#jobs_banner {
+	width: 100%;
+	background: #b97d00;
+	height: 419px;
+	text-align: center;
+}
+.jobs_shadow {
+	background: url(images/jobs_shadow.png) no-repeat;
+	height: 36px;
+	width: 980px;
+	margin: 0 auto;
+}
+
+/* jobs */
+#jobs {
+	padding: 40px 0 50px 41px;
+	height:100%;
+	overflow: hidden;
+	position: relative;
+	zoom:1;
+}
+.jobs_title {
+	font-size: 18px;
+	font-weight: bold;
+	line-height: 18px;
+}
+
+#jobs .item p {
+	font-size: 14px;
+	/*font-family:  Arial,sans-serif;*/
+	color: #666666;
+	line-height: 200%;
+	margin-top: 10px;
+}
+.j_row2 {
+	margin-top: 50px;
+	width: 455px;
+}
+.j_row3 {
+	margin-top: 50px;
+	width: 520px;
+}
+
+.j_row3 .jobs_title {
+	position: relative;
+	zoom:1;
+}
+.jobs_list_btn {
+	background: url(images/jobs_btn.png) no-repeat;
+	width: 88px;
+	height: 27px;
+	display: block;
+	text-indent: -9999px;
+	position: absolute;
+	right: 15px;
+	top: -5px;
+}
+.jobs_list_btn:hover {background-position: -90px 0;}
+.jobs_about_pic {
+	position: absolute;
+	right: 10px;
+	bottom: 100px;
+}
+
+
+/* intro */
+#intro {
+	clear: both;
+	margin-top: 35px;
+}
+#intro .side {
+	width: 200px;
+}
+#intro .side ul {
+	background: #c69000;
+	height: 100%;
+	overflow: hidden;
+}
+#intro .side ul li {
+	padding: 12px 0 12px 30px;
+	border-bottom: 1px solid #ad7b00;
+	border-top:1px solid #dfa303;
+}
+#intro .side ul li a {
+	font-size: 14px;
+	color: #fff;
+	background: url(images/cg_icon.png) no-repeat 0px -629px;
+	padding-left: 15px;
+}
+#intro .side .mailto {
+	display: block;
+	margin-top: 20px;
+	color: #666
+}
+
+#intro .main {
+	width: 750px;
+}
+.intro_title {
+	font-size: 18px;
+	line-height: 18px;
+	font-weight: bold;
+	padding-bottom: 6px;
+	background: url(images/partner_icon.png) no-repeat 0 3px;
+	padding-left: 20px;
+	margin-left: 5px;
+}
+
+.intro_list {}
+.intro_list .item {
+	clear: both;
+	padding-bottom: 50px;
+	height: 100%;
+	overflow: hidden;
+}
+.intro_list .item h2 {
+	border-bottom: 1px solid #dfdfdf;
+	padding-bottom: 12px;
+}
+.intro_list .item dl {
+	clear: both;
+	border-top: 1px solid #ffffff;
+	padding-top: 10px;
+	padding-left: 28px;
+}
+.intro_list .item dl dt {
+	float: left;
+	background: url(images/jobs_intro_icon.png) no-repeat;
+	width: 80px;
+	height: 100px;
+}
+.intro_list .item dl dt.in01 {background-position: 0 0;}
+.intro_list .item dl dt.in02 {background-position: 0 -114px;}
+.intro_list .item dl dt.in03 {background-position: 0 -227px;}
+.intro_list .item dl dt.in04 {background-position: 0 -340px;}
+.intro_list .item dl dt.in05 {background-position: 0 -454px;}
+.intro_list .item dl dd {
+	float: right;
+	width: 620px;
+}
+.intro_list .item dl dd h3 {
+	font-size: 14px;
+	color: #000;
+	font-weight: bold;
+}
+.intro_list .item dl dd p {
+	line-height: 200%;
+	margin-top: 10px;
+	color:#666;
+}
+
+
+/* #train  */
+
+#train {
+	margin-top: 30px;
+	padding-bottom: 40px;
+	position: relative;
+	zoom:1;
+}
+#train h2 {
+	border-bottom: 1px solid #dfdfdf;
+	padding-bottom:40px;
+	line-height: 200%;
+}
+.train_list {
+	border-top: 1px solid #ffffff;
+	padding: 40px 20px;
+	width: 465px;
+}
+.train_list dl dd {
+	font-size: 14px;
+	color: #666666;
+	line-height: 200%;
+	margin-top: 10px;
+}
+#train .jobs_about_pic {
+	position: absolute;
+	right: 10px;
+	top: 120px;
+}
+
+/* #guide */
+#guide {
+	clear: both;
+	margin-top: 30px;
+}
+
+#guide .item .pic {
+	margin-top: 30px;
+}
+#guide .item p {
+	font-size: 14px;
+	/*font-family:  Arial,sans-serif;*/
+	color: #666666;
+	line-height: 200%;
+	margin-top: 10px;
+}
+#guide .g_row1 {
+	padding: 20px;
+}
+#guide .g_row2 {
+	margin-top: 30px;
+	background: #fff;
+	border:1px solid #dfdfdf;
+	padding: 20px;
+}
+#guide .g_row2 ul {
+	margin-top: 10px;
+	font-size: 14px;
+}
+#guide .g_row2 ul li {
+	padding: 20px 0;
+	border-bottom: 1px solid #dfdfdf;
+}
+
+#guide .g_row2 ul li h3 {	
+	color: #c69000;
+	font-weight: bold;
+}
+#guide .g_row2 ul li p {
+	color: #666;
+	padding-left: 50px;
+}

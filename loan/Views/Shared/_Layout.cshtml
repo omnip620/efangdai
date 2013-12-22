@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title</title>
+    <link rel="shortcut icon" href="/content/images/favicon.ico">
+    <meta name="Keywords" content="@ViewBag.Keywords" />
+    <meta name="Description" content="@ViewBag.Description" />
+    <meta name="author" content="房产抵押贷款 - 易房贷">
+    <meta name="copyright" content="www.efdai.com">
+  
+       
+    <script src="/Scripts/jquery.js" type="text/javascript"></script>
+
+    <script src="http://cdn.jquerytools.org/1.2.7/full/jquery.tools.min.js"></script>
+    @RenderSection("head", false)
+     <link href="/Content/base.css" rel="stylesheet" />
+    <base target="_blank" />
+</head>
+
+
+<body id="@RenderSection("bodyid", false)">
+    <div id="header">
+        <div class="t_banner_wrap">
+            <div class="top_banner">
+                <img src="/Content/images/01-03.png" class="t_banner_logo" />
+            </div>
+        </div>
+        <div class="h_wrap cgstate">
+
+            <a href="/" class="logo" title="房产抵押贷款">房产抵押贷款</a>
+
+            <div class="nav">
+                <ul id="nav">
+                    
+
+                    <li><a href="http://www.efdai.com" target="_self" title="返回易房首页">首页</a></li>
+                    <li><a href="/jikedai.html" target="_self"  title="我要贷款">我要贷款</a></li>
+                    <li><a href="/zhiyingbao.html" target="_self"  title="我要理财">我要理财</a></li>
+                    <li><a href="/safe.html" target="_self"  title="安全保障">安全保障</a></li>
+                    <li><a href="/news.html" target="_self"  title="易房资讯">易房资讯</a></li>
+                    <li><a href="/partner.html" target="_self"  title="机构合作">机构合作</a></li>
+                    <li><a id="about_nav_1" href="/aboutus.html" target="_self"  title="关于易房">关于易房</a></li>
+                    <li><a href="/helps.html" target="_self"  title="帮助中心">帮助中心</a></li>
+                </ul>
+            </div>
+            <script type="text/javascript">
+                var url = location.pathname;
+                url = url.split("/");
+                var name = url[url.length - 1];
+
+                function getName(s) {
+                    s = s.split("/");
+                    return s[s.length - 1];
+                }
+                var nav_array = document.getElementById('nav').getElementsByTagName('a');
+                for (var i = 0; i < nav_array.length; i++) {
+                    if (getName(nav_array[i].href) == name || name == "") {
+                        nav_array[i].className = "current";
+                        break;
+                    }
+                }
+
+            </script>
+        </div>
+
+    </div>
+    @RenderBody()
+    @{Html.RenderPartial("_footer");}
+</body>
+</html>

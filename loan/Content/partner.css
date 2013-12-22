@@ -1,0 +1,174 @@
+﻿@charset "utf-8";
+/* 
+	@name: cgstate
+	@anther: reake (reake.com@gmail.com)
+	@website: http://www.reake.com
+	@function: main layout 
+*/
+
+/* partner */
+#partner {
+	clear: both;
+	height: 100%;
+	overflow: hidden;
+}
+#partner .main {
+	width: 660px;
+	margin-top: 35px
+}
+#partner .side {
+	margin-top: 35px;
+}
+
+.partner_title {
+	font-size: 18px;
+	line-height: 18px;
+	font-weight: bold;
+	padding-bottom: 6px;
+	background: url(images/partner_icon.png) no-repeat 0 3px;
+	padding-left: 20px;
+	margin-left: 5px;
+}
+.l_line {
+	background: url(images/partner_icon.png) no-repeat 0 -68px;
+	padding-left: 16px;
+}
+.r_cirle {
+	background: url(images/partner_icon.png) no-repeat 0 -156px;
+	padding-left: 20px;
+}
+
+.partner_box {
+	background: #8a6023;
+	height: 26px;
+	padding-top: 10px;
+}
+
+/* main */
+.p_row1 {clear: both;}
+.p_row1 dl dd {
+	margin-top: 10px;
+	font-size: 14px;
+	color: #666666;
+	margin-left: 10px;
+}
+.p_row1 p {
+	margin-top: 30px;
+	line-height: 200%;
+	color: #666666;
+	margin-left: 10px;
+	font-size: 14px;
+}
+.p_row2 {
+	clear: both;
+	margin-top: 42px;
+	padding-bottom:10px;
+}
+.p_row2 dl {
+	clear: both;
+	margin-top: 22px;
+	margin-left: 8px;
+	padding-bottom: 16px;
+	height: 100%;
+	overflow: hidden;
+	border-bottom: 1px solid #e6e6e6
+}
+.p_row2 dl dt {
+	font-size: 14px;
+	color: #8a6023;
+	font-weight: bold;	
+	padding-bottom: 5px;
+}
+.p_row2 dl dd {
+	float: left;
+	padding:10px;
+	color: #666666;
+}
+.p_row2 dl dd em {
+	color: #8a6023
+}
+
+.p_row3 {
+	clear: both;
+	padding-bottom: 40px;
+}
+.p_row3 ul {margin-top: 20px;}
+.p_row3 ul li {
+	margin-top: 10px;
+	font-size: 14px;
+	color: #666666;
+	margin-left: 10px;
+}
+
+/* side */
+.form_wrap {
+	background: url(images/partner_form_bg.jpg) no-repeat 0 0;
+	height: 351px;
+	width: 282px;
+	overflow: hidden;
+}
+
+.form_wrap h3 {
+	font-size: 18px;
+	height: 40px;
+	line-height: 40px;
+	color: #8a6023;
+	padding-left: 10px;
+}
+.form_wrap ul {
+	margin-top: 20px;
+	padding: 0 0 0 15px
+}
+.form_wrap ul li {
+	clear: both;
+	padding: 9px 0;
+}
+.form_wrap ul li label {
+	width: 90px;
+	padding-right: 10px;
+	display: block;
+	text-align: right;
+	float: left;
+}
+.form_wrap ul li label em {
+	color: #C30;
+}
+
+.form_wrap ul li.inbox {
+	display: block;
+	float: left;
+}
+
+.form_wrap ul li .input {
+	padding: 3px 5px;
+	display: inline-block;
+	border:1px solid #ccc;
+	width: 130px;
+
+}
+
+
+.form_wrap ul li .form_btn {
+	background: url(images/partner_form_btn.png) no-repeat 0 0;
+	display: block;
+	float: right;
+	margin-right: 50px;
+	width: 77px;
+	height: 35px;
+	text-indent: -9999px;
+	border:0 none;
+	cursor: pointer;
+}
+.form_wrap ul li .form_btn:hover {
+	background-position: -80px 0px;
+}
+
+.joins {
+	margin-top: 25px;
+}
+.joins dl dt {
+	padding-bottom: 10px;
+}	
+.joins dl dd {
+	margin: 16px 0 0 22px;
+}

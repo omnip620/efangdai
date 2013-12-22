@@ -1,0 +1,37 @@
+﻿<div id="sub_header_nav">
+    <h2 class="fl">关于易房</h2>
+    <ul class="fr" id="about_nav">
+        <li><a  href="aboutus.html" title="易房概况">易房概况 </a></li>
+
+        <li><a href="jobs.html" title="加入易房">加入易房</a></li>
+        <li><a href="about_contactus.html" title="联系易房">联系易房 </a></li>
+
+
+    </ul>
+    <script type="text/javascript">
+        document.getElementById('about_nav_1').className = "current";
+        var url = location.pathname;
+        url = url.split("/");
+        var name = url[url.length - 1];
+
+        function getName(s) {
+            s = s.split("/");
+            return s[s.length - 1];
+        }
+        var nav_array = document.getElementById('about_nav').getElementsByTagName('a');
+
+        for (var i = 0; i < nav_array.length; i++) {
+
+            if (getName(nav_array[i].href) == name) {
+
+                nav_array[i].className = "current";
+
+            }
+            else {
+                nav_array[i].className = "";
+            }
+        }
+
+    </script>
+</div>
+<!--#sub_header_nav -->

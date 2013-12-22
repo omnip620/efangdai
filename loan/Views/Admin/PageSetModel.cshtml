@@ -1,0 +1,81 @@
+﻿@model Pan.Model.PageSet
+@{
+    ViewBag.Title = "PageSetModel";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+@section headCss{
+    <link href="/Content/admin/select2_metro.css" rel="stylesheet" />
+    <link href="/Content/admin/DT_bootstrap.css" rel="stylesheet" />
+}
+@section pageTitle
+{
+    设置		<small>页面设置</small>
+}
+@section breadNav
+{
+    <li>
+        <i class="fa fa-home"></i>
+        <a href="index">首页</a>
+        <i class="fa fa-angle-right"></i>
+    </li>
+    <li><a href="#">页面设置</a></li>
+}
+<div class="row">
+    <div class="col-md-12">
+        <div class="portlet">
+            <div class="portlet-title">
+                <div class="caption"><i class="fa fa-reorder"></i>页面设置</div>
+                <div class="tools">
+                    <a href="javascript:;" class="collapse"></a>
+
+                    <a href="javascript:;" class="reload"></a>
+                    <a href="javascript:;" class="remove"></a>
+                </div>
+            </div>
+            <div class="portlet-body form">
+                <form role="form" action="/admin/PageSetEdit" method="post">
+                    <div class="form-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="inputSiteName">栏目名称</label>
+                                    <input type="text" class="form-control" id="column" name="column" readonly="true" placeholder="输入栏目名称" value="@Model.column" />
+                                    <input type="hidden" id="id" name="id" value="@Model.id" />
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="inputTitle">Title</label>
+                                    <input type="text" class="form-control" id="title" name="title" placeholder="输入网站Title" value="@Model.title" />
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputKeywords">Keywords</label>
+                                    <input type="text" class="form-control" id="keywords"  name="keywords" placeholder="输入Keywords" value="@Model.keywords"/>
+                                    <span class="help-block">META标签的<span class="text-info">keywords</span>内容,关键字之间使用 "," 分隔.</span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputDescrip">Description</label>
+                                    <input type="text" class="form-control" id="description"  name="description" placeholder="输入Description" value="@Model.description"/>
+                                    <span class="help-block">META标签的<span class="text-info">description</span>内容</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn blue">提交</button>
+                        <button type="button" class="btn default">取消</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</div>
+@section footerJS
+{
+    <script src="/Content/admin/js/app.js"></script>
+    <script type="text/javascript">
+        jQuery(document).ready(function () {
+            App.init();
+        });
+    </script>
+}

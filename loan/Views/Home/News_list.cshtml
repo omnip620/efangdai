@@ -1,0 +1,73 @@
+﻿@{
+	
+	string h = ".html";
+}
+
+@section head{
+
+	@{Html.RenderPartial("../shared/_css&js");}
+
+}
+
+
+<!-- sub banner -->
+<div class="sub_shadow"></div>
+
+<div id="wrapper">
+	<!-- #header -->
+	<div id="container" class="cgstate">
+		<div id="sub_header_nav">
+			<h2 class="fl">易房资讯</h2>
+			<ul class="fr">
+				<li><a href="/news_list/行业资讯_1.html" title="行业资讯">行业资讯 </a></li>
+				<li><a href="/news_list/易房动态_1.html" title="易房动态">易房动态 </a></li>
+				<li><a href="/news_list/宏观经济解读_1.html" title="宏观经济解读">宏观经济解读 </a></li>
+				<li><a href="/news_list/管理新视野_1.html" title="管理新视野">管理新视野 </a></li>
+			</ul>
+		</div>
+		<!--#sub_header_nav -->
+        <div class="bread_crumbs" style=" display:none;">
+            <a href="http://www.efdai.com">易房贷</a>
+            ><a href="http://www.efdai.com">主页</a>
+            ><a href="http://www.efdai.com/news.html">易房咨询</a>
+            ><a >@ViewBag.h3</a>
+        </div>
+		<div id="content">
+			<div id="news_box">
+				<h3>@ViewBag.h3</h3>
+			
+				@{System.Data.DataTable dt = ((System.Data.DataTable)ViewData["newslist"]);}
+
+				@if (dt.Rows.Count < 0)
+				{
+					<dl>无数据</dl>
+				}
+				else
+				{
+					for (int i = 0; i < dt.Rows.Count; i++)
+					{<dl class="news_item">
+						<dt>
+							<a href="/news/@dt.Rows[i][0].ToString()@h" title="@dt.Rows[i][1].ToString()">@dt.Rows[i][1].ToString()</a><span>----------- 来源:@dt.Rows[i][2].ToString() &nbsp; 发布时间:@dt.Rows[i][3].ToString() &nbsp;</span>
+						</dt>
+						<dd>中小企业有大额贷款的难题，P2P网贷平台则有一定的经营瓶颈。在这样的现状下，大额融资的新渠道也自然就应运而生了。　&nbsp; <a href="/news/@dt.Rows[i][0].ToString()@h" class="ccfa fwb" title="@dt.Rows[i][1].ToString()">» 查看详情</a></dd>
+
+					</dl>
+					}
+				}
+				
+
+			
+
+				<div id="pagenav">
+
+					<div class="page_list">@Html.Raw(ViewData["link"].ToString())</div>
+				</div>
+			</div>
+			<!-- #news_box -->
+		</div>
+		<!--#content -->
+	</div>
+	<!-- #container -->
+</div>
+
+

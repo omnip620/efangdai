@@ -1,0 +1,81 @@
+﻿@{
+	ViewBag.Title = "hezuo";
+	Layout = "~/Views/Shared/_LayoutWireLessPage.cshtml";
+}
+
+<div id="sub_banner">
+		<div class="pic_banner"><img src="/Content/WireLess/images/hz_banner.jpg" alt="" /></div>
+		<div class="pic_banner_info"><img src="/Content/WireLess/images/hz_banner_info.png" alt="" /></div>
+	</div>
+	<section id="sub_info">
+		<img src="/Content/WireLess/images/hz_service.png" alt="" />
+	</section>
+	<section id="public_form">		
+		<div class="form_wrap">	
+			<h2>在线申请</h2>
+			<form id="mobileform" action="mobile_save.php" method="post">
+			<input type="hidden" name="action" value="partner">
+				<ul>
+					<li><label>企业类型:</label><select name="txt_type" id="txt_type" class="sel_input" required="required">
+									<option selected="selected" value="">请选择</option>
+									<option value="银行">银行</option>
+									<option value="小额贷款">小额贷款</option>
+									<option value="融资性担保">融资性担保</option>
+									<option value="金融租赁">金融租赁</option>
+									<option value="信托">信托</option>
+									<option value="典当">典当</option>
+									<option value="证券">证券</option>
+									<option value="股权投资">股权投资</option>
+									<option value="其他">其他</option>
+								</select><em class="star_red">*</em></li>
+					<li><label>企业名称:</label><input type="text" class="form_input" name="txt_corp" required="required"><em class="star_red">*</em></li>
+					<li><label>联&nbsp;&nbsp;系&nbsp;&nbsp;人:</label><input type="text" class="form_input" name="txt_name" required="required"><em class="star_red">*</em></li>
+					<li><label>您的职务:</label><input type="text" class="form_input" name="txt_office" required="required"><em class="star_red">*</em></li>
+					<li><label>手机号码:</label><input type="text" class="form_input" name="txt_mobi" required="required"><em class="star_red">*</em></li>					
+				</ul>
+				<div class="form_btnbox">
+				<input type="hidden" name="fromsite" value="手机合作">
+				<button type="submit" class="orange form_btn"><b>立  即  申  请</b></button></div>
+			</form>
+		</div>
+	</section>
+	<section id="hz_row" class="object">
+		<h3>加盟对象</h3>
+		<dl>
+			<dt>金融及准金融机构</dt>
+			<dd>银行</dd>
+			<dd>小额贷款公司</dd>
+			<dd>信托公司</dd>
+			<dd>典当公司</dd>
+			<dd>融资租赁公司</dd>
+			<dd>金融租赁公司</dd>
+			<dd>其他......</dd>
+		</dl>
+		<dl>
+			<dt>投资机构</dt>
+			<dd>天使投资</dd>
+			<dd>VC投资</dd>
+			<dd>PE投资</dd>
+			<dd>投资公司</dd>
+			<dd>基金</dd>
+			<dd>其他......</dd>
+		</dl>
+		<dl>
+			<dt>服务机构</dt>
+			<dd>律师事务所</dd>
+			<dd>会计/审计事务所</dd>
+			<dd>资产评估机构</dd>
+			<dd>财务咨询公司</dd>
+			<dd>认证机构</dd>
+			<dd>咨询/顾问</dd>
+			<dd>其他......</dd>
+		</dl>
+	</section>
+	<section id="hz_row" class="condition">
+		<h3>加盟条件</h3>
+		<ul>
+			<li>提供企业营业执照复印件、经营许可证复印件</li>
+			<li>融资产品的特色与优势</li>
+			<li>审核通过，加盟商与易房签署相关协议</li>
+		</ul>		
+	</section>

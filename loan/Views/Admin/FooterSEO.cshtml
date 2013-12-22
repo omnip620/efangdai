@@ -1,0 +1,190 @@
+﻿@{
+    ViewBag.Title = "FooterSEO";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+
+@section headCss{
+    <link href="/Content/admin/select2_metro.css" rel="stylesheet" />
+    <link href="/Content/admin/DT_bootstrap.css" rel="stylesheet" />
+}
+@section pageTitle
+{
+    底部关键字		<small>底部关键字</small>
+}
+@section breadNav
+{
+    <li>
+        <i class="fa fa-home"></i>
+        <a href="index">首页</a>
+        <i class="fa fa-angle-right"></i>
+    </li>
+    <li><a href="#">底部关键字</a></li>
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="portlet box blue">
+            <div class="portlet-title">
+                <div class="caption"><i class="fa fa-edit"></i>关键字列表</div>
+                <div class="tools">
+                    <a href="javascript:;" class="collapse"></a>
+
+                    <a href="javascript:;" class="reload"></a>
+
+                </div>
+                <div class="actions">
+
+                    <div class="btn-group">
+                        <a class="btn" href="#" data-toggle="dropdown">
+                            <i class="fa fa-cogs" style="color: white">工具</i>
+                            <i class="fa fa-angle-down" style="color: white"></i>
+                        </a>
+                        <ul class="dropdown-menu pull-right">
+                            <li><a href="/admin/addFooterSEO"><i class="fa fa-pencil"></i>添加关键字</a></li>
+                            <li><a class="getChecked" onclick="javascript:"><i class="fa fa-trash-o"></i>删除</a></li>
+
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+            <div class="portlet-body">
+                <table class="table table-striped table-bordered table-hover" id="sample_1">
+                    <thead>
+                        <tr>
+                            <th class="table-checkbox"style="width:13px;">
+                                <input type="checkbox" class="group-checkable" data-set="#sample_1 .checkboxes" /></th>
+                            <th style="width:30%;">关键字</th>
+                            <th>链接</th>                            
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+@section footerJS
+{
+    <script src="/Content/admin/js/select2.min.js"></script>
+    <script src="/Content/admin/js/jquery.dataTables.js" charset="utf-8"></script>
+    <script src="/Content/admin/js/DT_bootstrap.js" charset="utf-8"></script>
+    <script src="/Content/admin/js/app.js"></script>
+    <script src="/Content/admin/js/Tools.js"></script>
+    <script type="text/javascript">
+
+        $(function () {
+            //获取删除ID
+
+            _delete("/admin/DelNews/");
+            //创建Table
+            var id = "";
+            $('#sample_1').dataTable({
+
+                "aLengthMenu": [
+                    [10, 15, 20, -1],
+                    [10, 15, 20, "所有"] // change per page values here
+                ],
+                // set the initial value
+                "iDisplayLength": 10,
+                "sAjaxSource": "/admin/GetNews",
+                "sPaginationType": "bootstrap",
+                "aoColumns": [
+                {
+                    'bSortable': false,
+
+                    "fnRender": function (obj) {
+
+                        id = obj.aData[0];
+                        return '<input type="checkbox" class="checkboxes" value="' + obj.aData[0] + '" style="" />'
+                    },
+                },
+                {
+                    'bSortable': true, "sClass": "center", 'sWidth': "20%", "fnRender": function (obj) {
+
+
+                        var linktext = obj.aData[1];
+                        var len = linktext.length;
+                        if (len > 20) {
+                            linktext = linktext.substr(0, 20);
+                        }
+
+                        return '<a href="/admin/NewsView/' + id + '">' + linktext + '</a>';
+                    },
+                }, { 'bVisible': false },
+                { 'bSortable': true, "sClass": "center", 'sWidth': "5%" },
+                
+                { 'bSortable': true, "sClass": "center", 'sWidth': "5%" },
+                { 'bSortable': true, "sClass": "center", 'sWidth': "15%" },
+                {
+                    'bSortable': true, "sClass": "center", 'sWidth': "10%", "fnRender": function (obj) {
+
+                        return '<a href="/admin/NewsView/' + id + '">点击查看</a>';
+                    },
+
+                },
+                
+                { 'bVisible': false },
+                { 'bVisible': false },
+                { 'bVisible': false },
+                { 'bVisible': false },
+                { 'bVisible': false },
+                { 'bSortable': true, "sClass": "center", 'sWidth': "10%" },
+
+                ],
+
+
+
+
+                "oLanguage": {
+                    "sInfoEmpty": "无数据或数据正在加载.....",
+                    "sLoadingRecords": "稍安勿躁 正在加载中......",
+                    "sProcessing": "稍安勿躁 正在加载中......",
+                    "sEmptyTable": "表中无数据存在！",
+                    "sInfo": "共 _TOTAL_ 条 当前第 _START_ 到 _END_ 条 ",
+                    "sLengthMenu": "展示 _MENU_ 条信息",
+                    "sSearch": "搜 索 ",
+                    "oPaginate": {
+                        "sFirst": "第一页",
+                        "sPrevious": "Prev",
+                        "sNext": "Next",
+                        "sLast": " 最后一页 "
+                    }
+                },
+                "bProcessing": true,
+                "bServerSide": false,
+
+
+            });
+            jQuery('#sample_1 .group-checkable').change(function () {
+                var set = jQuery(this).attr("data-set");
+                var checked = jQuery(this).is(":checked");
+                jQuery(set).each(function () {
+                    if (checked) {
+                        $(this).attr("checked", true);
+                    } else {
+                        $(this).attr("checked", false);
+                    }
+                    $(this).parents('tr').toggleClass("active");
+                    $(this).parents('span').toggleClass("checked");
+
+                });
+                jQuery.uniform.update(set);
+
+            });
+            jQuery('#sample_1 tbody tr .checkboxes').change(function () {
+                $(this).parents('tr').toggleClass("active");
+            });
+            jQuery('#sample_1_wrapper .dataTables_filter input').addClass("form-control input-medium"); // modify table search input
+            jQuery('#sample_1_wrapper .dataTables_length select').addClass("form-control input-xsmall"); // modify table per page dropdown
+            jQuery('#sample_1_wrapper .dataTables_length select').select2(); // initialize select2 dropdown
+            App.init();
+        });
+
+    </script>
+
+
+}

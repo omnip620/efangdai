@@ -1,0 +1,152 @@
+﻿@model Pan.Model.News
+@{
+	ViewBag.Title = Model.title;
+	ViewBag.Keywords = Model.keywords;
+	ViewBag.Description = Model.description;
+}
+
+
+@section head{
+
+	@{Html.RenderPartial("../shared/_css&js");}
+}
+
+@*<div id="subbanner">
+	<div class="cgstate">
+		<div class="fl title">
+			<h1>易房资讯</h1>
+			<p>LATEST NEWS</p>
+		</div>
+		<div class="fr">
+			<img src="/Content/images/news_banner.jpg" alt="" />
+		</div>
+	</div><!-- w980 -->
+</div>*@<!-- sub banner -->
+<div class="sub_shadow"></div>
+
+<div id="wrapper">
+    <div class="bread_crumbs" style="display:none;">
+        <a href="http://www.efdai.com">易房贷</a>
+        ><a href="http://www.efdai.com">主页</a>
+        ><a href="http://www.efdai.com/news.html">易房咨询</a>
+        ><a href="/news_list/@{string url = ""; url = Model.type + "_1.html";@url;}">@Model.type</a>
+    </div>
+    
+	<div id="container" class="cgstate">
+		<div id="sub_header_nav">
+			<h2 class="fl">易房资讯</h2>
+			<ul class="fr">
+				<li><a href="/news_list/行业资讯_1.html" title="行业资讯">行业资讯 </a></li>
+				<li><a href="/news_list/易房动态_1.html" title="易房动态">易房动态 </a></li>
+				<li><a href="/news_list/宏观经济解读_1.html" title="宏观经济解读">宏观经济解读 </a></li>
+				<li><a href="/news_list/管理新视野_1.html" title="管理新视野">管理新视野 </a></li>
+			</ul>
+		</div>
+		<!--#sub_header_nav -->
+		<div id="content">
+			<div id="news_box">
+
+				<div class="news_cnt">
+					<h1>@Model.title</h1>
+					<div class="meta">
+						<span class="fl">来源: @Model.source &nbsp;发布时间: @Model.time &nbsp;</span>@*浏览数：<span id="hits"></span>*@
+						<div class="fr w320">
+							<span class="fl"><a href="javascript:;" onclick="window.external.AddFavorite(location.href,document.title);">收藏</a> &nbsp; <em class="cccc">|</em> &nbsp;  <a href="javascript:;" onclick="window.print();">打印</a>&nbsp; <em class="cccc">|</em> &nbsp;  </span>
+							<!-- JiaThis Button BEGIN -->
+							<div class="jiathis_style">
+								<span class="jiathis_txt">分享到：</span>
+								<a class="jiathis_button_qzone"></a>
+								<a class="jiathis_button_tsina"></a>
+								<a class="jiathis_button_tqq"></a>
+								<a class="jiathis_button_renren"></a>
+								<a class="jiathis_button_kaixin001"></a>
+								<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+								<a class="jiathis_counter_style"></a>
+							</div>
+							<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1346210709001410" charset="utf-8"></script>
+							<!-- JiaThis Button END -->
+						</div>
+					</div>
+
+					<div class="content">@Html.Raw(Model.content)</div>
+
+
+					<div class="meta">
+						@{
+							string h = ".html";
+						}
+
+						<span class="fl">上一篇：<a href="/news/@ViewData["p_newsid"]@h" target="_self" >@ViewData["p_newst"]</a></span>
+						<div class="fr w320">
+							<span class="fl">下一篇：@Html.Raw(ViewData["n_link"].ToString())</span>
+							<!-- JiaThis Button BEGIN -->
+							<div class="jiathis_style"></div>
+							<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1346210709001410" charset="utf-8"></script>
+							<!-- JiaThis Button END -->
+						</div>
+					</div>
+
+
+					<br />
+					<div class="fl w350">
+						<div class="relate_art">您可能感兴趣的文章：</div>
+						<ul class="relate_list">
+							@{System.Data.DataTable dt1 = ((System.Data.DataTable)ViewData["gxq"]);
+							  
+							
+							 
+							  
+							}
+
+							@if (dt1.Rows.Count < 1)
+							{
+								<li>无数据</li>
+							}
+							else
+							{
+								for (int i = 0; i < dt1.Rows.Count; i++)
+								{ 
+								<li>
+									@{
+									string t1 = dt1.Rows[i][1].ToString();
+									if (t1.Length > 20)
+									{
+										t1 = t1.Substring(0, 20);
+									}
+									}
+									<a href="/news/@dt1.Rows[i][0].ToString()@h" title="@t1">@t1</a>
+								</li>
+
+								}
+							}
+
+
+
+
+						</ul>
+					</div>
+					<div class="news_b fr w320">
+						<span class="fl"><a href="javascript:;" onclick="window.external.AddFavorite(location.href,document.title);">收藏</a> &nbsp; <em class="cccc">|</em>&nbsp;  <a href="javascript:;" onclick="window.print();">打印</a>&nbsp; <em class="cccc">|</em> &nbsp;  </span>
+						<!-- JiaThis Button BEGIN -->
+						<div class="jiathis_style">
+							<span class="jiathis_txt">分享到：</span>
+							<a class="jiathis_button_qzone"></a>
+							<a class="jiathis_button_tsina"></a>
+							<a class="jiathis_button_tqq"></a>
+							<a class="jiathis_button_renren"></a>
+							<a class="jiathis_button_kaixin001"></a>
+							<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+							<a class="jiathis_counter_style"></a>
+						</div>
+						<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1346210709001410" charset="utf-8"></script>
+						<!-- JiaThis Button END -->
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- #news_box -->
+	</div>
+	<!--#content -->
+</div>
+<!-- #container -->
+<!-- #wrapper -->

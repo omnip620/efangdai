@@ -1,0 +1,393 @@
+﻿@{
+  
+}
+
+
+@section head{
+    <link href="/Content/lightbox.css" rel="stylesheet" />
+    @{Html.RenderPartial("../shared/_css&js");}
+    <script src="/Scripts/jquery.lightbox.min.js" type="text/javascript"></script>
+}
+
+
+<script type="text/javascript">
+    $(function () {
+        $('.gallery a').lightBox();
+    });
+</script>
+@*<div id="subbanner">
+	<div class="cgstate">
+		<div class="fl title">
+			<h1>安全保障</h1>
+			<p>SAFETY PRECAUTIONS</p>
+		</div>
+		<div class="fr">
+			<img src="/Content/images/safe_banner.jpg" alt="" />
+		</div>
+	</div>
+	<!-- w980 -->
+</div>*@
+<div class="sub_shadow"></div>
+<!-- #subbanner -->
+<div id="wrapper">
+    <div class="bread_crumbs" style=" display:none;"><a href="http://www.efdai.com">易房贷</a>><a href="http://www.efdai.com">主页</a>><a href="http://www.efdai.com/safe.html">安全保障</a></div>
+    <div id="container" class="cgstate">
+        <div id="sub_header_nav">
+            <h2 class="fl">安全保障</h2>
+            <ul id="tabs" class="safe_tabs navi fr">
+                <li><a href="javascript:void(0)" id="t1" class="current" title="保障手续">保障手续 </a></li>
+                <li><a href="javascript:void(0)" id="t2" title="政策法规">政策法规 </a></li>
+                <li><a href="javascript:void(0)" id="t3" title="隐私条款">隐私条款 </a></li>
+            </ul>
+        </div>
+        <!--#sub_header_nav -->
+        <div id="content" class="shadow_box">
+            <div id="safe_box">
+                <div id="panes" class="safe_panes" style="height: 1660px;">
+                    <div class="items">
+                        <div id="tab1" class="items_row" style="left: 0px; display: block;">
+                            <div class="column">
+                                <div class="safe_item i_col">
+                                    <div class="fl s_wi620">
+                                        <h3>授权与监管</h3>
+                                        <p>
+                                            易房贷是获得金融信息服务资质的投融资服务平台 易房贷不经手投资人的资金。<br />
+                                            并委托上海知名律师事务所全程提供第三方律师见证，以确保业务流程的透明化及严谨性和公正性。 <br />
+                                            服务宗旨:快速，高效，低耗的完成每一件您委托的专业的事。<br />
+                                            想客户之所需，解客户之燃眉，树泓申之品牌，创彼此之双赢。
+                                        </p>
+                                    </div>
+
+                                    <div class="fr">
+                                        <img src="/Content/images/safe_col_pic.png" alt="授权与监管" />
+                                    </div>
+                                </div>
+                                <!-- i_col -->
+
+                                <div class="safe_item i_col2">
+                                    <div class="fl s_wi620">
+                                        <h3>风控平台</h3>
+
+                                        <img class="fk" src="/Content/images/fk.jpg" />
+
+
+                                        @*<div class="flashbox">
+											<script type="text/javascript" src="/Scripts/swfobject.js"></script>
+											<script type="text/javascript">
+												//alert(verid1);
+												swfobject.embedSWF("/Content/flash/safe_flash.swf", "safeflash", "689", "266", "9.0.0", "expressInstall.swf");
+											</script>
+											<div id="safeflash">
+												<p><a href="http://www.adobe.com/go/getflashplayer">
+													<img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash player" /></a></p>
+											</div>
+										</div>*@
+                                        <!--<p><img src="/Content/images/safe_col2_pic.png" alt="风控平台" /></p>-->
+                                    </div>
+                                    @*<div class="fr">
+										<div class="rbig_movie">
+											<a href="richs_movie.html?tabs=main_tab2" target="_blank" class="moviebig1">
+												<span>如何帮您控制风险？</span>
+												<em></em>
+												<b class="ce8a">点击播放</b>
+											</a>
+										</div>
+									</div>*@
+                                </div>
+                                <!-- i_col2 -->
+                                <!--
+								<div class="safe_item i_col3">
+									<div class="fl">
+										<ul class="gallery">
+											<li>
+												<p>经营许可证</p>
+												<p><a href="/Content/images/safe_col3_pic_big.jpg" title="经营许可证">
+													<img src="/Content/images/safe_col3_pic.png" alt="经营许可证" /></a></p>
+												<p><a href="/Content/images/safe_col3_pic_big.jpg" title="经营许可证">点击查看大图</a></p>
+											</li>
+											<li>
+												<p>担保函</p>
+												<p><a href="/Content/images/safe_col3_pic3_big.jpg" title="担保函">
+													<img src="/Content/images/safe_col3_pic3.png" alt="担保函" /></a></p>
+												<p><a href="/Content/images/safe_col3_pic3_big.jpg" title="担保函">点击查看大图</a></p>
+											</li>
+											<li class="col3_up">
+												<p>营业执照</p>
+												<p><a href="/Content/images/safe_col3_pic2_big.jpg" title="营业执照">
+													<img src="/Content/images/safe_col3_pic2.png" alt="营业执照" /></a></p>
+												<p><a href="/Content/images/safe_col3_pic2_big.jpg" title="营业执照">点击查看大图</a></p>
+											</li>
+										</ul>
+									</div>
+									<div class="fr">
+										<h3>融资担保公司连带责任担保</h3>
+										<p>
+											投资理财期间第三方独立的融资性担保公司承担连带责任，为投资人提供全额本息担保。若借款方未能履行还款责任，融资性担保公司将对未被偿还的剩余本金和截止到代偿日的全部应还未还利息与罚息进行全额偿付。<br />
+											<br />
+
+										</p>
+									</div>
+								</div> -->
+                                <!-- i_col3 -->
+
+                                <div class="safe_item i_col4">
+                                    <div class="fl">
+                                        <h3>资产抵押</h3>
+                                        <p>
+                                            《担保法》第三十三条规定，抵押是指债务人或者第三人不转移对本法第三十四条所列财产的占有，该财产作为债权的担保，债务人不履行债务时，债权人有权依照本法规定以该财产折价或者以拍卖、变卖该财产的价款优先受偿。<br />
+                                            在易房，出借人与借款人之间都会签订《抵押借款合同》，在公证处赋予强制执行效力后，在上海市区域内的房地产交易中心办理抵押手续，获得确认抵押权的抵押证明（俗称：他项权证），并获得优先受偿权。
+                                        </p>
+                                    </div>
+                                    <div class="fr">
+                                        <ul class="gallery">
+                                            <li class="col4_up">
+                                                <p>抵押证明（他项权证）</p>
+                                                <p>
+                                                    <a href="/Content/images/safe_col4_pic_big.jpg" title="抵押证明（他项权证）">
+                                                        <img src="/Content/images/safe_col4_pic.png" alt="抵押证明（他项权证）" /></a>
+                                                </p>
+                                                <p><a href="/Content/images/safe_col4_pic_big.jpg" title="抵押证明（他项权证）">点击查看大图</a></p>
+                                            </li>
+                                            <li>
+                                                <p>抵押借款合同</p>
+                                                <p>
+                                                    <a href="/Content/images/safe_col4_pic2_big.jpg" title="抵押借款合同">
+                                                        <img src="/Content/images/safe_col4_pic2.png" alt="抵押借款合同" /></a>
+                                                </p>
+                                                <p><a href="/Content/images/safe_col4_pic2_big.jpg" title="抵押借款合同">点击查看大图</a></p>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <!-- i_col4 -->
+
+                                <div class="safe_item i_col5">
+                                    <div class="fl">
+                                        <ul class="gallery">
+                                            <li>
+                                                <p>强制执行公证书</p>
+                                                <p>
+                                                    <a href="/Content/images/safe_col5_pic_big.jpg" title="强制执行公证书">
+                                                        <img src="/Content/images/safe_col5_pic.png" alt="强制执行公证书" /></a>
+                                                </p>
+                                                <p><a href="/Content/images/safe_col5_pic_big.jpg" title="强制执行公证书">点击查看大图</a></p>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="fr">
+                                        <h3>强制执行公证</h3>
+                                        <p>
+                                            司法部《关于办理民间借贷合同公证的意见》规定：民间借贷合同经公证机关公证后，借款人到期不偿还借款（包括利息）时，公证处可以根据出借人的申请，出具强制执行证书，由出借人向有管辖权的人民法院申请强制执行。易房严格按照这个规定强制执行。<br />
+                                            <br />
+
+                                            <b>支持机构：</b>上海市闸北区公证处<br />
+                                            <b>机构简介：</b><br />
+                                            该公证处成立于1983年11月，至今办证事项已覆盖民事法律关系的所有项目，并荣获“上海市司法行政系统先进集体”称号。当借款人和投资人签署《抵押借款合同》时，都经由闸北公证处赋予强制执行的效力。<br />
+                                            优点：被赋予强制执行效力的《抵押借款合同》在借款人违约的前提下，可直接进入执行程序，省却了漫长的诉讼流程。保障效力直接、有效。
+                                        </p>
+                                    </div>
+                                </div>
+                                <!-- i_col5 -->
+
+                                <!--<div class="safe_item i_col6">
+									<div class="fl">
+										<h3>全权委托公证</h3>
+										<p>　　       全权委托公证是指公证机构根据委托人或委托人与受托人的申请，依法证明委托人的委托行为或委托人与受托人签订委托合同的行为的真实性、合法性的活动。由于委托行为必须是委托人本人的真实意思表示，为保证委托行为的真实性，委托公证必须由委托人亲自到公证处申办。<br />
+	  优点：在借款人违约的前提下，投资人指定的受托人可凭全权委托公证直接处理或变卖担保的房产，将出借资金回笼。保障效力短、平、快。
+										</p>
+																						
+									</div>
+									<div class="fr">
+										<ul class="gallery">
+											<li>
+												<p>全权委托公证书</p>
+												<p><a href="/Content/images/safe_col6_pic_big.jpg" title="全权委托公证书"><img src="/Content/images/safe_col6_pic.png" alt="全权委托公证书" /></a></p>
+												<p><a href="/Content/images/safe_col6_pic_big.jpg" title="全权委托公证书">点击查看大图</a></p>
+											</li>																			
+										</ul>			
+									</div>									
+								</div><!-- i_col6 -->
+                            </div>
+                            <!-- #column -->
+                        </div>
+
+
+                        <div id="tab2" class="items_row">
+                            <div class="column">
+                                <div class="fl">
+                                    <img src="/Content/images/safe_11.jpg" alt="法律手续齐全" class="mt40" />
+                                </div>
+                                <div class="fl w200 br1">
+                                    <p>
+                                        <strong>1. 民间借贷的定义</strong><br />
+                                        民间借贷是指自然人之间、自然人与法人之间、自然人与其它组织之间借贷。民间借贷是《民法通则》中一种民事法律行为，行为人在具有完全民事行为能力（即年满18周岁，且不存在足以影响自身行为的精神疾病的情形）、表达真实意愿，借款合同符合法律、行政法规规定，则该借款合同完全受到《合同法》等法律的保护。民间借贷是民间资本的一种投资渠道，作为银行金融的有效补充已逐渐成为民间金融的一种重要形式。
+                                    </p>
+
+                                </div>
+                                <div class="fl w200 br1">
+                                    <p>
+                                        <img src="/Content/images/safe_12.jpg" alt="保本理财产品" />
+                                    </p>
+                                    <p>
+                                        <strong>2. 民间借贷的法律环境</strong><br />
+                                        《国务院关于鼓励和引导民间投资健康发展的若干意见》：新36条出台，鼓励民间资本进入金融领域，发起设立金融中介服务机构。<br />
+                                        最高人民法院《关于人民法院审理借贷案件的若干意见》第6条："民间借贷的利率可以适当高于银行的利率，各地人民法院可以根据本地区的实际情况具体掌握，但最高不得超过银行同类贷款利率的四倍，(包含利率本款)。超出此限度的，超出部分的利息不予保护"。
+                                    </p>
+                                </div>
+                                <div class="fl w200">
+                                    <p>
+                                        <strong>3. 易房的合法性</strong>
+                                        <br />
+                                        《合同法》第二十三章"居间合同"中明确规定，居间人提供贷款合同订立的媒介服务，可依法向委托方收取相应的报酬。因此贷款服务机构的存在和服务费的收取都是符合法律规定并受法律保护的。
+										<br />
+                                        易房是国内首批获得”金融信息服务资质"的企业。易房既不吸储，也不放贷，作为一个金融信息服务平台，其业务范围和经营活动完全符合相关法律和国家的政策规定。易房将在国家法律和相关政策的指引下，为广大借款人与投资人提供优质、高效的金融信息服务。
+                                    </p>
+                                    <p>
+                                        <img src="/Content/images/safe_13.jpg" alt="易房合法性" />
+                                    </p>
+                                </div>
+                            </div>
+                            <!-- #column -->
+                        </div>
+                        <div id="tab3" class="items_row">
+                            <div class="column privacy">
+                                <!-- privacy -->
+                                <div class="privacy_item">
+                                    <dl>
+                                        <dt>范围</dt>
+                                        <dd>本声明适应于全国所有易房站点。</dd>
+                                        <dd class="p_icon01"></dd>
+                                    </dl>
+                                    <div class="shadow_line"></div>
+                                    <dl>
+                                        <dt>个人信息</dt>
+                                        <dd>一般情况下，您无须提供您的姓名或其它个人信息即可访问我们的官网。但有时我们可能需要您提供一些信息，例如为了处理在线申请、与您联系、提供咨询服务或处理工作应聘。我们可能需要这些信息完成一项交易/事务的处理或提供更好的服务。</dd>
+                                        <dd class="p_icon02"></dd>
+                                    </dl>
+                                    <div class="shadow_line"></div>
+                                    <dl>
+                                        <dt>用途</dt>
+                                        <dd>a) 供我们或其他相关方使用，以满足您的请求
+											<br />
+                                            b) 用于与您保持联系，以开展申请处理或某些事务的处理<br />
+                                            c) 用于不记名的数据分析（例如点击流量数据）
+                                        </dd>
+                                        <dd class="p_icon03"></dd>
+                                    </dl>
+                                    <div class="shadow_line"></div>
+                                    <dl>
+                                        <dt>重要信息</dt>
+                                        <dd>我们将对客户提供的信息严格保密除具备下列情形之一外不会向任何外部机构披露
+											<br />
+                                            a) 经过客户事先同意而披露<br />
+                                            b) 应法律法规的要求而披露<br />
+                                            c) 应政府部门或其他代理机构的要求而披露<br />
+                                            d) 应上级监管机构的要求而披露
+                                        </dd>
+                                        <dd class="p_icon04"></dd>
+                                    </dl>
+                                    <div class="shadow_line"></div>
+                                    <dl>
+                                        <dt>您的选择权</dt>
+                                        <dd>当我们向您收集信息时，您可以告诉我们不要将这些信息用于其它的市场营销活动，我们会尊重您的意愿。</dd>
+                                        <dd class="p_icon05"></dd>
+                                    </dl>
+
+                                </div>
+
+                                <!-- #privacy -->
+                            </div>
+                            <!-- #column -->
+                        </div>
+                    </div>
+                </div>
+                <!-- activate tabs with JavaScript -->
+
+            </div>
+            <!-- #safe_box -->
+        </div>
+        <!--#content -->
+    </div>
+    <!-- #container -->
+
+
+    <script type="text/javascript">
+        function request(paras) {
+            var url = location.href;
+            var paraString = url.substring(url.indexOf("?") + 1, url.length).split("&");
+            var paraObj = {}
+            for (i = 0; j = paraString[i]; i++) {
+                paraObj[j.substring(0, j.indexOf("=")).toLowerCase()] = j.substring(j.indexOf("=") + 1, j.length);
+            }
+            var returnValue = paraObj[paras.toLowerCase()];
+            if (typeof (returnValue) == "undefined") {
+                return "";
+            } else {
+                return returnValue;
+            }
+        }
+
+    </script>
+    <script type="text/javascript">
+        function showPanel(i) {
+            for (a = 1; a < 8; a++) {
+                $("#t" + a).removeClass('current');
+                $("#tab" + a).animate({ 'left': '900px' }, 0);
+                $("#tab" + a).css('display', 'none');
+            }
+
+            $("#t" + i).addClass('current');
+            $("#tab" + i).css('display', 'block');
+            //$("#tab"+i).stop(true).animate({'left':'100px','opacity':'1'},500);	
+            $("#tab" + i).animate({ 'left': '0px' }, 400);
+
+            var setheight = $("#tab" + i).height();
+            //alert(setheight);
+            if (i == "1") {
+                setheight = "1660";
+                //2535
+            }
+            //$("#panes").css('height',setheight); 
+            $("#panes").animate({ 'height': setheight }); //设定定高
+
+        }
+
+
+        $(document).ready(function () {
+
+
+            var seltabnum = request("seltab");
+            if (seltabnum != "") {
+                showPanel(seltabnum);
+            } else {
+
+
+            }
+
+            $("#t1").click(function () {
+                showPanel('1');
+            });
+            $("#t2").click(function () {
+                showPanel('2');
+            });
+            $("#t3").click(function () {
+                showPanel('3');
+            });
+            $("#t4").click(function () {
+                showPanel('4');
+            });
+            $("#t5").click(function () {
+                showPanel('5');
+            });
+            $("#t6").click(function () {
+                showPanel('6');
+            });
+            $("#t7").click(function () {
+                showPanel('7');
+            });
+
+        });
+    </script>
+</div>
+<!-- #wrapper -->
+
