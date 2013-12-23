@@ -480,7 +480,7 @@ var App = function () {
         if (!jQuery().uniform) {
             return;
         }
-        var test = $("input[type=radio]:not(.toggle, .star)");
+        var test = $("input[type=checkbox]:not(.toggle),input[type=radio]:not(.toggle, .star)");
         if (test.size() > 0) {
             test.each(function () {
                 if ($(this).parents(".checker").size() == 0) {
@@ -850,7 +850,7 @@ var App = function () {
             //core handlers
             handleInit(); // initialize core variables
             handleResponsiveOnResize(); // set and handle responsive    
-            //handleUniform(); // hanfle custom radio & checkboxes
+            handleUniform(); // hanfle custom radio & checkboxes
             handleScrollers(); // handles slim scrolling contents 
             handleResponsiveOnInit(); // handler responsive elements on page load
 
@@ -885,7 +885,7 @@ var App = function () {
             handleTooltips(); // handle bootstrap tooltips
             handlePopovers(); // handles bootstrap popovers
             handleAccordions(); //handles accordions 
-            //handleUniform(); // hanfle custom radio & checkboxes     
+            handleUniform(); // hanfle custom radio & checkboxes     
             handleDropdownHover() // handles dropdown hover       
         },
 
@@ -979,7 +979,7 @@ var App = function () {
 
         //wrapper function to update/sync jquery uniform checkbox & radios
         updateUniform: function (els) {
-            //$.uniform.update(els); // update the uniform checkbox & radios UI after the actual input control state changed
+            $.uniform.update(els); // update the uniform checkbox & radios UI after the actual input control state changed
         },
 
         //public function to initialize the fancybox plugin

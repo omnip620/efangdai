@@ -111,26 +111,10 @@
                                 <div class="form-group">
                                     <label>状态</label>
                                     <div>
-                                        <input type="checkbox" class="skip" id="ckTop" name="ckTop" 
-                                            @{
-                                                string result = "";
-                                                if (Model.isTop == "是")
-                                                {
-                                                    result = "checked=\"checked\"";
-                                                }
-                                                @result;
-                                                }
-                                             />置顶
-                                        <input type="checkbox" class="skip" id="ckReco" name="ckReco" 
-                                            @{
-                                                string results = "";
-                                                if (Model.isReco == "是")
-                                                {
-                                                    results = "checked=\"checked\"";
-                                                }
-                                                @results;
-                                                }
-                                             />推荐
+                                        <div class="checkbox-list">
+                                            <input type="checkbox" id="isTop" name="isTop" value="@Model.isTop" />置顶
+                                        <input type="checkbox" id="isReco" name="isReco" value="@Model.isReco" />推荐
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -157,8 +141,22 @@
     <script src="/Content/admin/js/jquery.uniform.min.js" type="text/javascript"></script>
     <script type="text/javascript">
         jQuery(document).ready(function () {
-            App.init();
 
+            $("#isTop,#isReco").click(function () {
+
+                var b = $(this).attr("checked") == "checked" ? "是" : "否";
+                $(this).val(b);
+            });
+
+            $(".checkbox-list input[type=checkbox]").each(function () {
+                var b = $(this).val();
+                if (b == "是") {
+                    $(this).attr("checked", true);
+                }
+
+            });
+
+            App.init();
 
 
             // for more info visit the official plugin documentation: 
@@ -188,12 +186,12 @@
                 messages: {
 
                     title: {
-                        minlength:"写长一点,亲",
+                        minlength: "写长一点,亲",
                         required: "嘿，朋友，别忘了标题",
 
                     },
-                    summary:{
-                        required:"摘要不想写？不中"
+                    summary: {
+                        required: "摘要不想写？不中"
                     },
                     content: {
                         required: "内容都不写，发个毛线新闻啊。",

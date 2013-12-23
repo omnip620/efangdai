@@ -71,24 +71,8 @@ namespace loan.Controllers
 
                 return Content("<script>alert('数据验证错误,请检查!');window.history.back();</script>");
             }
-
-            if (model.isTop == "on")
-            {
-                model.isTop = "是";
-            }
-            else
-            {
-                model.isTop = "否";
-            }
-
-            if (model.isReco == "on")
-            {
-                model.isReco = "是";
-            }
-            else
-            {
-                model.isReco = "否";
-            }
+            var s = model.isTop;
+            
             if (string.IsNullOrEmpty(model.id.ToString()) || model.id.ToString() == "0")
             {
                 news.Add(model);
