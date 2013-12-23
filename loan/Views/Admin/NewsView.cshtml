@@ -50,21 +50,21 @@
                         <div class="row">
                             <div class="col-md-9">
                                 <div class="form-group">
-                                    <label for="inputTitle">文章标题 </label>
+                                    <label for="inputTitle" class="control-label">文章标题</label>
                                     <input type="text" class="form-control" id="title"  name="title" placeholder="输入标题" value="@Model.title" />
-                                   
+
                                     <input type="hidden" id="id" name="id" value="@Model.id" />
 
                                 </div>
                                 <div class="form-group">
-                                    <label for="inputTitle">摘要 </label>
+                                    <label for="summary" class="control-label">摘要 </label>
                                     <input type="text" class="form-control" id="summary"  name="summary" placeholder="输入摘要" value="@Model.summary" />
 
 
                                 </div>
 
                                 <div class="form-group">
-                                    <label>内容</label>
+                                    <label class="control-label">内容</label>
                                     <textarea name="content" id="myEditor">@Model.content</textarea>
                                 </div>
                                 <div class="form-group">
@@ -114,7 +114,7 @@
                                         <input type="checkbox" class="skip" id="ckTop" name="ckTop" 
                                             @{
                                                 string result = "";
-                                                if(Model.isTop=="是")
+                                                if (Model.isTop == "是")
                                                 {
                                                     result = "checked=\"checked\"";
                                                 }
@@ -124,7 +124,7 @@
                                         <input type="checkbox" class="skip" id="ckReco" name="ckReco" 
                                             @{
                                                 string results = "";
-                                                if(Model.isReco=="是")
+                                                if (Model.isReco == "是")
                                                 {
                                                     results = "checked=\"checked\"";
                                                 }
@@ -150,11 +150,11 @@
 
 
 @section footerJS
-{<script src="/Content/admin/ueditor/ueditor.config.js"type="text/javascript"></script>
+{<script src="/Content/admin/ueditor/ueditor.config.js" type="text/javascript"></script>
     <script src="/Content/admin/ueditor/ueditor.all.js" type="text/javascript"></script>
-    <script src="/Content/admin/js/app.js"type="text/javascript"></script>
-    <script src="/Content/admin/js/jquery.validate.min.js"type="text/javascript"></script>
-    <script src="/Content/admin/js/jquery.uniform.min.js"type="text/javascript"></script>
+    <script src="/Content/admin/js/app.js" type="text/javascript"></script>
+    <script src="/Content/admin/js/jquery.validate.min.js" type="text/javascript"></script>
+    <script src="/Content/admin/js/jquery.uniform.min.js" type="text/javascript"></script>
     <script type="text/javascript">
         jQuery(document).ready(function () {
             App.init();
@@ -169,38 +169,40 @@
             //var success1 = $('.alert-success', form1);
 
             form1.validate({
+
                 errorElement: 'span', //default input error message container
                 errorClass: 'help-block', // default input error message class
-                focusInvalid: false, // do not focus the last invalid input
+                focusInvalid: true, // do not focus the last invalid input
                 ignore: "",
                 rules: {
-                    inputTitle: {
-                        minlength: 2,
+                    title: {
+                        minlength: 5,
                         required: true
                     },
-                    newsContent: {
+                    summary: 'required',
+                    content: {
                         required: true
 
                     }
                 },
                 messages: {
 
-                    inputTitle: {
-                        required: "请输入新闻标题",
+                    title: {
+                        minlength:"写长一点,亲",
+                        required: "嘿，朋友，别忘了标题",
 
                     },
-                    newsContent: {
-                        required: "请输入文章内容",
+                    summary:{
+                        required:"摘要不想写？不中"
+                    },
+                    content: {
+                        required: "内容都不写，发个毛线新闻啊。",
 
                     }
                 },
 
 
-                invalidHandler: function (event, validator) { //display error alert on form submit              
-                    success1.hide();
-                    error1.show();
-                    App.scrollTo(error1, -200);
-                },
+
 
                 highlight: function (element) { // hightlight error inputs
                     $(element)
@@ -217,10 +219,7 @@
                         .closest('.form-group').removeClass('has-error'); // set success class to the control group
                 },
 
-                submitHandler: function (form) {
-                    success1.show();
-                    error1.hide();
-                }
+
             });
 
         });

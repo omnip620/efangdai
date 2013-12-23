@@ -17,8 +17,7 @@ namespace loan.Controllers
 
     public class AdminController : AdminActionFilter
     {
-        //
-        // GET: /Admin/
+
 
 
         Affiliate affiliate = new Affiliate();
@@ -69,8 +68,8 @@ namespace loan.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return RedirectToAction("NewsView/" + model.id);
-                // return Content("<script>alert('数据验证错误')</script>");
+
+                return Content("<script>alert('数据验证错误,请检查!');window.history.back();</script>");
             }
 
             if (model.isTop == "on")

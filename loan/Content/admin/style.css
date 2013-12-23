@@ -1589,7 +1589,7 @@ textarea.placeholder { color: #aaa !important; }
 
 .form-control-static { font-size: 14px; padding-top: 7px; }
 
-.control-label .required { color: #e02222; font-size: 12px; padding-left: 2px; }
+.control-label .required { color: #e02222; font-size: 14px; padding-left: 2px; }
 
 .switch-wrapper { display: inline-block; }
 
@@ -1770,3 +1770,6 @@ Responsive Flip Scroll Tables
 
     
 }
+
+
+
