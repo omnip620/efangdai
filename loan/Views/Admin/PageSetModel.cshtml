@@ -54,8 +54,9 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="inputDescrip">Description</label>
-                                    <input type="text" class="form-control" id="description"  name="description" placeholder="输入Description" value="@Model.description"/>
-                                    <span class="help-block">META标签的<span class="text-info">description</span>内容</span>
+                                    <textarea class="form-control" id="description"  name="description" placeholder="输入Description">@Model.description</textarea>
+                                    
+                                     <span class="help-block">META标签的<span class="text-info">description</span>内容</span>
                                 </div>
                             </div>
                         </div>
@@ -73,9 +74,12 @@
 @section footerJS
 {
     <script src="/Content/admin/js/app.js"></script>
+    <script src="/Content/admin/js/autoHeightTextaera.js"></script>
     <script type="text/javascript">
         jQuery(document).ready(function () {
             App.init();
+
+            $("textarea").textareaAutoHeight();
         });
     </script>
 }

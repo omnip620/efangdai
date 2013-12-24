@@ -172,6 +172,7 @@
     <Content Include="Content\admin\images\syncfusion-icons-white.png" />
     <Content Include="Content\admin\images\syncfusion-icons.png" />
     <Content Include="Content\admin\js\app.js" />
+    <Content Include="Content\admin\js\autoHeightTextaera.js" />
     <Content Include="Content\admin\js\bootstrap.min.js" />
     <Content Include="Content\admin\js\DT_bootstrap.js" />
     <Content Include="Content\admin\js\index.js" />

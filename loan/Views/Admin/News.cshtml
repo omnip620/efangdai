@@ -85,16 +85,7 @@
 			var id = "";
 			$('#sample_1').dataTable({
 
-				//"fnRowCallback": function (nRow, aData, iDisplayIndex) {
-				//	/* Append the grade to the default row class name */
-				//    var linktext = aData[1];
-				//    id = aData[0]
-				//	linktext = linktext.length > 15 ? linktext.substr(0, 15) + " . . ." : linktext;
-
-				//	$('td:eq(1)', nRow).html('<a href="/admin/NewsView/' + id + '">' + linktext + '</a>');
-
-				//	return nRow;
-				//},
+		
 
 				"aLengthMenu": [
 				  [10, 15, 20, -1],
@@ -109,7 +100,9 @@
 							'bSortable': false,
 							"fnRender": function (obj) {
 								id = obj.aData[0];
-								return '<input type="checkbox" class="checkboxes" value="' + id + '" style="" />'
+								//return '<input type="checkbox" class="checkboxes" value="' + id + '" style="" />'
+
+								return '<div class="checker"><span class=""><input type="checkbox" class="checkboxes" value="' + id + '"  style=""></span></div>';
 							}, "aTargets": [0]
 						},
 				{
@@ -186,9 +179,15 @@
 			jQuery('#sample_1_wrapper .dataTables_filter input').addClass("form-control input-medium"); // modify table search input
 			jQuery('#sample_1_wrapper .dataTables_length select').addClass("form-control input-xsmall"); // modify table per page dropdown
 			jQuery('#sample_1_wrapper .dataTables_length select').select2(); // initialize select2 dropdown
-			
+
+			$("#sample_1 tbody").on("click", ".checkboxes", function () {
+			 
+			    $(this).parents('tr').toggleClass("active");
+			    $(this).parents('span').toggleClass("checked");
+			});
+			App.init();
 		});
-		App.init();
+		
 	</script>
 
 
