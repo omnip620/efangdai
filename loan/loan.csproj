@@ -102,6 +102,7 @@
   <ItemGroup>
     <Compile Include="ActionFilter\AdminActionFilter.cs" />
     <Compile Include="Common\DataTableTo.cs" />
+    <Compile Include="Common\JavaScriptHandler.cs" />
     <Compile Include="Common\ValidateCode.cs" />
     <Compile Include="Content\admin\ueditor\net\Uploader.cs" />
     <Compile Include="Controllers\AdminController.cs" />
@@ -185,6 +186,7 @@
     <Content Include="Content\admin\js\jquery.uniform.min.js" />
     <Content Include="Content\admin\js\jquery.validate.min.js" />
     <Content Include="Content\admin\js\login.js" />
+    <Content Include="Content\admin\js\question.js" />
     <Content Include="Content\admin\js\select2.min.js" />
     <Content Include="Content\admin\js\table-feedback.js" />
     <Content Include="Content\admin\js\table-managed.js" />

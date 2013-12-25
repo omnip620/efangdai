@@ -95,7 +95,7 @@
 					"fnRender": function (obj) {
 
 						id = obj.aData[0];
-						return '<input type="checkbox" class="checkboxes" value="' + obj.aData[0] + '" style="" />'
+						return '<div class="checker"><span class=""><input type="checkbox" class="checkboxes" value="' + id + '"  style=""></span></div>'
 					},
 				},
 				{
@@ -103,11 +103,8 @@
 
 
 						var linktext = obj.aData[1];
-						var len = linktext.length;
-						if (len > 20) {
-							linktext = linktext.substr(0, 20);
-						}
-
+					
+						
 						return '<a href="/admin/qview/' + id + '">' + linktext + '</a>';
 					},
 				},

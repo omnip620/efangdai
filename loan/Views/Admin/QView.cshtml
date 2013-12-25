@@ -45,18 +45,18 @@
             </div>
 
             <div class="portlet-body form">
-                <form role="form" action="/admin/Editq" method="post" id="form_sample_1">
+                <form role="form" action="/admin/Editq" method="post" id="form_question">
                     <div class="form-body ">
                         <div class="row">
                             <div class="col-md-9">
                                 <div class="form-group">
                                     <input type="hidden" id="id" name="id" value="@Model.id" />
-                                    <label for="inputTitle">问题标题 </label>
-                                    <input type="text" class="form-control" id="inputTitle" name="inputTitle" placeholder="输入标题" value="@Model.title" />
+                                    <label for="inputTitle">标题 </label>
+                                    <input type="text" class="form-control" id="title" name="title" placeholder="输入标题" value="@Model.title" />
                                 </div>
                                 <div class="form-group">
                                     <label>内容</label>
-                                    <textarea name="newsContent" id="myEditor">
+                                    <textarea name="content" id="myEditor">
                                         @Model.content
                                     </textarea>
                                 </div>
@@ -79,77 +79,11 @@
     <script src="/Content/admin/ueditor/ueditor.all.js"></script>
     <script src="/Content/admin/js/app.js"></script>
     <script src="/Content/admin/js/jquery.validate.min.js"></script>
+    <script src="/Content/admin/js/question.js"></script>
     <script type="text/javascript">
         jQuery(document).ready(function () {
             App.init();
-
-            // for more info visit the official plugin documentation: 
-            // http://docs.jquery.com/Plugins/Validation
-
-            var form1 = $('#form_sample_1');
-            //var error1 = $('.alert-danger', form1);
-            //var success1 = $('.alert-success', form1);
-
-            form1.validate({
-                errorElement: 'span', //default input error message container
-                errorClass: 'help-block', // default input error message class
-                focusInvalid: false, // do not focus the last invalid input
-                ignore: "",
-                rules: {
-                    inputTitle: {
-                        minlength: 2,
-                        required: true
-                    },
-                    newsContent: {
-                        required: true
-
-                    }
-                },
-                messages: {
-
-                    inputTitle: {
-                        required: "请输入新闻标题",
-
-                    },
-                    newsContent: {
-                        required: "请输入文章内容",
-
-                    }
-                },
-
-
-                invalidHandler: function (event, validator) { //display error alert on form submit              
-                    success1.hide();
-                    error1.show();
-                    App.scrollTo(error1, -200);
-                },
-
-                highlight: function (element) { // hightlight error inputs
-                    $(element)
-                        .closest('.form-group').addClass('has-error'); // set error class to the control group
-                },
-
-                unhighlight: function (element) { // revert the change done by hightlight
-                    $(element)
-                        .closest('.form-group').removeClass('has-error'); // set error class to the control group
-                },
-
-                success: function (label) {
-                    label
-                        .closest('.form-group').removeClass('has-error'); // set success class to the control group
-                }
-
-                //submitHandler: function (form) {
-                //    success1.show();
-                //    error1.hide();
-                //}
-            });
-
-
-
-
-
-
+            Question.init();
 
         });
         UE.getEditor("myEditor", { initialFrameHeight: 320, initialFrameWidth: "100%" });

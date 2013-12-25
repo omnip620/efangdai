@@ -100,7 +100,7 @@
 							'bSortable': false,
 							"fnRender": function (obj) {
 								id = obj.aData[0];
-								//return '<input type="checkbox" class="checkboxes" value="' + id + '" style="" />'
+							
 
 								return '<div class="checker"><span class=""><input type="checkbox" class="checkboxes" value="' + id + '"  style=""></span></div>';
 							}, "aTargets": [0]
@@ -180,11 +180,7 @@
 			jQuery('#sample_1_wrapper .dataTables_length select').addClass("form-control input-xsmall"); // modify table per page dropdown
 			jQuery('#sample_1_wrapper .dataTables_length select').select2(); // initialize select2 dropdown
 
-			$("#sample_1 tbody").on("click", ".checkboxes", function () {
-			 
-			    $(this).parents('tr').toggleClass("active");
-			    $(this).parents('span').toggleClass("checked");
-			});
+			
 			App.init();
 		});
 		

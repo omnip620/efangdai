@@ -40,7 +40,7 @@ var App = function () {
 
     // initializes main settings
     var handleInit = function () {
-
+        
         if ($('body').css('direction') === 'rtl') {
             isRTL = true;
         }
@@ -836,6 +836,19 @@ var App = function () {
         if ($.cookie('style_color')) {
             setColor($.cookie('style_color'));
         }
+
+   
+    }
+
+    //Hanle Table
+    var handleCheckboxes = function () {
+
+        $("tbody").on("click", ".checkboxes", function () {
+
+            $(this).parents('tr').toggleClass("active");
+            $(this).parents('span').toggleClass("checked");
+        });
+
     }
 
     //* END:CORE HANDLERS *//
@@ -876,6 +889,10 @@ var App = function () {
             handleAccordions(); //handles accordions 
             handleModals(); // handle modals
             handleFullScreenMode(); // handles full screen
+
+
+            //init table handlers
+            handleCheckboxes();
         },
 
         //main function to initiate core javascript after ajax complete

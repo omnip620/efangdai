@@ -68,9 +68,11 @@ namespace loan.Controllers
         {
             if (!ModelState.IsValid)
             {
-
-                return Content("<script>alert('数据验证错误,请检查!');window.history.back();</script>");
+                return Content(JavaScriptHandler.AlertAndBack("数据验证错误,请检查!"));
             }
+
+
+
             if (model.isTop == null)
             {
                 model.isTop = "否";
@@ -79,7 +81,7 @@ namespace loan.Controllers
             {
                 model.isReco = "否";
             }
-            
+
             if (string.IsNullOrEmpty(model.id.ToString()) || model.id.ToString() == "0")
             {
                 news.Add(model);
@@ -262,10 +264,6 @@ namespace loan.Controllers
 
         public ActionResult Getql()
         {
-
-
-
-
             strSql = new StringBuilder();
             strSql.Append("select id,title ");
             strSql.Append(" FROM Questions ");
@@ -284,26 +282,17 @@ namespace loan.Controllers
 
         }
         [ValidateInput(false)]
-        public ActionResult Editq()
+        public ActionResult Editq(Pan.Model.Questions model)
         {
 
-            Pan.Model.Questions model = new Pan.Model.Questions();
-            if (Request.Form["id"] != null)
-            {
-                model.id = int.Parse(Request.Form["id"]);
-
-            }
-
-            model.title = Request.Form["inputTitle"];
-            model.content = Request.Form["newsContent"];
-            if (Request.Form["id"] != null)
-            {
-                q.Update(model);
-            }
-            else
+            if (string.IsNullOrEmpty(model.id.ToString()) || model.id.ToString() == "0")
             {
                 q.Add(model);
             }
+            else
+            { q.Update(model); }
+
+
             return RedirectToAction("ql");
         }
         [HttpPost]
@@ -360,7 +349,7 @@ namespace loan.Controllers
                 string where = " [uid]='" + Request.Form["username"] + "' and pwd='" + Request.Form["password"] + "'"; ;
                 if (account.GetList(where).Tables[0].Rows.Count < 1)
                 {
-                    return Content("<script>alert('账号或密码错误.');window.location='/admin/login'</script>");
+                    return Content(JavaScriptHandler.AlertAndRedirect("账号或密码错误", "/admin/login"));
 
                 }
                 else
@@ -372,7 +361,9 @@ namespace loan.Controllers
             }
             else
             {
-                return Content("<script>alert('验证码错误');window.location='/admin/login'</script>");
+
+
+                return Content(JavaScriptHandler.AlertAndRedirect("验证码错误", "/admin/login"));
             }
 
 

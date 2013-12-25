@@ -17,7 +17,7 @@
 {
     <li>
         <i class="fa fa-home"></i>
-       <a href="index">首页</a>
+        <a href="index">首页</a>
         <i class="fa fa-angle-right"></i>
     </li>
     <li><a href="#">投资</a></li>
@@ -89,9 +89,9 @@
                     'bSortable': false,
 
                     "fnRender": function (obj) {
-                        // return ' <div class="checker"><span class=""><input type="checkbox" class="checkboxes" value="' + obj.aData[0] + '"  style=""></span></div>'
+                         return ' <div class="checker"><span class=""><input type="checkbox" class="checkboxes" value="' + obj.aData[0] + '"  style=""></span></div>'
 
-                        return '<input type="checkbox" class="checkboxes" value="' + obj.aData[0] + '" style="" />'
+                       // return '<input type="checkbox" class="checkboxes" value="' + obj.aData[0] + '" style="" />'
                     }
                 },
                 { 'bSortable': true, "sClass": "center", },
@@ -146,7 +146,10 @@
             jQuery('#sample_1_wrapper .dataTables_filter input').addClass("form-control input-medium"); // modify table search input
             jQuery('#sample_1_wrapper .dataTables_length select').addClass("form-control input-xsmall"); // modify table per page dropdown
             jQuery('#sample_1_wrapper .dataTables_length select').select2(); // initialize select2 dropdown
+
+         
             App.init();
+
         });
 
     </script>

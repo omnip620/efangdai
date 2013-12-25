@@ -7,8 +7,27 @@
     <link href="/Content/admin/select2_metro.css" rel="stylesheet" />
     <link href="/Content/admin/DT_bootstrap.css" rel="stylesheet" />
     <style type="text/css">
-        .details { background-color: #B9E3FB; width: 100%; white-space: normal; -ms-word-break: break-all; word-break: break-all; -ms-word-wrap: break-word; word-wrap: break-word; }
-            .details p { width: 100%; letter-spacing: 1px; white-space: normal; -ms-word-break: break-all; word-break: break-all; -ms-word-wrap: break-word; word-wrap: break-word; }
+        .details
+        {
+            background-color: #B9E3FB;
+            width: 100%;
+            white-space: normal;
+            -ms-word-break: break-all;
+            word-break: break-all;
+            -ms-word-wrap: break-word;
+            word-wrap: break-word;
+        }
+
+            .details p
+            {
+                width: 100%;
+                letter-spacing: 1px;
+                white-space: normal;
+                -ms-word-break: break-all;
+                word-break: break-all;
+                -ms-word-wrap: break-word;
+                word-wrap: break-word;
+            }
     </style>
 }
 @section pageTitle
@@ -19,7 +38,7 @@
 {
     <li>
         <i class="fa fa-home"></i>
-       <a href="index">首页</a>
+        <a href="index">首页</a>
         <i class="fa fa-angle-right"></i>
     </li>
     <li><a href="#">留言</a></li>
@@ -71,7 +90,7 @@
     <script type="text/javascript">
         $(function () {
 
-            App.init();
+
             _delete("/admin/DelFB/");
             //创建Table
             var oTable = $('#sample_1').dataTable({
@@ -88,9 +107,7 @@
                 "aoColumns": [
                     {
                         'bSortable': false, "fnRender": function (obj) {
-                            // return ' <div class="checker"><span class=""><input type="checkbox" class="checkboxes" value="' + obj.aData[0] + '"  style=""></span></div>'
-
-                            return '<input type="checkbox" class="checkboxes" value="' + obj.aData[0] + '" style="" />'
+                            return ' <div class="checker"><span class=""><input type="checkbox" class="checkboxes" value="' + obj.aData[0] + '"  style=""></span></div>'
                         }
                     },
                    { 'bSortable': true, 'sClass': 'center' },
@@ -98,7 +115,7 @@
                    { 'bSortable': true, 'sClass': 'center' },
                    {
                        "bSortable": false, 'sClass': 'fb_cont', "fnRender": function (obj) {
-                          
+
                            return '<a href="javascript:(0)">查看详情</a>'
                        }
                    },
@@ -119,13 +136,7 @@
                     }
                 },
                 "bProcessing": true,
-                "bServerSide": false,
 
-                "aoColumnDefs": [{
-                    'bSortable': false,
-                    'aTargets': [0]
-                }
-                ]
             });
             jQuery('#sample_1 .group-checkable').change(function () {
                 var set = jQuery(this).attr("data-set");
@@ -193,7 +204,7 @@
                     oTable.fnOpen(nTr, fnFormatDetails(oTable, nTr), 'details');
                 }
             });
-
+            App.init();
         });
 
     </script>
