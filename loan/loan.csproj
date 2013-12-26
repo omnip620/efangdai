@@ -632,9 +632,6 @@
     <Content Include="Views\Shared\_footer.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Shared\_LayoutJobPage.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Views\Shared\_LayoutAdmin.cshtml" />
   </ItemGroup>
   <ItemGroup>
@@ -700,6 +697,9 @@
     <Content Include="Views\Admin\addFooterSEO.cshtml" />
     <Content Include="Web.sitemap" />
     <Content Include="Views\Home\siteMap.cshtml" />
+    <Content Include="Views\Admin\Accounts.cshtml" />
+    <Content Include="Views\Admin\AccountView.cshtml" />
+    <Content Include="Views\Admin\AccountAdd.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

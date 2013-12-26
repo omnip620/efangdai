@@ -1,0 +1,134 @@
+﻿@{
+    ViewBag.Title = "AccountAdd";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+
+@section headCss{
+    <link href="/Content/admin/select2_metro.css" rel="stylesheet" />
+    <link href="/Content/admin/DT_bootstrap.css" rel="stylesheet" />
+}
+@section pageTitle
+{
+    账号		<small>账号添加</small>
+}
+@section breadNav
+{
+    <li>
+        <i class="fa fa-home"></i>
+        <a href="index">首页</a>
+        <i class="fa fa-angle-right"></i>
+    </li>
+    <li><a href="#">账号添加</a></li>
+}
+<div class="row">
+    <div class="col-md-12">
+        <div class="portlet">
+            <div class="portlet-title">
+                <div class="caption"><i class="fa fa-reorder"></i>账号添加</div>
+                <div class="tools">
+                    <a href="javascript:;" class="collapse"></a>
+
+                    <a href="javascript:;" class="reload"></a>
+                    <a href="javascript:;" class="remove"></a>
+                </div>
+            </div>
+            <div class="portlet-body form">
+                <form role="form" action="/admin/AccountEdit" method="post" id="account-form">
+                    <div class="form-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="uid">账号</label>
+                                    <input type="text" class="form-control" id="uid" name="uid" placeholder="输入登录账号名" value="" />
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="pwd">密码</label>
+                                    <input type="password" class="form-control" id="pwd" name="pwd" placeholder="输入密码" value="" />
+                                </div>
+                                <div class="form-group">
+                                    <label for="repwd">密码</label>
+                                    <input type="password" class="form-control" id="repwd" name="repwd" placeholder="再次输入密码" value="" />
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn blue">提交</button>
+                        <button type="button" class="btn default">取消</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</div>
+@section footerJS
+{
+    <script src="/Content/admin/js/app.js"></script>
+    <script src="/Content/admin/js/autoHeightTextaera.js"></script>
+    <script src="/Content/admin/js/jquery.validate.min.js"></script>
+    <script type="text/javascript">
+        jQuery(document).ready(function () {
+            App.init();
+            var form1 = $('#account-form');
+
+
+            form1.validate({
+
+                errorElement: 'span', //default input error message container
+                errorClass: 'help-block', // default input error message class
+                focusInvalid: true, // do not focus the last invalid input
+                ignore: "",
+                rules: {
+                    uid: {
+                        minlength: 5,
+                        required: true
+                    },
+                    pwd: 'required',
+                    repwd: {
+                        equalTo: "#pwd",
+                        required: true
+                    }
+                },
+                messages: {
+
+                    uid: {
+                        minlength: "写长一点,亲",
+                        required: "嘿，朋友，登陆账号啊",
+
+                    },
+                    pwd: {
+                        required: "没密码？别搞笑了"
+                    },
+                    repwd: {
+                        equalTo: "报错了，什么原因，你猜吧",
+                        required: "再输一遍密码，中不中",
+
+                    }
+                },
+
+
+
+
+                highlight: function (element) { // hightlight error inputs
+                    $(element)
+                        .closest('.form-group').addClass('has-error'); // set error class to the control group
+                },
+
+                unhighlight: function (element) { // revert the change done by hightlight
+                    $(element)
+                        .closest('.form-group').removeClass('has-error'); // set error class to the control group
+                },
+
+                success: function (label) {
+                    label
+                        .closest('.form-group').removeClass('has-error'); // set success class to the control group
+                },
+            });
+
+        });
+    </script>
+}

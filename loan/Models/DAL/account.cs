@@ -6,7 +6,7 @@
 *
 * Ver    变更日期             负责人  变更内容
 * ───────────────────────────────────
-* V0.01  2013/12/4 15:13:50   N/A    初版
+* V0.01  2013/12/26 16:07:12   N/A    初版
 *
 * Copyright (c) 2012 Pan Corporation. All rights reserved.
 *┌──────────────────────────────────┐
@@ -45,9 +45,10 @@ namespace Pan.DAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("select count(1) from account");
-			strSql.Append(" where id=@id ");
+			strSql.Append(" where id=@id");
 			SqlParameter[] parameters = {
-					new SqlParameter("@id", SqlDbType.Int,4)			};
+					new SqlParameter("@id", SqlDbType.Int,4)
+			};
 			parameters[0].Value = id;
 
 			return DbHelperSQL.Exists(strSql.ToString(),parameters);
@@ -57,29 +58,28 @@ namespace Pan.DAL
 		/// <summary>
 		/// 增加一条数据
 		/// </summary>
-		public bool Add(Pan.Model.account model)
+		public int Add(Pan.Model.account model)
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("insert into account(");
-			strSql.Append("id,uid,pwd)");
+			strSql.Append("uid,pwd)");
 			strSql.Append(" values (");
-			strSql.Append("@id,@uid,@pwd)");
+			strSql.Append("@uid,@pwd)");
+			strSql.Append(";select @@IDENTITY");
 			SqlParameter[] parameters = {
-					new SqlParameter("@id", SqlDbType.Int,4),
 					new SqlParameter("@uid", SqlDbType.VarChar,20),
 					new SqlParameter("@pwd", SqlDbType.VarChar,20)};
-			parameters[0].Value = model.id;
-			parameters[1].Value = model.uid;
-			parameters[2].Value = model.pwd;
+			parameters[0].Value = model.uid;
+			parameters[1].Value = model.pwd;
 
-			int rows=DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
-			if (rows > 0)
+			object obj = DbHelperSQL.GetSingle(strSql.ToString(),parameters);
+			if (obj == null)
 			{
-				return true;
+				return 0;
 			}
 			else
 			{
-				return false;
+				return Convert.ToInt32(obj);
 			}
 		}
 		/// <summary>
@@ -91,7 +91,7 @@ namespace Pan.DAL
 			strSql.Append("update account set ");
 			strSql.Append("uid=@uid,");
 			strSql.Append("pwd=@pwd");
-			strSql.Append(" where id=@id ");
+			strSql.Append(" where id=@id");
 			SqlParameter[] parameters = {
 					new SqlParameter("@uid", SqlDbType.VarChar,20),
 					new SqlParameter("@pwd", SqlDbType.VarChar,20),
@@ -119,9 +119,10 @@ namespace Pan.DAL
 			
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("delete from account ");
-			strSql.Append(" where id=@id ");
+			strSql.Append(" where id=@id");
 			SqlParameter[] parameters = {
-					new SqlParameter("@id", SqlDbType.Int,4)			};
+					new SqlParameter("@id", SqlDbType.Int,4)
+			};
 			parameters[0].Value = id;
 
 			int rows=DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
@@ -162,9 +163,10 @@ namespace Pan.DAL
 			
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("select  top 1 id,uid,pwd from account ");
-			strSql.Append(" where id=@id ");
+			strSql.Append(" where id=@id");
 			SqlParameter[] parameters = {
-					new SqlParameter("@id", SqlDbType.Int,4)			};
+					new SqlParameter("@id", SqlDbType.Int,4)
+			};
 			parameters[0].Value = id;
 
 			Pan.Model.account model=new Pan.Model.account();
@@ -216,7 +218,6 @@ namespace Pan.DAL
 			{
 				strSql.Append(" where "+strWhere);
 			}
-            strSql.Append(" order by id desc ");
 			return DbHelperSQL.Query(strSql.ToString());
 		}
 

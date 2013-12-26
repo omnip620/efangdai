@@ -10,6 +10,7 @@ using Pan.DBUtility;
 using System.Text;
 
 
+
 namespace loan.Controllers
 {
 
@@ -27,6 +28,7 @@ namespace loan.Controllers
         News news = new News();
         Questions q = new Questions();
         FooterSEO footerseo = new FooterSEO();
+        account account = new account();
         StringBuilder strSql;
 
         public ActionResult Index()
@@ -267,7 +269,6 @@ namespace loan.Controllers
             strSql = new StringBuilder();
             strSql.Append("select id,title ");
             strSql.Append(" FROM Questions ");
-
             strSql.Append(" order by id desc ");
             return GetModelList(null, DbHelperSQL.Query(strSql.ToString()).Tables[0]);
         }
@@ -329,6 +330,63 @@ namespace loan.Controllers
             return null;
         }
 
+        public ActionResult Accounts()
+        {
+
+            return View();
+        }
+
+        public ActionResult AccountView(int id)
+        {
+
+            return View(account.GetModel(id));
+        }
+
+        [HttpPost]
+        public ActionResult AccountDelete(string idlist)
+        {
+
+            account.DeleteList(idlist);
+            return Content("铲除成功");
+        }
+
+        public ActionResult AccountAdd()
+        {
+
+            return View();
+        }
+
+        public ActionResult AccountEdit(Pan.Model.account model)
+        {
+            System.Security.Cryptography.MD5CryptoServiceProvider md5 = new System.Security.Cryptography.MD5CryptoServiceProvider();
+            model.pwd = BitConverter.ToString(md5.ComputeHash(UTF8Encoding.Default.GetBytes(model.pwd)));
+            if (string.IsNullOrEmpty(model.id.ToString()) || model.id == 0)
+            {
+                account.Add(model);
+
+            }
+            else
+            {
+                account.Update(model);
+            }
+
+            return RedirectToAction("Accounts");
+        }
+
+
+        public ActionResult GetAccountsList()
+        {
+            strSql = new StringBuilder();
+            strSql.Append("select id,uid ");
+            strSql.Append(" FROM account ");
+
+            strSql.Append(" order by id asc ");
+            return GetModelList(null, DbHelperSQL.Query(strSql.ToString()).Tables[0]);
+
+        }
+
+
+
 
         #region 登录
         [NoRedirect]
@@ -343,10 +401,14 @@ namespace loan.Controllers
         {
             string v1 = Request.Form["validatecode"].ToString().ToUpper();
             string v2 = Session["ValidateNum"].ToString();
+
+            System.Security.Cryptography.MD5CryptoServiceProvider md5 = new System.Security.Cryptography.MD5CryptoServiceProvider();
+            string pwd = BitConverter.ToString(md5.ComputeHash(UTF8Encoding.Default.GetBytes(Request.Form["password"])));
+
             if (v1 == v2)
             {
                 account account = new account();
-                string where = " [uid]='" + Request.Form["username"] + "' and pwd='" + Request.Form["password"] + "'"; ;
+                string where = " [uid]='" + Request.Form["username"] + "' and pwd='" + pwd + "'"; ;
                 if (account.GetList(where).Tables[0].Rows.Count < 1)
                 {
                     return Content(JavaScriptHandler.AlertAndRedirect("账号或密码错误", "/admin/login"));
@@ -396,4 +458,6 @@ namespace loan.Controllers
         }
         #endregion
     }
+
+
 }

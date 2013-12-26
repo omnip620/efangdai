@@ -6,7 +6,7 @@
 *
 * Ver    变更日期             负责人  变更内容
 * ───────────────────────────────────
-* V0.01  2013/12/4 15:13:50   N/A    初版
+* V0.01  2013/12/26 16:07:12   N/A    初版
 *
 * Copyright (c) 2012 Pan Corporation. All rights reserved.
 *┌──────────────────────────────────┐
@@ -50,7 +50,7 @@ namespace Pan.BLL
 		/// <summary>
 		/// 增加一条数据
 		/// </summary>
-		public bool Add(Pan.Model.account model)
+		public int  Add(Pan.Model.account model)
 		{
 			return dal.Add(model);
 		}
