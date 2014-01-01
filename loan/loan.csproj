@@ -151,7 +151,10 @@
     <Content Include="Content\admin\bootstrap.min.css" />
     <Content Include="Content\admin\font-awesome.min.css" />
     <Content Include="Content\admin\images\ajax-loading.gif" />
-    <Content Include="Content\admin\images\avatar1_small.jpg" />
+    <Content Include="Content\admin\images\avatar.png" />
+    <Content Include="Content\admin\images\avatar_small.png" />
+    <Content Include="Content\admin\images\icon-color-close.png" />
+    <Content Include="Content\admin\images\icon-color.png" />
     <Content Include="Content\admin\images\logo-big.png" />
     <Content Include="Content\admin\images\logo.png" />
     <Content Include="Content\admin\images\menu-toggler.png" />
@@ -165,7 +168,9 @@
     <Content Include="Content\admin\images\portlet-reload-icon.png" />
     <Content Include="Content\admin\images\portlet-remove-icon-white.png" />
     <Content Include="Content\admin\images\portlet-remove-icon.png" />
+    <Content Include="Content\admin\images\search-icon.png" />
     <Content Include="Content\admin\images\select2.png" />
+    <Content Include="Content\admin\images\sidebar-toggler.jpg" />
     <Content Include="Content\admin\images\sort_asc.png" />
     <Content Include="Content\admin\images\sort_both.png" />
     <Content Include="Content\admin\images\sort_desc.png" />
@@ -188,6 +193,7 @@
     <Content Include="Content\admin\js\login.js" />
     <Content Include="Content\admin\js\question.js" />
     <Content Include="Content\admin\js\select2.min.js" />
+    <Content Include="Content\admin\js\sidebar.js" />
     <Content Include="Content\admin\js\table-feedback.js" />
     <Content Include="Content\admin\js\table-managed.js" />
     <Content Include="Content\admin\js\table-pageset.js" />
@@ -662,6 +668,7 @@
     <Content Include="Content\admin\ueditor\net\imageUp.ashx" />
     <Content Include="Content\admin\ueditor\net\scrawlUp.ashx" />
     <Content Include="Content\admin\ueditor\net\Web.config" />
+    <Content Include="Content\admin\js\dataTables.fnReloadAjax.js" />
     <None Include="Properties\PublishProfiles\yifangdai.pubxml" />
     <None Include="Properties\PublishProfiles\配置文件1.pubxml" />
     <Content Include="Views\Admin\SiteSet.cshtml" />
@@ -700,6 +707,7 @@
     <Content Include="Views\Admin\Accounts.cshtml" />
     <Content Include="Views\Admin\AccountView.cshtml" />
     <Content Include="Views\Admin\AccountAdd.cshtml" />
+    <Content Include="Views\Admin\AdminHeader.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

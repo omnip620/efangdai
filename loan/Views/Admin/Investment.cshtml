@@ -63,6 +63,7 @@
 {
     <script src="/Content/admin/js/select2.min.js"></script>
     <script src="/Content/admin/js/jquery.dataTables.js" charset="utf-8"></script>
+    <script src="/Content/admin/js/dataTables.fnReloadAjax.js"></script>
     <script src="/Content/admin/js/DT_bootstrap.js" charset="utf-8"></script>
     <script src="/Content/admin/js/app.js"></script>
     <script src="/Content/admin/js/Tools.js"></script>
@@ -72,15 +73,19 @@
         $(function () {
             //获取删除ID
 
-            _delete("/admin/DelInves/");
+
             //创建Table
-            $('#sample_1').dataTable({
+
+
+
+            var oTable = $('#sample_1').dataTable({
 
                 "aLengthMenu": [
                     [10, 15, 20, -1],
                     [10, 15, 20, "所有"] // change per page values here
                 ],
                 // set the initial value
+                "bRetrieve": true,
                 "iDisplayLength": 10,
                 "sAjaxSource": "/admin/GetInves",
                 "sPaginationType": "bootstrap",
@@ -89,9 +94,9 @@
                     'bSortable': false,
 
                     "fnRender": function (obj) {
-                         return ' <div class="checker"><span class=""><input type="checkbox" class="checkboxes" value="' + obj.aData[0] + '"  style=""></span></div>'
+                        return ' <div class="checker"><span class=""><input type="checkbox" class="checkboxes" value="' + obj.aData[0] + '"  style=""></span></div>'
 
-                       // return '<input type="checkbox" class="checkboxes" value="' + obj.aData[0] + '" style="" />'
+                        // return '<input type="checkbox" class="checkboxes" value="' + obj.aData[0] + '" style="" />'
                     }
                 },
                 { 'bSortable': true, "sClass": "center", },
@@ -116,7 +121,8 @@
                     }
                 },
                 "bProcessing": true,
-                "bServerSide": false,
+
+                'bStateSave': true,
 
                 "aoColumnDefs": [{
                     'bSortable': false,
@@ -147,7 +153,9 @@
             jQuery('#sample_1_wrapper .dataTables_length select').addClass("form-control input-xsmall"); // modify table per page dropdown
             jQuery('#sample_1_wrapper .dataTables_length select').select2(); // initialize select2 dropdown
 
-         
+            _delete("/admin/DelInves/", oTable);
+
+
             App.init();
 
         });

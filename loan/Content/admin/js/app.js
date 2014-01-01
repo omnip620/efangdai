@@ -213,7 +213,9 @@ var App = function () {
         // handle ajax links
         jQuery('.page-sidebar').on('click', ' li > a.ajaxify', function (e) {
 
-            alert("aa");
+           
+
+          
 
             e.preventDefault();
             App.scrollTop();
@@ -235,25 +237,25 @@ var App = function () {
 
             App.blockUI(pageContent, false);
 
-            //$.ajax({
-            //    type: "GET",
-            //    cache: false,
-            //    url: url,
-            //    dataType: "html",
-            //    success: function (res) {
+            $.ajax({
+                type: "GET",
+                cache: false,
+                url: url,
+                dataType: "html",
+                success: function (res) {
                     
-            //        App.unblockUI(pageContent);
-            //        pageContentBody.html(res);
-            //        App.fixContentHeight(); // fix content height
-            //        App.initAjax(); // initialize core stuff
+                    App.unblockUI(pageContent);
+                    pageContentBody.html(res);
+                    App.fixContentHeight(); // fix content height
+                    App.initAjax(); // initialize core stuff
                     
-            //    },
-            //    error: function (xhr, ajaxOptions, thrownError) {
-            //        pageContentBody.html('<h4>Could not load the requested content.</h4>');
-            //        App.unblockUI(pageContent);
-            //    },
-            //    async: false
-            //});
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    pageContentBody.html('<h4>Could not load the requested content.</h4>');
+                    App.unblockUI(pageContent);
+                },
+                async: false
+            });
         });
     }
 

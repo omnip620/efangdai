@@ -6,7 +6,7 @@
 *
 * Ver    变更日期             负责人  变更内容
 * ───────────────────────────────────
-* V0.01  2013/12/26 16:07:12   N/A    初版
+* V0.01  2014/1/1 15:18:03   N/A    初版
 *
 * Copyright (c) 2012 Pan Corporation. All rights reserved.
 *┌──────────────────────────────────┐
@@ -68,7 +68,7 @@ namespace Pan.DAL
 			strSql.Append(";select @@IDENTITY");
 			SqlParameter[] parameters = {
 					new SqlParameter("@uid", SqlDbType.VarChar,20),
-					new SqlParameter("@pwd", SqlDbType.VarChar,20)};
+					new SqlParameter("@pwd", SqlDbType.VarChar,32)};
 			parameters[0].Value = model.uid;
 			parameters[1].Value = model.pwd;
 
@@ -94,7 +94,7 @@ namespace Pan.DAL
 			strSql.Append(" where id=@id");
 			SqlParameter[] parameters = {
 					new SqlParameter("@uid", SqlDbType.VarChar,20),
-					new SqlParameter("@pwd", SqlDbType.VarChar,20),
+					new SqlParameter("@pwd", SqlDbType.VarChar,32),
 					new SqlParameter("@id", SqlDbType.Int,4)};
 			parameters[0].Value = model.uid;
 			parameters[1].Value = model.pwd;

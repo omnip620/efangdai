@@ -33,6 +33,7 @@ namespace loan.Controllers
 
         public ActionResult Index()
         {
+            ViewData["userName"] = GetUserName();
             return View();
         }
 
@@ -359,7 +360,8 @@ namespace loan.Controllers
         public ActionResult AccountEdit(Pan.Model.account model)
         {
             System.Security.Cryptography.MD5CryptoServiceProvider md5 = new System.Security.Cryptography.MD5CryptoServiceProvider();
-            model.pwd = BitConverter.ToString(md5.ComputeHash(UTF8Encoding.Default.GetBytes(model.pwd)));
+            model.pwd = BitConverter.ToString(md5.ComputeHash(UTF8Encoding.Default.GetBytes(model.pwd))).Replace("-", "");
+
             if (string.IsNullOrEmpty(model.id.ToString()) || model.id == 0)
             {
                 account.Add(model);
@@ -384,6 +386,20 @@ namespace loan.Controllers
             return GetModelList(null, DbHelperSQL.Query(strSql.ToString()).Tables[0]);
 
         }
+        public ActionResult AdminHeader()
+        {
+           
+            ViewData["userName"] = GetUserName();
+            return View();
+
+        }
+
+        private string GetUserName()
+        {
+            return Request.Cookies.Get("userName").Value;
+
+        }
+
 
 
 
@@ -403,12 +419,13 @@ namespace loan.Controllers
             string v2 = Session["ValidateNum"].ToString();
 
             System.Security.Cryptography.MD5CryptoServiceProvider md5 = new System.Security.Cryptography.MD5CryptoServiceProvider();
-            string pwd = BitConverter.ToString(md5.ComputeHash(UTF8Encoding.Default.GetBytes(Request.Form["password"])));
+            string pwd = BitConverter.ToString(md5.ComputeHash(UTF8Encoding.Default.GetBytes(Request.Form["password"]))).Replace("-", "");
+
 
             if (v1 == v2)
             {
                 account account = new account();
-                string where = " [uid]='" + Request.Form["username"] + "' and pwd='" + pwd + "'"; ;
+                string where = " [uid]='" + Request.Form["username"] + "' and pwd='" + pwd + "'";
                 if (account.GetList(where).Tables[0].Rows.Count < 1)
                 {
                     return Content(JavaScriptHandler.AlertAndRedirect("账号或密码错误", "/admin/login"));
@@ -427,6 +444,16 @@ namespace loan.Controllers
 
                 return Content(JavaScriptHandler.AlertAndRedirect("验证码错误", "/admin/login"));
             }
+
+
+        }
+
+        //登出
+
+        public ActionResult LogOut()
+        {
+            Request.Cookies.Remove("userName");
+            return RedirectToAction("Login");
 
 
         }

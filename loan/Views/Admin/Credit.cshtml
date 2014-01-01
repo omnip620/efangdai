@@ -65,6 +65,7 @@
 {
     <script src="/Content/admin/js/select2.min.js"></script>
     <script src="/Content/admin/js/jquery.dataTables.js" charset="utf-8"></script>
+    <script src="../../Content/admin/js/dataTables.fnReloadAjax.js"></script>
     <script src="/Content/admin/js/DT_bootstrap.js" charset="utf-8"></script>
     <script src="/Content/admin/js/app.js"></script>
     <script src="/Content/admin/js/Tools.js"></script>
@@ -77,9 +78,9 @@
 
 
 
-            _delete("/admin/DelCredit/");
+         
             //创建Table
-            $('#sample_1').dataTable({
+         var oTable=$('#sample_1').dataTable({
 
                 "aLengthMenu": [
 					[10, 15, 20, -1],
@@ -153,12 +154,8 @@
             jQuery('#sample_1_wrapper .dataTables_length select').select2(); // initialize select2 dropdown
             App.init();
 
-
-            $("#sample_1 tbody").on("click", ".checkboxes", function () {
-             
-                $(this).parents('tr').toggleClass("active");
-                $(this).parents('span').toggleClass("checked");
-            });
+            _delete("/admin/DelCredit/", oTable);
+       
         });
 
     </script>

@@ -78,10 +78,10 @@
 		$(function () {
 			//获取删除ID
 
-		    _delete("/admin/AccountDelete/");
+		   
 			//创建Table
 			var id = "";
-			$('#sample_1').dataTable({
+		var oTable=	$('#sample_1').dataTable({
 
 				"aLengthMenu": [
 					[10, 15, 20, -1],
@@ -153,6 +153,7 @@
 			jQuery('#sample_1_wrapper .dataTables_filter input').addClass("form-control input-medium"); // modify table search input
 			jQuery('#sample_1_wrapper .dataTables_length select').addClass("form-control input-xsmall"); // modify table per page dropdown
 			jQuery('#sample_1_wrapper .dataTables_length select').select2(); // initialize select2 dropdown
+			_delete("/admin/AccountDelete/", oTable);
 			App.init();
 		});
 

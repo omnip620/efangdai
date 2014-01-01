@@ -65,6 +65,7 @@
 {
 	<script src="/Content/admin/js/select2.min.js"></script>
 	<script src="/Content/admin/js/jquery.dataTables.js" charset="utf-8"></script>
+    <script src="/Content/admin/js/dataTables.fnReloadAjax.js"></script>
 	<script src="/Content/admin/js/DT_bootstrap.js" charset="utf-8"></script>
 	<script src="/Content/admin/js/app.js"></script>
 	<script src="/Content/admin/js/Tools.js"></script>
@@ -75,9 +76,9 @@
 			//获取删除ID
 
 
-			_delete("/admin/DelAffliate/");
+		  
 			//创建Table
-			$('#sample_1').dataTable({
+		var oTable=	$('#sample_1').dataTable({
 
 				"aLengthMenu": [
 					[10, 15, 20, -1],
@@ -149,6 +150,7 @@
 			jQuery('#sample_1_wrapper .dataTables_filter input').addClass("form-control input-medium"); // modify table search input
 			jQuery('#sample_1_wrapper .dataTables_length select').addClass("form-control input-xsmall"); // modify table per page dropdown
 			jQuery('#sample_1_wrapper .dataTables_length select').select2(); // initialize select2 dropdown
+			_delete("/admin/DelAffliate/", oTable);
 			App.init();
 		});
 
