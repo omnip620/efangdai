@@ -20,3 +20,14 @@
 
 
 })
+
+var sideBar = function () {
+
+    return {
+        singlePage: function (temp) {
+            temp.addClass("active");
+            temp.parents("li").addClass("active");
+        }
+
+    }
+}();

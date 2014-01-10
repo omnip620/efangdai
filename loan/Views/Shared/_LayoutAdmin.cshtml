@@ -1,127 +1,127 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8" />
-    <title>@ViewBag.Title</title>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <meta content="" name="description" />
-    <meta content="" name="author" />
-    <!-- BEGIN GLOBAL MANDATORY STYLES -->
+	<meta charset="utf-8" />
+	<title>@ViewBag.Title</title>
+	<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+	<meta content="" name="description" />
+	<meta content="" name="author" />
+	<!-- BEGIN GLOBAL MANDATORY STYLES -->
 
 
-    <link href="/Content/admin/bootstrap.min.css" rel="stylesheet" />
-    <link href="/Content/admin/uniform.default.css" rel="stylesheet" />
-    <!-- END GLOBAL MANDATORY STYLES -->
+	<link href="/Content/admin/bootstrap.min.css" rel="stylesheet" />
+	<link href="/Content/admin/uniform.default.css" rel="stylesheet" />
+	<!-- END GLOBAL MANDATORY STYLES -->
 
-    <!-- BEGIN THEME STYLES -->
-    <link href="/Content/admin/style-metronic.css" rel="stylesheet" />
-    <link href="/Content/admin/style.css" rel="stylesheet" />
-    <link href="/Content/admin/style-responsive.css" rel="stylesheet" />
-    <link href="/Content/admin/plugins.css" rel="stylesheet" />
-    <link href="/Content/admin/themes/default.css" rel="stylesheet" />
-    <link href="/Content/admin/font-awesome.min.css" rel="stylesheet" />
-    <!-- END THEME STYLES -->
-    <link rel="shortcut icon" href="favicon.ico" />
+	<!-- BEGIN THEME STYLES -->
+	<link href="/Content/admin/style-metronic.css" rel="stylesheet" />
+	<link href="/Content/admin/style.css" rel="stylesheet" />
+	<link href="/Content/admin/style-responsive.css" rel="stylesheet" />
+	<link href="/Content/admin/plugins.css" rel="stylesheet" />
+	<link href="/Content/admin/themes/default.css" rel="stylesheet" />
+	<link href="/Content/admin/font-awesome.min.css" rel="stylesheet" />
+	<!-- END THEME STYLES -->
+	<link rel="shortcut icon" href="favicon.ico" />
 
-    <!-- BEGIN PAGE LEVEL PLUGIN STYLES -->
+	<!-- BEGIN PAGE LEVEL PLUGIN STYLES -->
 
 
-    @RenderSection("headCss", false)
-    <!-- END PAGE LEVEL PLUGIN STYLES -->
+	@RenderSection("headCss", false)
+	<!-- END PAGE LEVEL PLUGIN STYLES -->
 </head>
 <!-- END HEAD -->
 <!-- BEGIN BODY -->
 <body class="page-header-fixed">
-    <!-- BEGIN HEADER -->
-    @{Html.RenderAction("AdminHeader", "Admin");}
-    <!-- END HEADER -->
-    <div class="clearfix"></div>
-    <!-- BEGIN CONTAINER -->
-    <div class="page-container">
-        <!-- BEGIN SIDEBAR -->
-        <div class="page-sidebar navbar-collapse collapse">
-            <!-- BEGIN SIDEBAR MENU -->
-            <ul class="page-sidebar-menu">
-                <li>
-                    <!-- BEGIN SIDEBAR TOGGLER BUTTON -->
-                    <div class="sidebar-toggler hidden-phone"></div>
-                    <!-- BEGIN SIDEBAR TOGGLER BUTTON -->
-                </li>
-                <li>
-                    <!-- BEGIN RESPONSIVE QUICK SEARCH FORM -->
-                    <form class="sidebar-search" action="extra_search.html" method="POST">
-                        <div class="form-container">
-                            <div class="input-box">
-                                <a href="javascript:;" class="remove"></a>
-                                <input type="text" placeholder="Search..." />
-                                <input type="button" class="submit" value=" " />
-                            </div>
-                        </div>
-                    </form>
-                    <!-- END RESPONSIVE QUICK SEARCH FORM -->
-                </li>
-                <li class="start">
-                    <a href="/admin/">
-                        <i class="fa fa-home"></i>
-                        <span class="title">总览</span>
-                        <span class="selected"></span>
-                    </a>
-                </li>
-                <li class="">
-                    <a href="javascript:;">
-                        <i class="fa fa-cogs"></i>
-                        <span class="title">设置</span>
-                        <span class="arrow "></span>
-                    </a>
-                    <ul class="sub-menu">
-                        <li>
-                            <a href="/admin/siteset">站点设置</a>
-                        </li>
-                        <li>
-                            <a href="/admin/pageset">页面设置</a>
-                        </li>
-                        <li>
-                            <a href="/admin/FooterSEO">底部关键字</a>
-                        </li>
+	<!-- BEGIN HEADER -->
+	@{Html.RenderAction("AdminHeader", "Admin");}
+	<!-- END HEADER -->
+	<div class="clearfix"></div>
+	<!-- BEGIN CONTAINER -->
+	<div class="page-container">
+		<!-- BEGIN SIDEBAR -->
+		<div class="page-sidebar navbar-collapse collapse">
+			<!-- BEGIN SIDEBAR MENU -->
+			<ul class="page-sidebar-menu">
+				<li>
+					<!-- BEGIN SIDEBAR TOGGLER BUTTON -->
+					<div class="sidebar-toggler hidden-phone"></div>
+					<!-- BEGIN SIDEBAR TOGGLER BUTTON -->
+				</li>
+				<li>
+					<!-- BEGIN RESPONSIVE QUICK SEARCH FORM -->
+					<form class="sidebar-search" action="extra_search.html" method="POST">
+						<div class="form-container">
+							<div class="input-box">
+								<a href="javascript:;" class="remove"></a>
+								<input type="text" placeholder="Search..." />
+								<input type="button" class="submit" value=" " />
+							</div>
+						</div>
+					</form>
+					<!-- END RESPONSIVE QUICK SEARCH FORM -->
+				</li>
+				<li class="start">
+					<a href="/admin/">
+						<i class="fa fa-home"></i>
+						<span class="title">总览</span>
+						<span class="selected"></span>
+					</a>
+				</li>
+				<li class="">
+					<a href="javascript:;">
+						<i class="fa fa-cogs"></i>
+						<span class="title">设置</span>
+						<span class="arrow "></span>
+					</a>
+					<ul class="sub-menu">
+						<li>
+							<a href="/admin/siteset">站点设置</a>
+						</li>
+						<li>
+							<a href="/admin/pageset">栏目设置</a>
+						</li>
+						<li>
+							<a href="/admin/FooterSEO">底部关键字</a>
+						</li>
 
-                    </ul>
-                </li>
+					</ul>
+				</li>
 
-                <li class="">
-                    <a href="/admin/news">
-                        <i class="fa fa-gift"></i>
-                        <span class="title">新闻管理</span>
-                        <span class="arrow "></span>
-                    </a>
-                </li>
-                <li class="">
-                    <a href="/admin/ql">
-                        <i class="fa fa-table"></i>
-                        <span class="title">热门问题</span>
-                        <span class="arrow "></span>
-                    </a>
+				<li class="">
+					<a href="/admin/news">
+						<i class="fa fa-gift"></i>
+						<span class="title">新闻管理</span>
+						<span class="arrow "></span>
+					</a>
+				</li>
+				<li class="">
+					<a href="/admin/ql">
+						<i class="fa fa-table"></i>
+						<span class="title">热门问题</span>
+						<span class="arrow "></span>
+					</a>
 
-                </li>
-                <li >
-                    <a href="javascript:;">
-                        <i class="fa fa-bookmark-o"></i>
-                        <span class="title">消息管理</span>
-                        <span class="arrow "></span>
-                    </a>
-                    <ul class="sub-menu">
-                        <li>
-                            <a href="/admin/credit">贷款						</a>
-                        </li>
-                        <li>
-                            <a href="/admin/investment">投资						</a>
-                        </li>
-                        <li >
-                            <a href="/admin/affiliate">加盟							</a>
-                        </li>
-                        <li>
-                            <a href="/admin/feedback">留言							</a>
-                        </li>
-                        @*<li>
+				</li>
+				<li >
+					<a href="javascript:;">
+						<i class="fa fa-bookmark-o"></i>
+						<span class="title">消息管理</span>
+						<span class="arrow "></span>
+					</a>
+					<ul class="sub-menu">
+						<li>
+							<a href="/admin/credit">贷款						</a>
+						</li>
+						<li>
+							<a href="/admin/investment">投资						</a>
+						</li>
+						<li >
+							<a href="/admin/affiliate">加盟							</a>
+						</li>
+						<li>
+							<a href="/admin/feedback">留言							</a>
+						</li>
+						@*<li>
 							<a href="ui_extended_modals.html">Extended Modals							</a>
 						</li>
 						<li>
@@ -161,16 +161,16 @@
 						<li>
 							<a href="ui_knob.html">Knob Circle Dials							</a>
 						</li>*@
-                    </ul>
-                </li>
+					</ul>
+				</li>
 
-                <li class="">
-                    <a href="/admin/Accounts">
-                        <i class="fa fa-user"></i>
-                        <span class="title">账号管理</span>
-                        <span class="arrow "></span>
-                    </a>
-                    @*<ul class="sub-menu">
+				<li class="">
+					<a href="/admin/Accounts">
+						<i class="fa fa-user"></i>
+						<span class="title">账号管理</span>
+						<span class="arrow "></span>
+					</a>
+					@*<ul class="sub-menu">
 						<li>
 							<a href="page_portfolio.html">
 								<i class="fa fa-briefcase"></i>
@@ -222,11 +222,11 @@
 								<span class="badge badge-important">14</span>														Calendar							</a>
 						</li>
 					</ul>*@
-                </li>
-                @*<li class="">
+				</li>
+			   <li class="">
 					<a href="javascript:;">
 						<i class="fa fa-gift"></i>
-						<span class="title">Extra</span>
+						<span class="title">友情链接</span>
 						<span class="arrow "></span>
 					</a>
 					<ul class="sub-menu">
@@ -269,7 +269,7 @@
 						</li>
 					</ul>
 				</li>
-				<li>
+				 @*<li>
 					<a class="active" href="javascript:;">
 						<i class="fa fa-leaf"></i>
 						<span class="title">3 Level Menu</span>
@@ -428,144 +428,144 @@
 						<span class="title">Visual Charts</span>
 					</a>
 				</li>*@
-            </ul>
-            <!-- END SIDEBAR MENU -->
-        </div>
-        <!-- END SIDEBAR -->
-        <!-- BEGIN PAGE -->
-        <div class="page-content">
-            <!-- BEGIN SAMPLE PORTLET CONFIGURATION MODAL FORM-->
-            <div class="modal fade" id="portlet-config" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-                            <h4 class="modal-title">Modal title</h4>
-                        </div>
-                        <div class="modal-body">
-                            Widget settings form goes here
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn blue">Save changes</button>
-                            <button type="button" class="btn default" data-dismiss="modal">Close</button>
-                        </div>
-                    </div>
-                    <!-- /.modal-content -->
-                </div>
-                <!-- /.modal-dialog -->
-            </div>
-            <!-- /.modal -->
-            <!-- END SAMPLE PORTLET CONFIGURATION MODAL FORM-->
-            <!-- BEGIN STYLE CUSTOMIZER -->
-            <div class="theme-panel hidden-xs hidden-sm">
-                <div class="toggler"></div>
-                <div class="toggler-close"></div>
-                <div class="theme-options">
-                    <div class="theme-option theme-colors clearfix">
-                        <span>THEME COLOR</span>
-                        <ul>
-                            <li class="color-black current color-default" data-style="default"></li>
-                            <li class="color-blue" data-style="blue"></li>
-                            <li class="color-brown" data-style="brown"></li>
-                            <li class="color-purple" data-style="purple"></li>
-                            <li class="color-grey" data-style="grey"></li>
-                            <li class="color-white color-light" data-style="light"></li>
-                        </ul>
-                    </div>
-                    <div class="theme-option">
-                        <span>Layout</span>
-                        <select class="layout-option form-control input-small">
-                            <option value="fluid" selected="selected">Fluid</option>
-                            <option value="boxed">Boxed</option>
-                        </select>
-                    </div>
-                    <div class="theme-option">
-                        <span>Header</span>
-                        <select class="header-option form-control input-small">
-                            <option value="fixed" selected="selected">Fixed</option>
-                            <option value="default">Default</option>
-                        </select>
-                    </div>
-                    <div class="theme-option">
-                        <span>Sidebar</span>
-                        <select class="sidebar-option form-control input-small">
-                            <option value="fixed">Fixed</option>
-                            <option value="default" selected="selected">Default</option>
-                        </select>
-                    </div>
-                    <div class="theme-option">
-                        <span>Footer</span>
-                        <select class="footer-option form-control input-small">
-                            <option value="fixed">Fixed</option>
-                            <option value="default" selected="selected">Default</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-            <!-- END BEGIN STYLE CUSTOMIZER -->
-            <!-- BEGIN PAGE HEADER-->
-            <div class="row">
-                <div class="col-md-12">
-                    <!-- BEGIN PAGE TITLE & BREADCRUMB-->
-                    <h3 class="page-title">
+			</ul>
+			<!-- END SIDEBAR MENU -->
+		</div>
+		<!-- END SIDEBAR -->
+		<!-- BEGIN PAGE -->
+		<div class="page-content">
+			<!-- BEGIN SAMPLE PORTLET CONFIGURATION MODAL FORM-->
+			<div class="modal fade" id="portlet-config" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+							<h4 class="modal-title">Modal title</h4>
+						</div>
+						<div class="modal-body">
+							Widget settings form goes here
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn blue">Save changes</button>
+							<button type="button" class="btn default" data-dismiss="modal">Close</button>
+						</div>
+					</div>
+					<!-- /.modal-content -->
+				</div>
+				<!-- /.modal-dialog -->
+			</div>
+			<!-- /.modal -->
+			<!-- END SAMPLE PORTLET CONFIGURATION MODAL FORM-->
+			<!-- BEGIN STYLE CUSTOMIZER -->
+			<div class="theme-panel hidden-xs hidden-sm">
+				<div class="toggler"></div>
+				<div class="toggler-close"></div>
+				<div class="theme-options">
+					<div class="theme-option theme-colors clearfix">
+						<span>THEME COLOR</span>
+						<ul>
+							<li class="color-black current color-default" data-style="default"></li>
+							<li class="color-blue" data-style="blue"></li>
+							<li class="color-brown" data-style="brown"></li>
+							<li class="color-purple" data-style="purple"></li>
+							<li class="color-grey" data-style="grey"></li>
+							<li class="color-white color-light" data-style="light"></li>
+						</ul>
+					</div>
+					<div class="theme-option">
+						<span>Layout</span>
+						<select class="layout-option form-control input-small">
+							<option value="fluid" selected="selected">Fluid</option>
+							<option value="boxed">Boxed</option>
+						</select>
+					</div>
+					<div class="theme-option">
+						<span>Header</span>
+						<select class="header-option form-control input-small">
+							<option value="fixed" selected="selected">Fixed</option>
+							<option value="default">Default</option>
+						</select>
+					</div>
+					<div class="theme-option">
+						<span>Sidebar</span>
+						<select class="sidebar-option form-control input-small">
+							<option value="fixed">Fixed</option>
+							<option value="default" selected="selected">Default</option>
+						</select>
+					</div>
+					<div class="theme-option">
+						<span>Footer</span>
+						<select class="footer-option form-control input-small">
+							<option value="fixed">Fixed</option>
+							<option value="default" selected="selected">Default</option>
+						</select>
+					</div>
+				</div>
+			</div>
+			<!-- END BEGIN STYLE CUSTOMIZER -->
+			<!-- BEGIN PAGE HEADER-->
+			<div class="row">
+				<div class="col-md-12">
+					<!-- BEGIN PAGE TITLE & BREADCRUMB-->
+					<h3 class="page-title">
 
-                        @RenderSection("pageTitle", false)
-                    </h3>
-                    <ul class="page-breadcrumb breadcrumb">
-
-
-                        @RenderSection("breadNav", false)
-
-                        <li class="pull-right">
-                            <div id="dashboard-report-range" class="dashboard-date-range tooltips" data-placement="top" data-original-title="Change dashboard date range">
-                                <i class="fa fa-calendar"></i>
-                                <span></span>
-                                <i class="fa fa-angle-down"></i>
-                            </div>
-                        </li>
-                    </ul>
-                    <!-- END PAGE TITLE & BREADCRUMB-->
-                </div>
-            </div>
-            <!-- END PAGE HEADER-->
-
-            @RenderBody()
-        </div>
+						@RenderSection("pageTitle", false)
+					</h3>
+					<ul class="page-breadcrumb breadcrumb">
 
 
-        <!-- BEGIN FOOTER -->
-        <div class="footer">
-            <div class="footer-inner">
-                2013 &copy; Metronic by keenthemes.
-            </div>
-            <div class="footer-tools">
-                <span class="go-top">
-                    <i class="icon-angle-up"></i>
-                </span>
-            </div>
-        </div>
-        <!-- END FOOTER -->
+						@RenderSection("breadNav", false)
+
+						<li class="pull-right">
+							<div id="dashboard-report-range" class="dashboard-date-range tooltips" data-placement="top" data-original-title="Change dashboard date range">
+								<i class="fa fa-calendar"></i>
+								<span></span>
+								<i class="fa fa-angle-down"></i>
+							</div>
+						</li>
+					</ul>
+					<!-- END PAGE TITLE & BREADCRUMB-->
+				</div>
+			</div>
+			<!-- END PAGE HEADER-->
+
+			@RenderBody()
+		</div>
+
+
+		<!-- BEGIN FOOTER -->
+		<div class="footer">
+			<div class="footer-inner">
+				2013 &copy; Metronic by keenthemes.
+			</div>
+			<div class="footer-tools">
+				<span class="go-top">
+					<i class="icon-angle-up"></i>
+				</span>
+			</div>
+		</div>
+		<!-- END FOOTER -->
 
 
 
-        <script src="/Content/admin/js/jquery-1.10.1.min.js"></script>
-        <script src="/Content/admin/js/sidebar.js"></script>
-        <script src="/Content/admin/js/jquery-migrate-1.2.1.min.js"></script>
-        <script src="/Content/admin/js/jquery-ui-1.10.3.custom.min.js"></script>
-        <script src="/Content/admin/js/bootstrap.min.js"></script>
-        <script src="/Content/admin/js/twitter-bootstrap-hover-dropdown.min.js"></script>
-        <script src="/Content/admin/js/jquery.slimscroll.min.js"></script>
-        <script src="/Content/admin/js/jquery.blockui.min.js"></script>
-        <script src="/Content/admin/js/jquery.cookie.min.js"></script>
-        <script src="/Content/admin/js/jquery.uniform.min.js"></script>
+		<script src="/Content/admin/js/jquery-1.10.1.min.js"></script>
+		<script src="/Content/admin/js/sidebar.js"></script>
+		<script src="/Content/admin/js/jquery-migrate-1.2.1.min.js"></script>
+		<script src="/Content/admin/js/jquery-ui-1.10.3.custom.min.js"></script>
+		<script src="/Content/admin/js/bootstrap.min.js"></script>
+		<script src="/Content/admin/js/twitter-bootstrap-hover-dropdown.min.js"></script>
+		<script src="/Content/admin/js/jquery.slimscroll.min.js"></script>
+		<script src="/Content/admin/js/jquery.blockui.min.js"></script>
+		<script src="/Content/admin/js/jquery.cookie.min.js"></script>
+		<script src="/Content/admin/js/jquery.uniform.min.js"></script>
 
-        <!--BRGIN PAGE LEVEL-->
+		<!--BRGIN PAGE LEVEL-->
 
-        @RenderSection("footerJS", false)
+		@RenderSection("footerJS", false)
 
-        <!--END PAGE LEVEL-->
+		<!--END PAGE LEVEL-->
 
-    </div>
+	</div>
 
 </body>
 </html>

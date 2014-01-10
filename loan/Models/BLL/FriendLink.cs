@@ -1,14 +1,14 @@
 ﻿/**  版本信息模板在安装目录下，可自行修改。
-* account.cs
+* FriendLink.cs
 *
 * 功 能： N/A
-* 类 名： account
+* 类 名： FriendLink
 *
 * Ver    变更日期             负责人  变更内容
 * ───────────────────────────────────
-* V0.01  2014/1/8 13:45:29   N/A    初版
+* V0.01  2014/1/8 16:14:07   N/A    初版
 *
-* Copyright (c) 2012 Pan Corporation. All rights reserved.
+* Copyright (c) 2012 Maticsoft Corporation. All rights reserved.
 *┌──────────────────────────────────┐
 *│　此技术信息为本公司机密信息，未经本公司书面同意禁止向第三方披露．　│
 *│　版权所有：动软卓越（北京）科技有限公司　　　　　　　　　　　　　　│
@@ -17,17 +17,17 @@
 using System;
 using System.Data;
 using System.Collections.Generic;
-using Pan.Common;
+using Maticsoft.Common;
 using Pan.Model;
 namespace Pan.BLL
 {
 	/// <summary>
-	/// account
+	/// FriendLink
 	/// </summary>
-	public partial class account
+	public partial class FriendLink
 	{
-		private readonly Pan.DAL.account dal=new Pan.DAL.account();
-		public account()
+		private readonly Pan.DAL.FriendLink dal=new Pan.DAL.FriendLink();
+		public FriendLink()
 		{}
 		#region  BasicMethod
 
@@ -50,7 +50,7 @@ namespace Pan.BLL
 		/// <summary>
 		/// 增加一条数据
 		/// </summary>
-		public int  Add(Pan.Model.account model)
+		public int  Add(Pan.Model.FriendLink model)
 		{
 			return dal.Add(model);
 		}
@@ -58,7 +58,7 @@ namespace Pan.BLL
 		/// <summary>
 		/// 更新一条数据
 		/// </summary>
-		public bool Update(Pan.Model.account model)
+		public bool Update(Pan.Model.FriendLink model)
 		{
 			return dal.Update(model);
 		}
@@ -82,7 +82,7 @@ namespace Pan.BLL
 		/// <summary>
 		/// 得到一个对象实体
 		/// </summary>
-		public Pan.Model.account GetModel(int id)
+		public Pan.Model.FriendLink GetModel(int id)
 		{
 			
 			return dal.GetModel(id);
@@ -91,11 +91,11 @@ namespace Pan.BLL
 		/// <summary>
 		/// 得到一个对象实体，从缓存中
 		/// </summary>
-		public Pan.Model.account GetModelByCache(int id)
+		public Pan.Model.FriendLink GetModelByCache(int id)
 		{
 			
-			string CacheKey = "accountModel-" + id;
-			object objModel = Pan.Common.DataCache.GetCache(CacheKey);
+			string CacheKey = "FriendLinkModel-" + id;
+			object objModel = Maticsoft.Common.DataCache.GetCache(CacheKey);
 			if (objModel == null)
 			{
 				try
@@ -103,13 +103,13 @@ namespace Pan.BLL
 					objModel = dal.GetModel(id);
 					if (objModel != null)
 					{
-						int ModelCache = Pan.Common.ConfigHelper.GetConfigInt("ModelCache");
-						Pan.Common.DataCache.SetCache(CacheKey, objModel, DateTime.Now.AddMinutes(ModelCache), TimeSpan.Zero);
+						int ModelCache = Maticsoft.Common.ConfigHelper.GetConfigInt("ModelCache");
+						Maticsoft.Common.DataCache.SetCache(CacheKey, objModel, DateTime.Now.AddMinutes(ModelCache), TimeSpan.Zero);
 					}
 				}
 				catch{}
 			}
-			return (Pan.Model.account)objModel;
+			return (Pan.Model.FriendLink)objModel;
 		}
 
 		/// <summary>
@@ -129,7 +129,7 @@ namespace Pan.BLL
 		/// <summary>
 		/// 获得数据列表
 		/// </summary>
-		public List<Pan.Model.account> GetModelList(string strWhere)
+		public List<Pan.Model.FriendLink> GetModelList(string strWhere)
 		{
 			DataSet ds = dal.GetList(strWhere);
 			return DataTableToList(ds.Tables[0]);
@@ -137,13 +137,13 @@ namespace Pan.BLL
 		/// <summary>
 		/// 获得数据列表
 		/// </summary>
-		public List<Pan.Model.account> DataTableToList(DataTable dt)
+		public List<Pan.Model.FriendLink> DataTableToList(DataTable dt)
 		{
-			List<Pan.Model.account> modelList = new List<Pan.Model.account>();
+			List<Pan.Model.FriendLink> modelList = new List<Pan.Model.FriendLink>();
 			int rowsCount = dt.Rows.Count;
 			if (rowsCount > 0)
 			{
-				Pan.Model.account model;
+				Pan.Model.FriendLink model;
 				for (int n = 0; n < rowsCount; n++)
 				{
 					model = dal.DataRowToModel(dt.Rows[n]);

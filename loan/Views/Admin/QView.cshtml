@@ -83,6 +83,8 @@
     <script type="text/javascript">
         jQuery(document).ready(function () {
             App.init();
+            var temp = $("a[href='/admin/ql']");
+            sideBar.singlePage(temp);
             Question.init();
 
         });

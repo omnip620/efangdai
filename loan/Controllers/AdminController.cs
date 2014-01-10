@@ -33,7 +33,7 @@ namespace loan.Controllers
 
         public ActionResult Index()
         {
-            ViewData["userName"] = GetUserName();
+            ViewData["userName"] = Request.Cookies.Get("userName").Value;
             return View();
         }
 
@@ -207,7 +207,6 @@ namespace loan.Controllers
             strSql = new StringBuilder();
             strSql.Append("select id,enterprise,enterprise_type,person,person_post,mobile_num,time ");
             strSql.Append(" FROM Affiliate ");
-
             strSql.Append(" order by id desc ");
             return GetModelList(null, DbHelperSQL.Query(strSql.ToString()).Tables[0]);
 
@@ -388,20 +387,11 @@ namespace loan.Controllers
         }
         public ActionResult AdminHeader()
         {
-           
-            ViewData["userName"] = GetUserName();
+
+            ViewData["userName"] = Request.Cookies.Get("userName").Value;
             return View();
 
         }
-
-        private string GetUserName()
-        {
-            return Request.Cookies.Get("userName").Value;
-
-        }
-
-
-
 
 
         #region 登录
@@ -435,7 +425,7 @@ namespace loan.Controllers
                 {
                     Response.Cookies["userName"].Value = Request.Form["username"];
                     Response.Cookies["userName"].Expires = DateTime.Now.AddDays(1);
-                    return RedirectToAction("index");
+                    return RedirectToAction("/");
                 }
             }
             else
@@ -452,7 +442,8 @@ namespace loan.Controllers
 
         public ActionResult LogOut()
         {
-            Request.Cookies.Remove("userName");
+           
+            Response.Cookies["userName"].Expires = DateTime.Now.AddDays(-1);
             return RedirectToAction("Login");
 
 

@@ -1,14 +1,14 @@
 ﻿/**  版本信息模板在安装目录下，可自行修改。
-* account.cs
+* FriendLink.cs
 *
 * 功 能： N/A
-* 类 名： account
+* 类 名： FriendLink
 *
 * Ver    变更日期             负责人  变更内容
 * ───────────────────────────────────
-* V0.01  2014/1/8 13:45:29   N/A    初版
+* V0.01  2014/1/8 16:14:07   N/A    初版
 *
-* Copyright (c) 2012 Pan Corporation. All rights reserved.
+* Copyright (c) 2012 Maticsoft Corporation. All rights reserved.
 *┌──────────────────────────────────┐
 *│　此技术信息为本公司机密信息，未经本公司书面同意禁止向第三方披露．　│
 *│　版权所有：动软卓越（北京）科技有限公司　　　　　　　　　　　　　　│
@@ -18,15 +18,15 @@ using System;
 using System.Data;
 using System.Text;
 using System.Data.SqlClient;
-using Pan.DBUtility;//Please add references
+using Maticsoft.DBUtility;//Please add references
 namespace Pan.DAL
 {
 	/// <summary>
-	/// 数据访问类:account
+	/// 数据访问类:FriendLink
 	/// </summary>
-	public partial class account
+	public partial class FriendLink
 	{
-		public account()
+		public FriendLink()
 		{}
 		#region  BasicMethod
 
@@ -35,7 +35,7 @@ namespace Pan.DAL
 		/// </summary>
 		public int GetMaxId()
 		{
-		return DbHelperSQL.GetMaxID("id", "account"); 
+		return DbHelperSQL.GetMaxID("id", "FriendLink"); 
 		}
 
 		/// <summary>
@@ -44,7 +44,7 @@ namespace Pan.DAL
 		public bool Exists(int id)
 		{
 			StringBuilder strSql=new StringBuilder();
-			strSql.Append("select count(1) from account");
+			strSql.Append("select count(1) from FriendLink");
 			strSql.Append(" where id=@id");
 			SqlParameter[] parameters = {
 					new SqlParameter("@id", SqlDbType.Int,4)
@@ -58,19 +58,19 @@ namespace Pan.DAL
 		/// <summary>
 		/// 增加一条数据
 		/// </summary>
-		public int Add(Pan.Model.account model)
+		public int Add(Pan.Model.FriendLink model)
 		{
 			StringBuilder strSql=new StringBuilder();
-			strSql.Append("insert into account(");
-			strSql.Append("uid,pwd)");
+			strSql.Append("insert into FriendLink(");
+			strSql.Append("name,link)");
 			strSql.Append(" values (");
-			strSql.Append("@uid,@pwd)");
+			strSql.Append("@name,@link)");
 			strSql.Append(";select @@IDENTITY");
 			SqlParameter[] parameters = {
-					new SqlParameter("@uid", SqlDbType.VarChar,20),
-					new SqlParameter("@pwd", SqlDbType.Char,32)};
-			parameters[0].Value = model.uid;
-			parameters[1].Value = model.pwd;
+					new SqlParameter("@name", SqlDbType.VarChar,40),
+					new SqlParameter("@link", SqlDbType.VarChar,40)};
+			parameters[0].Value = model.name;
+			parameters[1].Value = model.link;
 
 			object obj = DbHelperSQL.GetSingle(strSql.ToString(),parameters);
 			if (obj == null)
@@ -85,19 +85,19 @@ namespace Pan.DAL
 		/// <summary>
 		/// 更新一条数据
 		/// </summary>
-		public bool Update(Pan.Model.account model)
+		public bool Update(Pan.Model.FriendLink model)
 		{
 			StringBuilder strSql=new StringBuilder();
-			strSql.Append("update account set ");
-			strSql.Append("uid=@uid,");
-			strSql.Append("pwd=@pwd");
+			strSql.Append("update FriendLink set ");
+			strSql.Append("name=@name,");
+			strSql.Append("link=@link");
 			strSql.Append(" where id=@id");
 			SqlParameter[] parameters = {
-					new SqlParameter("@uid", SqlDbType.VarChar,20),
-					new SqlParameter("@pwd", SqlDbType.Char,32),
+					new SqlParameter("@name", SqlDbType.VarChar,40),
+					new SqlParameter("@link", SqlDbType.VarChar,40),
 					new SqlParameter("@id", SqlDbType.Int,4)};
-			parameters[0].Value = model.uid;
-			parameters[1].Value = model.pwd;
+			parameters[0].Value = model.name;
+			parameters[1].Value = model.link;
 			parameters[2].Value = model.id;
 
 			int rows=DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
@@ -118,7 +118,7 @@ namespace Pan.DAL
 		{
 			
 			StringBuilder strSql=new StringBuilder();
-			strSql.Append("delete from account ");
+			strSql.Append("delete from FriendLink ");
 			strSql.Append(" where id=@id");
 			SqlParameter[] parameters = {
 					new SqlParameter("@id", SqlDbType.Int,4)
@@ -141,7 +141,7 @@ namespace Pan.DAL
 		public bool DeleteList(string idlist )
 		{
 			StringBuilder strSql=new StringBuilder();
-			strSql.Append("delete from account ");
+			strSql.Append("delete from FriendLink ");
 			strSql.Append(" where id in ("+idlist + ")  ");
 			int rows=DbHelperSQL.ExecuteSql(strSql.ToString());
 			if (rows > 0)
@@ -158,18 +158,18 @@ namespace Pan.DAL
 		/// <summary>
 		/// 得到一个对象实体
 		/// </summary>
-		public Pan.Model.account GetModel(int id)
+		public Pan.Model.FriendLink GetModel(int id)
 		{
 			
 			StringBuilder strSql=new StringBuilder();
-			strSql.Append("select  top 1 id,uid,pwd from account ");
+			strSql.Append("select  top 1 id,name,link from FriendLink ");
 			strSql.Append(" where id=@id");
 			SqlParameter[] parameters = {
 					new SqlParameter("@id", SqlDbType.Int,4)
 			};
 			parameters[0].Value = id;
 
-			Pan.Model.account model=new Pan.Model.account();
+			Pan.Model.FriendLink model=new Pan.Model.FriendLink();
 			DataSet ds=DbHelperSQL.Query(strSql.ToString(),parameters);
 			if(ds.Tables[0].Rows.Count>0)
 			{
@@ -185,22 +185,22 @@ namespace Pan.DAL
 		/// <summary>
 		/// 得到一个对象实体
 		/// </summary>
-		public Pan.Model.account DataRowToModel(DataRow row)
+		public Pan.Model.FriendLink DataRowToModel(DataRow row)
 		{
-			Pan.Model.account model=new Pan.Model.account();
+			Pan.Model.FriendLink model=new Pan.Model.FriendLink();
 			if (row != null)
 			{
 				if(row["id"]!=null && row["id"].ToString()!="")
 				{
 					model.id=int.Parse(row["id"].ToString());
 				}
-				if(row["uid"]!=null)
+				if(row["name"]!=null)
 				{
-					model.uid=row["uid"].ToString();
+					model.name=row["name"].ToString();
 				}
-				if(row["pwd"]!=null)
+				if(row["link"]!=null)
 				{
-					model.pwd=row["pwd"].ToString();
+					model.link=row["link"].ToString();
 				}
 			}
 			return model;
@@ -212,8 +212,8 @@ namespace Pan.DAL
 		public DataSet GetList(string strWhere)
 		{
 			StringBuilder strSql=new StringBuilder();
-			strSql.Append("select id,uid,pwd ");
-			strSql.Append(" FROM account ");
+			strSql.Append("select id,name,link ");
+			strSql.Append(" FROM FriendLink ");
 			if(strWhere.Trim()!="")
 			{
 				strSql.Append(" where "+strWhere);
@@ -232,8 +232,8 @@ namespace Pan.DAL
 			{
 				strSql.Append(" top "+Top.ToString());
 			}
-			strSql.Append(" id,uid,pwd ");
-			strSql.Append(" FROM account ");
+			strSql.Append(" id,name,link ");
+			strSql.Append(" FROM FriendLink ");
 			if(strWhere.Trim()!="")
 			{
 				strSql.Append(" where "+strWhere);
@@ -248,7 +248,7 @@ namespace Pan.DAL
 		public int GetRecordCount(string strWhere)
 		{
 			StringBuilder strSql=new StringBuilder();
-			strSql.Append("select count(1) FROM account ");
+			strSql.Append("select count(1) FROM FriendLink ");
 			if(strWhere.Trim()!="")
 			{
 				strSql.Append(" where "+strWhere);
@@ -279,7 +279,7 @@ namespace Pan.DAL
 			{
 				strSql.Append("order by T.id desc");
 			}
-			strSql.Append(")AS Row, T.*  from account T ");
+			strSql.Append(")AS Row, T.*  from FriendLink T ");
 			if (!string.IsNullOrEmpty(strWhere.Trim()))
 			{
 				strSql.Append(" WHERE " + strWhere);
@@ -304,7 +304,7 @@ namespace Pan.DAL
 					new SqlParameter("@OrderType", SqlDbType.Bit),
 					new SqlParameter("@strWhere", SqlDbType.VarChar,1000),
 					};
-			parameters[0].Value = "account";
+			parameters[0].Value = "FriendLink";
 			parameters[1].Value = "id";
 			parameters[2].Value = PageSize;
 			parameters[3].Value = PageIndex;
