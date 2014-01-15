@@ -254,7 +254,7 @@ namespace Pan.DAL
 			{
 				strSql.Append(" where "+strWhere);
 			}
-            strSql.Append(" order by id desc ");
+			strSql.Append(" order by id desc ");
 			return DbHelperSQL.Query(strSql.ToString());
 		}
 

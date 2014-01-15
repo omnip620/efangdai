@@ -29,6 +29,7 @@ namespace loan.Controllers
         Questions q = new Questions();
         FooterSEO footerseo = new FooterSEO();
         account account = new account();
+        FriendLink fl = new FriendLink();
         StringBuilder strSql;
 
         public ActionResult Index()
@@ -394,6 +395,58 @@ namespace loan.Controllers
         }
 
 
+        public ActionResult FriendLink()
+        {
+            return View();
+
+        }
+        public ActionResult GetFriendLink()
+        {
+            strSql = new StringBuilder();
+            strSql.Append("select id,name,link,[order] ");
+            strSql.Append(" FROM FriendLink ");
+
+            return GetModelList(null, DbHelperSQL.Query(strSql.ToString()).Tables[0]);
+        }
+
+        public JsonResult GetFriendLinkView(int id)
+        {
+            Pan.Model.FriendLink model = fl.GetModel(id);
+
+            return Json(new
+            {
+                id = model.id,
+                name = model.name,
+                link = model.link,
+                order = model.order
+            }, JsonRequestBehavior.AllowGet);
+
+        }
+
+
+        public ActionResult FriendLinkEdit(Pan.Model.FriendLink model)
+        {
+
+            if (string.IsNullOrEmpty(model.id.ToString()) || model.id == 0)
+            {
+                fl.Add(model);
+
+            }
+            else
+            {
+                fl.Update(model);
+            }
+
+            return RedirectToAction("FriendLink");
+        }
+
+        [HttpPost]
+        public ActionResult DelFriendLink(string idlist)
+        {
+            fl.DeleteList(idlist);
+            return Content("铲除成功");
+        }
+
         #region 登录
         [NoRedirect]
         public ActionResult Login()
@@ -442,7 +495,7 @@ namespace loan.Controllers
 
         public ActionResult LogOut()
         {
-           
+
             Response.Cookies["userName"].Expires = DateTime.Now.AddDays(-1);
             return RedirectToAction("Login");
 

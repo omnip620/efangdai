@@ -17,8 +17,8 @@ code,
 pre, 
 li {
   -webkit-border-radius: 0 !important;
-	 -moz-border-radius: 0 !important;
-		  border-radius: 0 !important;
+     -moz-border-radius: 0 !important;
+          border-radius: 0 !important;
 }
 
 /***
@@ -31,12 +31,12 @@ Buttons & Dropdown Buttons
   font-size: 14px;  
 	outline: none !important;
   -webkit-box-shadow: none !important;
-	 -moz-box-shadow: none !important;
-		  box-shadow: none !important;
+     -moz-box-shadow: none !important;
+          box-shadow: none !important;
   -webkit-border-radius: 0 !important;
-	 -moz-border-radius: 0 !important;
-		  border-radius: 0 !important;
-		  text-shadow: none;
+     -moz-border-radius: 0 !important;
+          border-radius: 0 !important;
+          text-shadow: none;
 }
 
 /* fix jumping group buttons */
@@ -308,7 +308,7 @@ Metro icons
   margin-top: 3px;
   line-height: 14px;  
   vertical-align: top;
-  background-image: url(images/syncfusion-icons.png);
+  background-image: url(../img/syncfusion-icons.png);
   background-position: 0 0;
   background-repeat: no-repeat; 
 }
@@ -319,7 +319,7 @@ Metro icons
   height: 30px; 
   margin: 6px;
   vertical-align: middle;
-  background-image: url(images/syncfusion-icons.png);
+  background-image: url(../img/syncfusion-icons.png);
   background-position: 0 0px;
   background-repeat: no-repeat; 
 }
@@ -356,7 +356,7 @@ Metro icons
 
 /* white icon */
 .m-icon-white {
-  background-image: url(images/syncfusion-icons-white.png);
+  background-image: url(../img/syncfusion-icons-white.png);
 }
 
 /*  Misc */
@@ -391,16 +391,16 @@ Popover
  ***/
 .popover {
   -webkit-box-shadow: 0 1px 8px rgba(0, 0, 0, 0.2);
-	 -moz-box-shadow: 0 1px 8px rgba(0, 0, 0, 0.2);
-		  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.2);  
+     -moz-box-shadow: 0 1px 8px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 1px 8px rgba(0, 0, 0, 0.2);  
   padding: 0 !important;
 }
 
 .popover .popover-title {
-	-webkit-border-radius: 0 !important;
-	 -moz-border-radius: 0 !important;
-		  border-radius: 0 !important;
-		  margin: 0 !important;
+    -webkit-border-radius: 0 !important;
+     -moz-border-radius: 0 !important;
+          border-radius: 0 !important;
+          margin: 0 !important;
 }
 
 .info .popover .popover-title,
@@ -430,6 +430,7 @@ Popover
 .popover.warning .popover-content {
   color:#C09853;
 }
+
 
 /***
 Dropdown
@@ -475,6 +476,15 @@ Dropdown Menu
   font-size: 14px;
   font-family: "Segoe UI",Helvetica, Arial, sans-serif;
   border: 1px solid #ddd;
+}
+
+/* custom dropdown conetnt */
+.dropdown-content {
+  padding:5px;
+}
+
+.dropdown-content form {
+  margin:0;
 }
 
 .dropdown.inline .dropdown-menu {
@@ -582,32 +592,32 @@ Dropdown Menu
   margin-right: -1px;
   margin-left: 0;
   -webkit-border-radius: 6px 0 6px 6px;
-	 -moz-border-radius: 6px 0 6px 6px;
-		  border-radius: 6px 0 6px 6px;
+     -moz-border-radius: 6px 0 6px 6px;
+          border-radius: 6px 0 6px 6px;
 }
 
 @media (max-width: 767px) {
 
   .navbar-nav .open .dropdown-menu {
-	position: absolute;
-	float: left;
-	width: auto;
-	margin-top: 0;
-	background-color: #ffffff;
-	border: 1px solid #ddd;
-	-webkit-box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
-	   -moz-box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
-			box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);  
+    position: absolute;
+    float: left;
+    width: auto;
+    margin-top: 0;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    -webkit-box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
+       -moz-box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);  
   }
 
   .navbar-nav .open .dropdown-menu > li > a {
-	 padding: 6px 0 6px 13px;
-	 color: #333 !important;
+     padding: 6px 0 6px 13px;
+     color: #333 !important;
   }
 
   .navbar-nav .open .dropdown-menu > li > a:hover,
   .navbar-nav .open .dropdown-menu > li > a:focus {
-	background-color: #eee !important;
+    background-color: #eee !important;
   }
 
 }
@@ -642,19 +652,19 @@ Dropdown Menu Badges
    font-size: 11px;
    font-weight: 300;
    text-shadow:none;
-	height: 18px;
-	padding: 3px 6px 3px 6px;
-	text-align: center;
-	vertical-align: middle;
+    height: 18px;
+    padding: 3px 6px 3px 6px;
+    text-align: center;
+    vertical-align: middle;
    -webkit-border-radius: 12px !important;
-	  -moz-border-radius: 12px !important;
-		   border-radius: 12px !important;
+      -moz-border-radius: 12px !important;
+           border-radius: 12px !important;
 }
 
 .dropdown-menu > li > a > .badge.badge-roundless {
    -webkit-border-radius: 0 !important;
-	  -moz-border-radius: 0 !important;
-		   border-radius: 0 !important;
+      -moz-border-radius: 0 !important;
+           border-radius: 0 !important;
 }
 
 /* end: sidebar menu badges */
@@ -664,7 +674,7 @@ Forms
 ***/
 code {
   border: 1px solid #e1e1e1;
-	-webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
   -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);  
 }
@@ -803,7 +813,7 @@ input[type="url"].spinner,
 input[type="search"].spinner,
 input[type="tel"].spinner,
 input[type="color"].spinner {
-  background-image: url("images/input-spinner.gif") !important;
+  background-image: url("../img/input-spinner.gif") !important;
   background-repeat: no-repeat;
   background-position: right 8px;
 }
@@ -811,11 +821,11 @@ input[type="color"].spinner {
 @media (max-width: 768px) {
 
   .input-large {
-	width: 250px !important;
+    width: 250px !important;
   }
 
   .input-xlarge {
-	width: 300px !important;
+    width: 300px !important;
   }
 
 } 
@@ -833,13 +843,13 @@ Error States
 .has-warning .form-control {
   border-color: #c09853;
   -webkit-box-shadow: none;
-		  box-shadow: none;
+          box-shadow: none;
 }
 
 .has-warning .form-control:focus {
   border-color: #a47e3c;
   -webkit-box-shadow: none;
-		  box-shadow: none;
+          box-shadow: none;
 }
 
 .has-warning .input-group-addon {
@@ -857,13 +867,13 @@ Error States
 .has-error .form-control {
   border-color: #b94a48;
   -webkit-box-shadow: none;
-		  box-shadow: none;
+          box-shadow: none;
 }
 
 .has-error .form-control:focus {
   border-color: #953b39;
   -webkit-box-shadow: none;
-		  box-shadow: none;
+          box-shadow: none;
 }
 
 .has-error .input-group-addon {
@@ -881,13 +891,13 @@ Error States
 .has-success .form-control {
   border-color: #468847;
   -webkit-box-shadow: none;
-		  box-shadow: none;
+          box-shadow: none;
 }
 
 .has-success .form-control:focus {
   border-color: #356635;
   -webkit-box-shadow: none;
-		  box-shadow: none;
+          box-shadow: none;
 }
 
 .has-success .input-group-addon {
@@ -934,8 +944,8 @@ h7 .label {
   height: 18px;
   padding: 3px 6px 3px 6px;
   -webkit-border-radius: 12px !important;
-	 -moz-border-radius: 12px !important;
-		  border-radius: 12px !important;
+     -moz-border-radius: 12px !important;
+          border-radius: 12px !important;
   text-shadow:none !important;
   text-align: center;
   vertical-align: middle;
@@ -943,8 +953,8 @@ h7 .label {
 
 .badge.badge-roundless {
    -webkit-border-radius: 0 !important;
-	  -moz-border-radius: 0 !important;
-		   border-radius: 0 !important;
+      -moz-border-radius: 0 !important;
+           border-radius: 0 !important;
 }
 
 .badge-default,
@@ -1021,8 +1031,8 @@ Progress Bars
   background-image: none !important;
   filter: none !important;
   -webkit-box-shadow: none !important;
-	 -moz-box-shadow: none !important;
-		  box-shadow: none !important;   
+     -moz-box-shadow: none !important;
+          box-shadow: none !important;   
 
 }
 
@@ -1064,8 +1074,8 @@ wells
 ***/
 .well {  
   -webkit-box-shadow: none !important;
-	 -moz-box-shadow: none !important;
-		  box-shadow: none !important;
+     -moz-box-shadow: none !important;
+          box-shadow: none !important;
 }
 
 /* Bootstrap Tabs */
@@ -1123,8 +1133,8 @@ wells
 .tabs-left > .nav-tabs > li > a {
   margin-right: -1px;
   -webkit-border-radius: 4px 0 0 4px;
-	 -moz-border-radius: 4px 0 0 4px;
-		  border-radius: 4px 0 0 4px;
+     -moz-border-radius: 4px 0 0 4px;
+          border-radius: 4px 0 0 4px;
 }
 
 .tabs-left > .nav-tabs > li > a:hover,
@@ -1148,8 +1158,8 @@ wells
 .tabs-right > .nav-tabs > li > a {
   margin-left: -1px;
   -webkit-border-radius: 0 4px 4px 0;
-	 -moz-border-radius: 0 4px 4px 0;
-		  border-radius: 0 4px 4px 0;
+     -moz-border-radius: 0 4px 4px 0;
+          border-radius: 0 4px 4px 0;
 }
 
 .tabs-right > .nav-tabs > li > a:hover,
@@ -1184,8 +1194,8 @@ wells
 
 .tabs-below > .nav-tabs > li > a {
   -webkit-border-radius: 0 0 4px 4px;
-	 -moz-border-radius: 0 0 4px 4px;
-		  border-radius: 0 0 4px 4px;
+     -moz-border-radius: 0 0 4px 4px;
+          border-radius: 0 0 4px 4px;
 }
 
 .tabs-below > .nav-tabs > li > a:hover,
@@ -1198,6 +1208,27 @@ wells
 .tabs-below > .nav-tabs > .active > a:hover,
 .tabs-below > .nav-tabs > .active > a:focus {
   border-color: transparent #ddd #ddd #ddd;
+}
+
+/* BS3.0.3 removed tabbable class so its added back */
+.tabbable:before,
+.tabbable:after {
+  display: table;
+  content: " ";
+}
+
+.tabbable:after {
+  clear: both;
+}
+
+.tabbable:before,
+.tabbable:after {
+  display: table;
+  content: " ";
+}
+
+.tabbable:after {
+  clear: both;
 }
 
 /***
@@ -1215,6 +1246,10 @@ Bootstrap modal
 
 .modal-header h3{
   font-weight: 300;
+}
+
+.modal-small {
+  width: 400px !important;
 }
 
 .modal-wide {
@@ -1251,13 +1286,19 @@ Modal header close button fix
   background-color: #333 !important;
 }
 
-.modal-open .header .container-fluid {
-  padding-right: 37px;
+/* fix: content shifting to the right on modal open due to scrollbar closed */
+.modal {
+  overflow-y: auto !important;
 }
 
-body.modal-open{
- 
+.modal-open {
+  overflow-y: auto !important;
 }
+
+.modal-open-noscroll {
+  overflow-y: hidden !important; 
+}
+
 
 /***
 Image Carousel
@@ -1369,6 +1410,6 @@ Bootstrap Panel
 
 .panel {  
   -webkit-box-shadow: none !important;
-	 -moz-box-shadow: none !important;
-		  box-shadow: none !important;
+     -moz-box-shadow: none !important;
+          box-shadow: none !important;
 }

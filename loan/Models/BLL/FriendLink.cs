@@ -6,9 +6,9 @@
 *
 * Ver    变更日期             负责人  变更内容
 * ───────────────────────────────────
-* V0.01  2014/1/8 16:14:07   N/A    初版
+* V0.01  2014/1/13 17:27:45   N/A    初版
 *
-* Copyright (c) 2012 Maticsoft Corporation. All rights reserved.
+* Copyright (c) 2012 Pan Corporation. All rights reserved.
 *┌──────────────────────────────────┐
 *│　此技术信息为本公司机密信息，未经本公司书面同意禁止向第三方披露．　│
 *│　版权所有：动软卓越（北京）科技有限公司　　　　　　　　　　　　　　│
@@ -17,7 +17,7 @@
 using System;
 using System.Data;
 using System.Collections.Generic;
-using Maticsoft.Common;
+using Pan.Common;
 using Pan.Model;
 namespace Pan.BLL
 {
@@ -95,7 +95,7 @@ namespace Pan.BLL
 		{
 			
 			string CacheKey = "FriendLinkModel-" + id;
-			object objModel = Maticsoft.Common.DataCache.GetCache(CacheKey);
+			object objModel = Pan.Common.DataCache.GetCache(CacheKey);
 			if (objModel == null)
 			{
 				try
@@ -103,8 +103,8 @@ namespace Pan.BLL
 					objModel = dal.GetModel(id);
 					if (objModel != null)
 					{
-						int ModelCache = Maticsoft.Common.ConfigHelper.GetConfigInt("ModelCache");
-						Maticsoft.Common.DataCache.SetCache(CacheKey, objModel, DateTime.Now.AddMinutes(ModelCache), TimeSpan.Zero);
+						int ModelCache = Pan.Common.ConfigHelper.GetConfigInt("ModelCache");
+						Pan.Common.DataCache.SetCache(CacheKey, objModel, DateTime.Now.AddMinutes(ModelCache), TimeSpan.Zero);
 					}
 				}
 				catch{}

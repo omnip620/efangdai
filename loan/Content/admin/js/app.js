@@ -40,19 +40,19 @@ var App = function () {
 
     // initializes main settings
     var handleInit = function () {
-        
+
         if ($('body').css('direction') === 'rtl') {
             isRTL = true;
         }
 
-        isIE8 = !! navigator.userAgent.match(/MSIE 8.0/);
-        isIE9 = !! navigator.userAgent.match(/MSIE 9.0/);
-        isIE10 = !! navigator.userAgent.match(/MSIE 10.0/);
+        isIE8 = !!navigator.userAgent.match(/MSIE 8.0/);
+        isIE9 = !!navigator.userAgent.match(/MSIE 9.0/);
+        isIE10 = !!navigator.userAgent.match(/MSIE 10.0/);
 
         if (isIE10) {
             jQuery('html').addClass('ie10'); // detect IE10 version
         }
-        
+
         if (isIE10 || isIE9 || isIE8) {
             jQuery('html').addClass('ie'); // detect IE10 version
         }
@@ -213,9 +213,9 @@ var App = function () {
         // handle ajax links
         jQuery('.page-sidebar').on('click', ' li > a.ajaxify', function (e) {
 
-           
 
-          
+
+
 
             e.preventDefault();
             App.scrollTop();
@@ -223,7 +223,7 @@ var App = function () {
             var url = $(this).attr("href");
             var menuContainer = jQuery('.page-sidebar ul');
             var pageContent = $('.page-content');
-            var pageContentBody = $('.page-content .page-content-body');         
+            var pageContentBody = $('.page-content .page-content-body');
 
 
             menuContainer.children('li.active').removeClass('active');
@@ -243,12 +243,12 @@ var App = function () {
                 url: url,
                 dataType: "html",
                 success: function (res) {
-                    
+
                     App.unblockUI(pageContent);
                     pageContentBody.html(res);
                     App.fixContentHeight(); // fix content height
                     App.initAjax(); // initialize core stuff
-                    
+
                 },
                 error: function (xhr, ajaxOptions, thrownError) {
                     pageContentBody.html('<h4>Could not load the requested content.</h4>');
@@ -458,6 +458,10 @@ var App = function () {
         jQuery('body').on('click', '.portlet > .portlet-title > .tools > a.reload', function (e) {
             e.preventDefault();
             var el = jQuery(this).closest(".portlet").children(".portlet-body");
+            if (oTable) {
+                oTable.fnReloadAjax();
+
+            }
             App.blockUI(el);
             window.setTimeout(function () {
                 App.unblockUI(el);
@@ -524,20 +528,29 @@ var App = function () {
 
     // Handles Bootstrap Modals.
     var handleModals = function () {
-
         // fix stackable modal issue: when 2 or more modals opened, closing one of modal will remove .modal-open class. 
         $('body').on('hide.bs.modal', function () {
-           if ($('.modal:visible').size() > 1 && $('html').hasClass('modal-open') == false) {
-              $('html').addClass('modal-open');
-           } else if ($('.modal:visible').size() <= 1) {
-              $('html').removeClass('modal-open');
-           }
+            if ($('.modal:visible').size() > 1 && $('html').hasClass('modal-open') == false) {
+                $('html').addClass('modal-open');
+            } else if ($('.modal:visible').size() <= 1) {
+                $('html').removeClass('modal-open');
+            }
+        });
+
+        $('body').on('show.bs.modal', '.modal', function () {
+            if ($(this).hasClass("modal-scroll")) {
+                $('body').addClass("modal-open-noscroll");
+            }
+        });
+
+        $('body').on('hide.bs.modal', '.modal', function () {
+            $('body').removeClass("modal-open-noscroll");
         });
     }
 
     // Handles Bootstrap Tooltips.
     var handleTooltips = function () {
-       jQuery('.tooltips').tooltip();
+        jQuery('.tooltips').tooltip();
     }
 
     // Handles Bootstrap Dropdowns
@@ -547,7 +560,7 @@ var App = function () {
           hoverable dropdowns - data-hover="dropdown"  
         */
         if (App.isTouchDevice()) {
-            $('[data-hover="dropdown"]').each(function(){
+            $('[data-hover="dropdown"]').each(function () {
                 $(this).parent().off("hover");
                 $(this).off("hover");
             });
@@ -566,7 +579,7 @@ var App = function () {
     }
 
     var handleAlerts = function () {
-        $('body').on('click', '[data-close="alert"]', function(e){
+        $('body').on('click', '[data-close="alert"]', function (e) {
             $(this).parent('.alert').hide();
             e.preventDefault();
         });
@@ -600,8 +613,8 @@ var App = function () {
             }
             $(this).slimScroll({
                 size: '7px',
-                color: ($(this).attr("data-handle-color")  ? $(this).attr("data-handle-color") : '#a1b2bd'),
-                railColor: ($(this).attr("data-rail-color")  ? $(this).attr("data-rail-color") : '#333'),
+                color: ($(this).attr("data-handle-color") ? $(this).attr("data-handle-color") : '#a1b2bd'),
+                railColor: ($(this).attr("data-rail-color") ? $(this).attr("data-rail-color") : '#333'),
                 position: isRTL ? 'left' : 'right',
                 height: height,
                 alwaysVisible: ($(this).attr("data-always-visible") == "1" ? true : false),
@@ -661,38 +674,38 @@ var App = function () {
     }
 
     // Handle full screen mode toggle
-    var handleFullScreenMode = function() {
+    var handleFullScreenMode = function () {
         // mozfullscreenerror event handler
-       
+
         // toggle full screen
         function toggleFullScreen() {
-          if (!document.fullscreenElement &&    // alternative standard method
-              !document.mozFullScreenElement && !document.webkitFullscreenElement) {  // current working methods
-            if (document.documentElement.requestFullscreen) {
-              document.documentElement.requestFullscreen();
-            } else if (document.documentElement.mozRequestFullScreen) {
-              document.documentElement.mozRequestFullScreen();
-            } else if (document.documentElement.webkitRequestFullscreen) {
-              document.documentElement.webkitRequestFullscreen(Element.ALLOW_KEYBOARD_INPUT);
+            if (!document.fullscreenElement &&    // alternative standard method
+                !document.mozFullScreenElement && !document.webkitFullscreenElement) {  // current working methods
+                if (document.documentElement.requestFullscreen) {
+                    document.documentElement.requestFullscreen();
+                } else if (document.documentElement.mozRequestFullScreen) {
+                    document.documentElement.mozRequestFullScreen();
+                } else if (document.documentElement.webkitRequestFullscreen) {
+                    document.documentElement.webkitRequestFullscreen(Element.ALLOW_KEYBOARD_INPUT);
+                }
+            } else {
+                if (document.cancelFullScreen) {
+                    document.cancelFullScreen();
+                } else if (document.mozCancelFullScreen) {
+                    document.mozCancelFullScreen();
+                } else if (document.webkitCancelFullScreen) {
+                    document.webkitCancelFullScreen();
+                }
             }
-          } else {
-            if (document.cancelFullScreen) {
-              document.cancelFullScreen();
-            } else if (document.mozCancelFullScreen) {
-              document.mozCancelFullScreen();
-            } else if (document.webkitCancelFullScreen) {
-              document.webkitCancelFullScreen();
-            }
-          }
         }
 
-        $('#trigger_fullscreen').click(function() {
+        $('#trigger_fullscreen').click(function () {
             toggleFullScreen();
         });
     }
 
     // Handle Select2 Dropdowns
-    var handleSelect2 = function() {
+    var handleSelect2 = function () {
         if (jQuery().select2) {
             $('.select2me').select2({
                 placeholder: "Select",
@@ -839,7 +852,7 @@ var App = function () {
             setColor($.cookie('style_color'));
         }
 
-   
+
     }
 
     //Hanle Table

@@ -26,11 +26,11 @@ namespace Pan.Model
 		public account()
 		{}
 		#region Model
-		private int _id;
+		private int _id;	 
 		private string _uid;
 		private string _pwd;
 		/// <summary>
-		/// 
+		///
 		/// </summary>
 		public int id
 		{

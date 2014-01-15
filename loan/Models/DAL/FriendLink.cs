@@ -6,9 +6,9 @@
 *
 * Ver    变更日期             负责人  变更内容
 * ───────────────────────────────────
-* V0.01  2014/1/8 16:14:07   N/A    初版
+* V0.01  2014/1/13 17:27:44   N/A    初版
 *
-* Copyright (c) 2012 Maticsoft Corporation. All rights reserved.
+* Copyright (c) 2012 Pan Corporation. All rights reserved.
 *┌──────────────────────────────────┐
 *│　此技术信息为本公司机密信息，未经本公司书面同意禁止向第三方披露．　│
 *│　版权所有：动软卓越（北京）科技有限公司　　　　　　　　　　　　　　│
@@ -18,7 +18,7 @@ using System;
 using System.Data;
 using System.Text;
 using System.Data.SqlClient;
-using Maticsoft.DBUtility;//Please add references
+using Pan.DBUtility;//Please add references
 namespace Pan.DAL
 {
 	/// <summary>
@@ -62,15 +62,17 @@ namespace Pan.DAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("insert into FriendLink(");
-			strSql.Append("name,link)");
+			strSql.Append("name,link,[order])");
 			strSql.Append(" values (");
-			strSql.Append("@name,@link)");
+			strSql.Append("@name,@link,@order)");
 			strSql.Append(";select @@IDENTITY");
 			SqlParameter[] parameters = {
 					new SqlParameter("@name", SqlDbType.VarChar,40),
-					new SqlParameter("@link", SqlDbType.VarChar,40)};
+					new SqlParameter("@link", SqlDbType.VarChar,40),
+					new SqlParameter("@order", SqlDbType.Int,4)};
 			parameters[0].Value = model.name;
 			parameters[1].Value = model.link;
+			parameters[2].Value = model.order;
 
 			object obj = DbHelperSQL.GetSingle(strSql.ToString(),parameters);
 			if (obj == null)
@@ -90,15 +92,18 @@ namespace Pan.DAL
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("update FriendLink set ");
 			strSql.Append("name=@name,");
-			strSql.Append("link=@link");
+			strSql.Append("link=@link,");
+			strSql.Append("[order]=@order");
 			strSql.Append(" where id=@id");
 			SqlParameter[] parameters = {
 					new SqlParameter("@name", SqlDbType.VarChar,40),
 					new SqlParameter("@link", SqlDbType.VarChar,40),
+					new SqlParameter("@order", SqlDbType.Int,4),
 					new SqlParameter("@id", SqlDbType.Int,4)};
 			parameters[0].Value = model.name;
 			parameters[1].Value = model.link;
-			parameters[2].Value = model.id;
+			parameters[2].Value = model.order;
+			parameters[3].Value = model.id;
 
 			int rows=DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
 			if (rows > 0)
@@ -162,7 +167,7 @@ namespace Pan.DAL
 		{
 			
 			StringBuilder strSql=new StringBuilder();
-			strSql.Append("select  top 1 id,name,link from FriendLink ");
+			strSql.Append("select  top 1 id,name,link,[order] from FriendLink ");
 			strSql.Append(" where id=@id");
 			SqlParameter[] parameters = {
 					new SqlParameter("@id", SqlDbType.Int,4)
@@ -202,6 +207,10 @@ namespace Pan.DAL
 				{
 					model.link=row["link"].ToString();
 				}
+				if(row["order"]!=null && row["order"].ToString()!="")
+				{
+					model.order=int.Parse(row["order"].ToString());
+				}
 			}
 			return model;
 		}
@@ -212,7 +221,7 @@ namespace Pan.DAL
 		public DataSet GetList(string strWhere)
 		{
 			StringBuilder strSql=new StringBuilder();
-			strSql.Append("select id,name,link ");
+			strSql.Append("select id,name,link,[order] ");
 			strSql.Append(" FROM FriendLink ");
 			if(strWhere.Trim()!="")
 			{
@@ -232,7 +241,7 @@ namespace Pan.DAL
 			{
 				strSql.Append(" top "+Top.ToString());
 			}
-			strSql.Append(" id,name,link ");
+			strSql.Append(" id,name,link,order ");
 			strSql.Append(" FROM FriendLink ");
 			if(strWhere.Trim()!="")
 			{

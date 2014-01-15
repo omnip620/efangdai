@@ -116,6 +116,7 @@
     <Compile Include="Models\BLL\Credit.cs" />
     <Compile Include="Models\BLL\Feedback.cs" />
     <Compile Include="Models\BLL\FooterSEO.cs" />
+    <Compile Include="Models\BLL\FriendLink.cs" />
     <Compile Include="Models\BLL\Investment.cs" />
     <Compile Include="Models\BLL\News.cs" />
     <Compile Include="Models\BLL\PageSet.cs" />
@@ -131,6 +132,7 @@
     <Compile Include="Models\DAL\Credit.cs" />
     <Compile Include="Models\DAL\Feedback.cs" />
     <Compile Include="Models\DAL\FooterSEO.cs" />
+    <Compile Include="Models\DAL\FriendLink.cs" />
     <Compile Include="Models\DAL\Investment.cs" />
     <Compile Include="Models\DAL\News.cs" />
     <Compile Include="Models\DAL\PageSet.cs" />
@@ -140,6 +142,7 @@
     <Compile Include="Models\Model\Credit.cs" />
     <Compile Include="Models\Model\Feedback.cs" />
     <Compile Include="Models\Model\FooterSEO.cs" />
+    <Compile Include="Models\Model\FriendLink.cs" />
     <Compile Include="Models\Model\Investment.cs" />
     <Compile Include="Models\Model\News.cs" />
     <Compile Include="Models\common\DbHelperSQL.cs" />
@@ -168,6 +171,7 @@
     <Content Include="Content\admin\images\portlet-reload-icon.png" />
     <Content Include="Content\admin\images\portlet-remove-icon-white.png" />
     <Content Include="Content\admin\images\portlet-remove-icon.png" />
+    <Content Include="Content\admin\images\remove-icon-small.png" />
     <Content Include="Content\admin\images\search-icon.png" />
     <Content Include="Content\admin\images\select2.png" />
     <Content Include="Content\admin\images\sidebar-toggler.jpg" />
@@ -708,6 +712,7 @@
     <Content Include="Views\Admin\AccountView.cshtml" />
     <Content Include="Views\Admin\AccountAdd.cshtml" />
     <Content Include="Views\Admin\AdminHeader.cshtml" />
+    <Content Include="Views\Admin\FriendLink.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
