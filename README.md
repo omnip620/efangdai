@@ -14,4 +14,5 @@ efangdai
   * 新闻添加
   * 文章添加
   * 超链修改
-efdai programe 
+========
+### 本项目是用ASP.NET MVC4.0 构建
